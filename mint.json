@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "The TMDB API DOCUMENTATION",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -75,17 +75,50 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "AUTHENTICATION",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/authentication/how-to-generate-a-session-id",
+        "api-reference/authentication/create-guest-session",
+        "api-reference/authentication/create-request-token",
+        "api-reference/authentication/create-session",
+        "api-reference/authentication/create-session-with-login",
+        "api-reference/authentication/delete-session",
+        "api-reference/authentication/validate-key" 
+      ]
+    },
+
+    {
+      "group": "ACCOUNT",
+      "pages": [
+        "api-reference/account/details",
+        "api-reference/account/add-favorite",
+        "api-reference/account/add-to-watchlist",
+        "api-reference/account/favorite-movies",
+        "api-reference/account/favorite-tv",
+        "api-reference/account/list",
+        "api-reference/account/rated-movies",
+        "api-reference/account/rated-tv-episodes",
+        "api-reference/account/rated-tv",
+        "api-reference/account/watchlist-movies",
+        "api-reference/account/watchlist-tv"
+
+      ]
+    },
+
+    {
+      "group": "CERTIFICATION",
+      "pages": [
+        "api-reference/certification/movie-certifications",
+        "api-reference/certification/tv-certifications"
       ]
     }
-  ],
-  "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
-  }
+  
+  
+  ]
+  
+
 }
+
+  
+
+
