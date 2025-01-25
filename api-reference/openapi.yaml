@@ -14,15 +14,6 @@ paths:
       summary: Create Request Token
       description: |
         This endpoint generates a new token that can be used to authenticate user sessions.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | success  | boolean  | Indicates success |
-        | expires_at | string | Expiration time |
-        | request_token | string | Token for request|
-
       operationId: createToken
       responses:
         200:
@@ -30,15 +21,18 @@ paths:
           content:
             application/json:
               schema:
-                type: object 
+                type: object
                 properties:
                   success:
-                    $ref: '#/components/schemas/boolean'
+                    type: boolean
+                    description: Indicates success
                   expires_at:
-                    $ref: '#/components/schemas/string'
+                    type: string
+                    description: Expiration time
                   request_token:
-                    $ref: '#/components/schemas/string'       
-                example:  
+                    type: string
+                    description: Token for request
+                example:
                   success: true
                   expires_at: "2024-12-10 14:56:55 UTC"
                   request_token: "4ff0d20a781c2f2b6c2bc9f1d20b87fed34c1a57"
@@ -48,7 +42,8 @@ paths:
       tags:
         - Authentication
       summary: Create Session
-      description: This endpoint is used to create your session. You must authenticate your token before doing this.     
+      description: |
+        This endpoint is used to create your session. You must authenticate your token before doing this.     
       operationId: createSession
       requestBody:
         required: true
@@ -71,10 +66,17 @@ paths:
           content:
             application/json:
               schema:
-                type: object         
+                type: object 
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success 
+                  session_id:
+                    type: string
+                    description:  Returns the session id  
                 example:  
-                    success: "true"
-                    session_id: "dde0201c7e069c67295c39ad01a74d3f70a0fa74"
+                  success: "true"
+                  session_id: "dde0201c7e069c67295c39ad01a74d3f70a0fa74"
 
   /authentication/guest_session/new:
     get:
@@ -83,13 +85,6 @@ paths:
       summary: Create Guest Session
       description: |  
         This endpoint gives some of the functionality of an account
-      
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | success  | boolean | Indicates whether the operation was successful.|                               
-        | guest_session_id| string  | The unique identifier for the guest session.  | 
-        | expires_at | string  | The expiration date and time of the session. |
       operationId: guestSession
       responses:
         200:
@@ -97,7 +92,17 @@ paths:
           content:
             application/json:
               schema:
-                type: object       
+                type: object 
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  guest_session_id:
+                    type: string
+                    description: The unique identifier for the guest session      
+                  expires_at:
+                    type: string
+                    description: Expiration time
                 example:  
                   success: true
                   guest_session_id: "3fa3ace49eac71a12c4d6037bf211e86"
@@ -109,7 +114,7 @@ paths:
         - Authentication
       summary: Create Session with Login
       description: |
-        This endpoint is used to validate a request token by entering a username and password
+        This endpoint is used to validate a request token by entering a username and password.
       operationId: validateLogin
       requestBody:
         required: true
@@ -134,11 +139,21 @@ paths:
           content:
             application/json:
               schema:
-                type: object         
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  expires_at:
+                    type: string
+                    description: Expiration time
+                  request_token:
+                    type: string
+                    description: Token for request         
                 example:  
-                    success: true
-                    expires_at: "2024-12-16 22:49:51 UTC"
-                    request_token: "65579224bd555f9fccda03941a3dcc53b606abee"
+                  success: true
+                  expires_at: "2024-12-16 22:49:51 UTC"
+                  request_token: "65579224bd555f9fccda03941a3dcc53b606abee"
 
   /authentication/session:
     delete:
@@ -169,6 +184,10 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
                 example:
                   success: true
 
@@ -179,12 +198,6 @@ paths:
       summary: Validate Key
       description: |
         This endpoint is used to test your API Key to see if it's valid.
-
-        ### Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | success  | boolean  | Indicates success |
       operationId: validateKey
       responses:
         200:
@@ -193,9 +206,22 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  status_code: 
+                    type: integer
+                    description: Indicates success
+                  status_message:
+                    type: string
+                    description: Indicates that the action was completed without any errors
                 example:
                   success: true
-
+                  status_code: 1
+                  status_message: Success
+        
+        
   /account/{account_id}:
     get:
       tags:
@@ -203,15 +229,6 @@ paths:
       summary: Details
       description: |
         This endpoint retrieves the public details of an account on TMDB.
-
-        ### Request Body
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | avatar  | object  | An object that holds avatar data |
-        | gravatar  | object  | An object representing the user's Gravatar image |
-        | hash  | string  | Represents a unique identifier |
-        | tmdb  | object | Contains details about the user |
       operationId: accountDetails
       parameters:
         - name: account_id
@@ -229,10 +246,41 @@ paths:
       responses:
         200:
           description: Successful
-          content:
+          content: 
             application/json;charset=utf-8:
               schema:
                 type: object
+                properties:
+                  avatar:
+                    type: object
+                    description: An object that holds avatar data
+                  gravatar:
+                    type: object
+                    description: An object representing the user’s Gravatar image
+                  hash:
+                    type: string
+                    description: Represents a unique identifier
+                  tmdb:
+                    type: object
+                    description: Contains details about the user
+                  id:
+                    type: integer
+                    description: A unique identifier for the user
+                  iso_639_1:
+                    type: string
+                    description: Language code
+                  iso_3166_1:
+                    type: string
+                    description: Country code
+                  name:
+                    type: string
+                    description: The name of the user
+                  include_adult:
+                    type: boolean
+                    description: Whether the user includes adult content
+                  username:
+                    type: string
+                    description: The username of the user
                 example:
                   avatar:
                     gravatar:
@@ -253,13 +301,6 @@ paths:
       summary: Add Favorite
       description: |
         This endpoint is used to mark a movie or TV show as favorite.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status-code  | integer  | Request was successfully processed by the server |
-        | success-message  | string  | Indicates that the action was completed without any errors |
       operationId: accountFavorite
       parameters:
         - name: account_id
@@ -280,21 +321,34 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  status_code:
+                    type: integer
+                    description: 	Request was successfully processed by the server
+                  status_message:
+                    type: string
+                    description: Indicates that the action was completed without any errors
                 example:
-                  success: true
                   status_code: 1
-                  status_message: "Success."   
+                  status_message: Success
       requestBody:
-          required: true
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  media_type: movie
-                  media_id: 500
-                  favorite: true
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
+            example:
+              media_type: movie
+              media_id: 500
+              favorite: true
 
   /account/{account_id}/watchlist:
     post:
@@ -303,13 +357,6 @@ paths:
       summary: Add to Watchlist
       description: |
         This endpoint is used to add a movie or TV show to your watchlist.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status-code  | integer  | Request was successfully processed by the server |
-        | success-message  | string  | Indicates that the action was completed without any errors |
       operationId: accountWatchlist
       parameters:
         - name: account_id
@@ -330,9 +377,15 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object
+                properties:
+                  status_code:
+                    type: integer
+                    description: 	Request was successfully processed by the server
+                  status_message:
+                    type: string
+                    description: Indicates that the action was completed without any errors 
                 example:
-                  success: true
                   status_code: 1
                   status_message: "Success."
       requestBody:
@@ -341,6 +394,13 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  RAW_BODY:
+                    type: string
+                    format: json
+                    description: A raw JSON string representing the request body.
+                required:
+                  - RAW_BODY
                 example:
                   media_type: movie
                   media_id: 11
@@ -353,15 +413,6 @@ paths:
       summary: Favorite Movies
       description: |
         This endpoint get a users list of favourite movies.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: favoriteMovies
       parameters:
         - name: account_id
@@ -400,7 +451,20 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset 
                 example:
                   page: 1
                   results:
@@ -433,16 +497,7 @@ paths:
         - Account
       summary: Favorite TV
       description: |
-        This endpoint get a users list of favourite TV shows..
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
+        This endpoint get a users list of favourite TV shows.
       operationId: favoriteTV
       parameters:
         - name: account_id
@@ -481,7 +536,20 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:
                   page: 1
                   results: []
@@ -495,15 +563,6 @@ paths:
       summary: List
       description: | 
         This endpoint is used to get Get a users list of custom lists.
-
-         ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: accountList
       parameters:
         - name: account_id
@@ -531,6 +590,19 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset 
                 example:
                   page: 1
                   results: []
@@ -544,15 +616,6 @@ paths:
       summary: Rated Movies
       description: |
         This endpoint is used to get a users list of rated movies.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: ratedMovies
       parameters:
         - name: account_id
@@ -591,7 +654,20 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:
                   page: 1
                   results: []
@@ -605,15 +681,6 @@ paths:
       summary: Rated TV
       description: | 
         This endpoint is used to get a users list of rated tv shows.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: ratedTV
       parameters:
         - name: account_id
@@ -652,7 +719,20 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:
                   page: 1
                   results: []
@@ -666,15 +746,6 @@ paths:
       summary: Rated TV Episodes
       description: |
         This endpoint is used to get a users list of rated tv episodes.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: ratedTVepisodes
       parameters:
         - name: account_id
@@ -714,6 +785,19 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: object  
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset
                 example:
                   page: 1
                   results: []
@@ -727,13 +811,6 @@ paths:
       summary: Watchlist Movies
       description: |
         This endpoint is used to get a list of movies added to a users watchlist.
-      
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: watchlistMovies
       parameters:
         - name: account_id
@@ -772,7 +849,20 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:
                   page: 1
                   results:
@@ -808,15 +898,6 @@ paths:
       summary: Watchlist TV
       description: |
         This endpoint is used to get a list of TV shows added to a users watchlist.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page  | integer  | Indicates the current page number |
-        | results  | array of object  |  Contains the list of data or items |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: watchlistTV
       parameters:
         - name: account_id
@@ -855,12 +936,30 @@ paths:
           content:
             application/json;charset=utf-8:
               schema:
-                type: object  
-                example:
-                  page: 1
-                  results: []
-                  total_pages: 0
-                  total_results: 0
+                type: object
+                certifications: 
+                  type: array
+                  description: Represents the root object containing certification data grouped by regions or countries
+                  items:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
+                    example:
+                      page: 1
+                      results: []
+                      total_pages: 0
+                      total_results: 0
 
   /certification/movie/list:
     get:
@@ -868,23 +967,7 @@ paths:
         - Certification
       summary: Movie Certifications
       description: |
-        This endpoint is used to get an up to date list of the officially supported movie certifications on TMDB.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | certification  | object  |  Represents the root object containing certification data grouped by regions or countries. |
-        | AU  | array of object  |  Contains a list of certifications  |
-        | BG  | array of object  | Contains a list of certifications  |
-        | BR  | array of object  | Contains a list of certifications  |
-        | CA  | array of object  | Contains a list of certifications  |
-        | CA-QC  | array of object  |  Contains a list of certifications |
-        | DE | array of object  | Contains a list of certifications  |
-        | DK | array of object  | Contains a list of certifications  |
-        | ES | array of object  | Contains a list of certifications  |
-        | FI  | array of object  | Contains a list of certifications    |
-        | FR  | array of object  | Contains a list of certifications    
+        This endpoint is used to get an up to date list of the officially supported movie certifications on TMDB.    
       operationId: movieCertification
       responses:
         200:
@@ -892,7 +975,20 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  certifications: 
+                    type: object
+                    description: Represents the root object containing certification data grouped by regions or countries 
+                    additionalProperties:
+                    type: array
+                    description: Contains a list of certifications for a given region.
+                    items:
+                      type: object
+                      properties:
+                        certification:
+                          type: string
+                          description: The certification rating (e.g., "PG", "R18+")
                 example:
                   certifications:
                     DE:

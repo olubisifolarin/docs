@@ -1,9 +1,12 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "The TMDB API DOCUMENTATION",
+  "openapi": "api-reference/openapi.yaml",
+  
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
+    
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -97,8 +100,8 @@
         "api-reference/account/favorite-tv",
         "api-reference/account/list",
         "api-reference/account/rated-movies",
-        "api-reference/account/rated-tv-episodes",
         "api-reference/account/rated-tv",
+        "api-reference/account/rated-tv-episodes",
         "api-reference/account/watchlist-movies",
         "api-reference/account/watchlist-tv"
 
@@ -111,8 +114,7 @@
         "api-reference/certification/movie-certifications",
         "api-reference/certification/tv-certifications"
       ]
-    }
-  
+    }    
   
   ]
   
