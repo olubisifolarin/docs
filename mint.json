@@ -51,6 +51,11 @@
       "url": "https://mintlify.com/blog"
     }
   ],
+
+    "seo": {
+      "indexHiddenPages": true
+},
+
   "navigation": [
     {
       "group": "Get Started",
@@ -113,6 +118,52 @@
       "pages": [
         "api-reference/certification/movie-certifications",
         "api-reference/certification/tv-certifications"
+      ]
+    },
+    
+    {
+      "group": "CHANGES",
+      "pages": [
+        "api-reference/changes/movie-list",
+        "api-reference/changes/people-list",
+        "api-reference/changes/tv-list"
+      ]
+    }, 
+
+    {
+      "group": "COLLECTION",
+      "pages": [
+        "api-reference/collection/details",
+        "api-reference/collection/images",
+        "api-reference/collection/translation"
+      ]
+    }, 
+
+    {
+      "group": "COMPANIES",
+      "pages": [
+        "api-reference/companies/details",
+        "api-reference/companies/alternative-name",
+        "api-reference/companies/images"
+      ]
+    },
+
+    {
+      "group": "CONFIGURATION",
+      "pages": [
+        "api-reference/configuration/details",
+        "api-reference/configuration/countries",
+        "api-reference/configuration/jobs",
+        "api-reference/configuration/languages",
+        "api-reference/configuration/primary-translations",
+        "api-reference/configuration/timezones"
+      ]
+    },
+
+    {
+      "group": "CREDITS",
+      "pages": [
+        "api-reference/credits/details"
       ]
     }    
   

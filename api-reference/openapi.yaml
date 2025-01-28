@@ -459,6 +459,39 @@ paths:
                   results: 
                     type: array
                     description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_language:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        media_type:
+                          type: string
+                        genre_ids:
+                          type: array
+                        popularity:
+                          type: number
+                        release_date:
+                          type: string
+                        video:
+                          type: boolean
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
                   total_pages:
                     type: integer
                     description: Specifies the total number of pages available
@@ -937,29 +970,24 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: object
-                certifications: 
-                  type: array
-                  description: Represents the root object containing certification data grouped by regions or countries
-                  items:
-                    type: object
-                    properties:
-                      page:
-                        type: integer
-                        description: 	Indicates the current page number
-                      results: 
-                        type: array
-                        description: Contains the list of data or items
-                      total_pages:
-                        type: integer
-                        description: Specifies the total number of pages available
-                      total_results:
-                        type: integer
-                        description: Represents the total number of items or records in a dataset  
-                    example:
-                      page: 1
-                      results: []
-                      total_pages: 0
-                      total_results: 0
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
+                example:
+                  page: 1
+                  results: []
+                  total_pages: 0
+                  total_results: 0
 
   /certification/movie/list:
     get:
@@ -977,18 +1005,154 @@ paths:
               schema:
                 type: object 
                 properties:
-                  certifications: 
+                  certifications:
                     type: object
-                    description: Represents the root object containing certification data grouped by regions or countries 
-                    additionalProperties:
-                    type: array
-                    description: Contains a list of certifications for a given region.
-                    items:
-                      type: object
-                      properties:
-                        certification:
-                          type: string
-                          description: The certification rating (e.g., "PG", "R18+")
+                    description: Movie Certifications by Country
+                    properties:
+                      DE:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      BR:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      FI:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      SG:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      VI:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      ES:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      FR:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      PT:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      HG:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0        
+                      TH:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      NZ:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      US:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              certification:
+                                type: string
+                              meaning:
+                                type: string
+                              order:
+                                type: integer
+                                default: 0  
                 example:
                   certifications:
                     DE:
@@ -2251,22 +2415,6 @@ paths:
       summary: TV Certifications
       description: |
         This endpoint is used to get an up to date list of the officially supported TV certifications on TMDB.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | certification  | object  |  Represents the root object containing certification data grouped by regions or countries. |
-        | AU  | array of object  |  Contains a list of certifications  |
-        | BG  | array of object  | Contains a list of certifications  |
-        | BR  | array of object  | Contains a list of certifications  |
-        | CA  | array of object  | Contains a list of certifications  |
-        | CA-QC  | array of object  |  Contains a list of certifications |
-        | DE | array of object  | Contains a list of certifications  |
-        | DK | array of object  | Contains a list of certifications  |
-        | ES | array of object  | Contains a list of certifications  |
-        | FI  | array of object  | Contains a list of certifications    |
-        | FR  | array of object  | Contains a list of certifications    |
       operationId: movieCertification
       responses:
         200:
@@ -2275,6 +2423,155 @@ paths:
             application/json:
               schema:
                 type: object  
+                properties:
+                  certifications:
+                    type: object
+                    description: Movie Certifications by Country
+                    properties:
+                      DE:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      BR:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      FI:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      SG:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      VI:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      ES:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      FR:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      PT:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      HG:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0        
+                      TH:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0
+                      MX:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            certification:
+                              type: string
+                            meaning:
+                              type: string
+                            order:
+                              type: integer
+                              default: 0 
+                      JP:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              certification:
+                                type: string
+                              meaning:
+                                type: string
+                              order:
+                                type: integer
+                                default: 0  
                 example:
                   certifications:
                     DE:
@@ -2543,15 +2840,6 @@ paths:
       summary: Movie List
       description: |
         This endpoint is used to get a list of all of the movie ids that have been changed in the past 24 hours.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results  | array of object  |  Contains the list of data or items |
-        | page  | integer  | Indicates the current page number |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: movieList
       parameters: 
         - name: end_date
@@ -2578,8 +2866,29 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        id:
+                          type: integer
+                        adult:
+                          type: boolean
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number    
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:
+                  results:
                   - id: 278147
                     adult: false
                   - id: 17466
@@ -2687,6 +2996,10 @@ paths:
                   - id: 1400806
                     adult: false
                   - id: 1401674
+                  page: 3                  
+                  total_pages: 57
+                  total_results: 5700
+
                   
   /person/changes:
     get:
@@ -2694,16 +3007,7 @@ paths:
         - Changes
       summary: People List
       description: |
-        This endpoint is used to query this method up to 14 days at a time..
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results  | array of object  |  Contains the list of data or items |
-         | page  | integer  | Indicates the current page number |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
+        This endpoint is used to query this method up to 14 days at a time.
       operationId: peopleList
       parameters: 
         - name: end_date
@@ -2730,8 +3034,29 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-                example:    
+                type: object 
+                properties:
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        id:
+                          type: integer
+                        adult:
+                          type: boolean
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number    
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
+                example:
+                  results:    
                   - id: 1222244
                     adult: false
                   - id: 1341251
@@ -2787,6 +3112,9 @@ paths:
                   - id: 2048735
                     adult: false
                   - id: 5121842
+                  page: 3
+                  total_pages: 57
+                  total_results: 5700
                 
   /tv/changes:
     get:
@@ -2795,15 +3123,6 @@ paths:
       summary:  TV List
       description: |
         This endpoint is used to query this method up to 14 days at a time.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results  | array of object  |  Contains the list of data or items |
-        | page  | integer  | Indicates the current page number |
-        | total_pages  | integer  | Specifies the total number of pages available |
-        | total_results  | integer  | Represents the total number of items or records in a dataset |
       operationId: tvList
       parameters: 
         - name: end_date
@@ -2830,8 +3149,29 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-                example:    
+                type: object 
+                properties:
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        id:
+                          type: integer
+                        adult:
+                          type: boolean
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number    
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
+                example:  
+                  results:    
                   - id: 69239
                     adult: false
                   - id: 156407
@@ -2886,6 +3226,9 @@ paths:
                     adult: 
                   - id: 97923
                     adult: false
+                  page: 3
+                  total_pages: 57
+                  total_results: 5700
                   
   /collection/{collection_id}:
     get:
@@ -2894,17 +3237,6 @@ paths:
       summary:  Details
       description: |
         This endpoint is used to get collection details by ID.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id  | integer  | A unique identifier for the collection. |
-        | name | string  | The name of the collection  |
-        | overview  | string  | A brief description or summary of the collection  |
-        | postal_path  | string  | The relative URL path to the poster image for the collection. |
-        | backdrop_path  | string  | The relative URL path to the backdrop image for the collection |
-        | part  | array of object  | A list of movies or items that belong to the collection  |
       operationId: details
       parameters: 
         - name: collection_id
@@ -2912,7 +3244,7 @@ paths:
           required: true
           schema:
             type: integer
-          description: The ID of the collection to retrieve
+          description: The ID of the collection to be retrieve
         - name: language
           in: query
           required: false
@@ -2925,8 +3257,61 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-                example:    
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: A unique identifier for the collection
+                  name:
+                    type: string
+                    description: The name of the collection
+                  overview:
+                    type: string
+                    description: A brief description or summary of the collection
+                  poster_path:
+                    type: string
+                    description: The relative URL path to the poster image for the collection
+                  backdrop_path:
+                    type: string
+                    description: The relative URL path to the backdrop image for the collection
+                  parts:
+                    type: array
+                    description: A list of movies or items that belong to the collection
+                    items:
+                      type: object
+                      properties: 
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_language:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        media_type:
+                          type: string
+                        genre_ids:
+                          type: array
+                        popularity:
+                          type: number
+                        release_date:
+                          type: string
+                        video:
+                          type: boolean
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                example: 
+                  page: 10   
                   name: Harry Potter Collection
                   overview: The Harry Potter films are a fantasy series based on the series of seven
                     Harry Potter novels by British writer J. K. Rowling.
@@ -3004,13 +3389,6 @@ paths:
       summary: Images
       description: |
         This endpoint get the images that belong to a collection.
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id  | integer  | A unique identifier for the collection. |
-        | backdrops  | array of object  | A list of backdrop images related to the movie, TV show, or collection  |
-        | posters | array of objects  | A list of poster images associated with the movie, TV show, or collection. |
       operationId: collectionImage
       parameters: 
         - name: collection_id
@@ -3037,7 +3415,51 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: A unique identifier for the collection
+                  backdrops:
+                    type: array
+                    description: A list of backdrop images related to the collection
+                    items:
+                      type: object
+                      properties: 
+                        aspect_ratio:
+                          type: number
+                        height:
+                          type: integer
+                        iso_639_1:
+                          type: string
+                        file_path:
+                          type: string
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                        width:
+                          type: integer
+                  posters:
+                    type: array
+                    description: A list of poster images associated with the collection 
+                    items:
+                      type: object
+                      properties: 
+                        aspect_ratio:
+                          type: number
+                        height:
+                          type: integer
+                        iso_639_1:
+                          type: string
+                        file_path:
+                          type: string
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                        width:
+                          type: integer                  
                 example:    
                   backdrops:
                   - aspect_ratio: 1.778
@@ -3101,12 +3523,6 @@ paths:
       summary: Translation
       description: |
         This endpoint get the translation that belong to a collection.
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id  | integer  | A unique identifier for the collection |
-        | translation| array of object  |  Contains a list of translations for the movie, TV show |
       operationId: collectionTranslation
       parameters: 
         - name: collection_id
@@ -3121,7 +3537,27 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  id: 
+                    type: integer
+                    description: A unique identifier for the collection
+                  translations: 
+                    type: array
+                    description: Contains a list of translations for the movie, TV show
+                    items:
+                      type: object
+                      properties: 
+                        iso_3166_1:
+                          type: string
+                        iso_639_1:
+                          type: string
+                        name:
+                          type: string
+                        english_name:
+                          type: string
+                        data:
+                          type: object
                 example:                 
                   translations:
                   - iso_3166_1: SE
@@ -3185,20 +3621,7 @@ paths:
         - Companies
       summary: Details
       description: |
-        This endpoint get the company details by ID.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | description  | string  |  |
-        | headquarters| string  |  |
-        | homepage | string  |   |
-        | id | string  |   |
-        | logo_path | string  |   |
-        | name | string  |   |
-        | origin_country | string  |   |
-        | parent_company | string  |   |
+        This endpoint get the company details by ID
       operationId: companyDetails
       parameters: 
         - name: company_id
@@ -3213,7 +3636,29 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object 
+                properties:
+                  headquarters:
+                    type: string
+                    description: The location of the company's headquarters
+                  homepage:
+                    type: string
+                    description: The official website URL of the company
+                  id:
+                    type: string
+                    description: A unique identifier for the company
+                  logo_path:
+                    type: string
+                    description: The file path or URL to the company's logo image
+                  name:
+                    type: string
+                    description: The official name of the company
+                  origin_country:
+                    type: string
+                    description: The country where the company was founded
+                  parent_company:
+                    type: array
+                    description: The name of the parent company, if applicable      
                 example: 
                   headquarters: Hollywood, California
                   homepage: https://www.paramountpictures.com
@@ -3233,13 +3678,6 @@ paths:
       summary: Alternative Name
       description: |
         This endpoint get the company details by ID.
-
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id  | string  | A unique identifier |
-        | result | array of objects | A list of data items or records retrieved from the API  |
-    
       operationId: companyAlternativenames
       parameters: 
         - name: company_id
@@ -3254,8 +3692,23 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-                example:  
+                type: object
+                properties:
+                  id: 
+                    type: integer
+                    description: A unique identifier
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        name:
+                          type: string
+                        type:
+                          type: string  
+                example:
+                  id: 1  
                   results:
                   - name: 루카스필름
                     type: ''
@@ -3273,13 +3726,6 @@ paths:
       summary: Images
       description: |
         This endpoint get the company logos by id.
-
-        ###  Request Body 
-
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | string  | A unique identifier representing the specific logo |
-        | logos | array of objects | A list of logo images associated with the movie, TV show, |
       operationId: companyImage
       parameters: 
         - name: company_id
@@ -3294,8 +3740,33 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-                example:  
+                type: object
+                properties:
+                  id: 
+                    type: integer
+                    description: A unique identifier representing the specific logo
+                  logo: 
+                    type: array
+                    description: A list of logo images associated with the movie, TV show
+                    items:
+                      type: object
+                      properties: 
+                        aspect_ratio:
+                          type: number
+                        height:
+                          type: integer
+                        iso_639_1:
+                          type: string
+                        file_path:
+                          type: string
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                        width:
+                          type: integer     
+                example:
+                    id: 1  
                     logos:
                     - aspect_ratio: 3.0395136778115504
                       file_path: "/tlVSws0RvvtPBwViUyOFAO0vcQS.png"
@@ -3321,19 +3792,6 @@ paths:
       summary: Details
       description: |
         This endpoint query the API configuration details.
-
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | images  | object  | Contains details for image URLs and sizes used across the API |
-        | base_url | string | The base URL for accessing images |
-        | secure_base_url | string | The secure base URL for accessing images |
-        | backdrop_sizes | string | Lists available image sizes for backdrops |
-        | logo_sizes | string | Lists available image sizes for logos |
-        | postal_sizes | string | Lists available image sizes for poster |
-        | profile_sizes | string | Lists available image sizes for profile pictures. |
-        | still_sizes | string | Lists available image sizes for still images from TV shows or movies. |
-        | change_keys | string | Specifies the keys that can be used to query for changes in the API |
       operationId: configurationDetails
       responses:
         200:
@@ -3342,61 +3800,137 @@ paths:
             application/json:
               schema:
                 type: object  
-                example:   
-                  - adult
-                  - air_date
-                  - also_known_as
-                  - alternative_titles
-                  - biography
-                  - birthday
-                  - budget
-                  - cast
-                  - certifications
-                  - character_names
-                  - created_by
-                  - crew
-                  - deathday
-                  - episode
-                  - episode_number
-                  - episode_run_time
-                  - freebase_id
-                  - freebase_mid
-                  - general
-                  - genres
-                  - guest_stars
-                  - homepage
-                  - images
-                  - imdb_id
-                  - languages
-                  - name
-                  - network
-                  - origin_country
-                  - original_name
-                  - original_title
-                  - overview
-                  - parts
-                  - place_of_birth
-                  - plot_keywords
-                  - production_code
-                  - production_companies
-                  - production_countries
-                  - releases
-                  - revenue
-                  - runtime
-                  - season
-                  - season_number
-                  - season_regular
-                  - spoken_languages
-                  - status
-                  - tagline
-                  - title
-                  - translations
-                  - tvdb_id
-                  - tvrage_id
-                  - type
-                  - video
-                  - videos
-                    images
+                properties:
+                  images:
+                    type: object
+                    description: Contains details for image URLs and sizes used across the API
+                    properties:
+                      base_url:
+                        type: string
+                        description: The base URL for accessing images
+                      secure_base_url:
+                        type: string
+                        description: The secure base URL for accessing images
+                      backdrop_sizes:
+                        type: array
+                        description: Lists available image sizes for backdrops
+                        items:
+                          type: string
+                      logo_sizes:
+                        type: array
+                        description: Lists available image sizes for logos
+                        items:
+                          type: string
+                      poster_sizes:
+                        type: array
+                        description: Lists available image sizes for posters
+                        items:
+                          type: string
+                      profile_sizes:
+                        type: array
+                        description: "Lists available image sizes for profile pictures."
+                        items:
+                          type: string
+                      still_sizes:
+                        type: array
+                        description: Lists available image sizes for still images from TV shows or movies
+                        items:
+                          type: string
+                  change_keys:
+                    type: array
+                    description: Specifies the keys that can be used to query for changes in the API
+                    items:
+                      type: string
+                example: 
+                  images:
+                    base_url: http://image.tmdb.org/t/p/
+                    secure_base_url: https://image.tmdb.org/t/p/
+                    backdrop_sizes:
+                    - w300
+                    - w780
+                    - w1280
+                    - original
+                    logo_sizes:
+                    - w45
+                    - w92
+                    - w154
+                    - w185
+                    - w300
+                    - w500
+                    - original
+                    poster_sizes:
+                    - w92
+                    - w154
+                    - w185
+                    - w342
+                    - w500
+                    - w780
+                    - original
+                    profile_sizes:
+                    - w45
+                    - w185
+                    - h632
+                    - original
+                    still_sizes:
+                    - w92
+                    - w185
+                    - w300
+                    - original
+                  change_keys:  
+                    - adult
+                    - air_date
+                    - also_known_as
+                    - alternative_titles
+                    - biography
+                    - birthday
+                    - budget
+                    - cast
+                    - certifications
+                    - character_names
+                    - created_by
+                    - crew
+                    - deathday
+                    - episode
+                    - episode_number
+                    - episode_run_time
+                    - freebase_id
+                    - freebase_mid
+                    - general
+                    - genres
+                    - guest_stars
+                    - homepage
+                    - images
+                    - imdb_id
+                    - languages
+                    - name
+                    - network
+                    - origin_country
+                    - original_name
+                    - original_title
+                    - overview
+                    - parts
+                    - place_of_birth
+                    - plot_keywords
+                    - production_code
+                    - production_companies
+                    - production_countries
+                    - releases
+                    - revenue
+                    - runtime
+                    - season
+                    - season_number
+                    - season_regular
+                    - spoken_languages
+                    - status
+                    - tagline
+                    - title
+                    - translations
+                    - tvdb_id
+                    - tvrage_id
+                    - type
+                    - video
+                    - videos
+                      images
 
   /configuration/countries:
     get:
@@ -3404,19 +3938,12 @@ paths:
         - Configuration
       summary: Countries
       description: |
-        This endpoint get the list of countries (ISO 3166-1 tags) used throughout TMDB
-
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | iso_3166_1  | string  | The ISO 3166-1 alpha-2 country code, representing a unique identifier for each country  |
-        | english_name | string | The official or widely recognized English name of the country |
-        | native_name | string | The name of the country in its native language |
+        This endpoint get the list of countries (ISO 3166-1 tags) used throughout TMDB.
       operationId: configurationCountries
       parameters: 
       - name: language
         in: query
-        required: true
+        required: false
         schema:
           type: string
         description: Defaults to en-US
@@ -3426,51 +3953,61 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object 
+                properties:    
+                  iso_3166_1:
+                    type: string
+                    description: The ISO 3166-1 alpha-2 country code
+                  english_name:
+                    type: string
+                    description: The official English name of the country
+                  native_name:
+                    type: string
+                    description: The name of the country in its native language
                 example: 
-                  - iso_3166_1: AD
-                    english_name: Andorra
-                    native_name: Andorra
-                  - iso_3166_1: AE
-                    english_name: United Arab Emirates
-                    native_name: United Arab Emirates
-                  - iso_3166_1: AF
-                    english_name: Afghanistan
-                    native_name: Afghanistan
-                  - iso_3166_1: AG
-                    english_name: Antigua and Barbuda
-                    native_name: Antigua & Barbuda
-                  - iso_3166_1: AI
-                    english_name: Anguilla
-                    native_name: Anguilla
-                  - iso_3166_1: AL
-                    english_name: Albania
-                    native_name: Albania
-                  - iso_3166_1: AM
-                    english_name: Armenia
-                    native_name: Armenia
-                  - iso_3166_1: AN
-                    english_name: Netherlands Antilles
-                    native_name: Netherlands Antilles
-                  - iso_3166_1: AO
-                    english_name: Angola
-                    native_name: Angola
-                  - iso_3166_1: AQ
-                    english_name: Antarctica
-                    native_name: Antarctica
-                  - iso_3166_1: AR
-                    english_name: Argentina
-                    native_name: Argentina
-                  - iso_3166_1: AS
-                    english_name: American Samoa
-                    native_name: American Samoa
-                  - iso_3166_1: AT
-                    english_name: Austria
-                    native_name: Austria
-                  - iso_3166_1: AU
-                    english_name: Australia
-                    native_name: Australia
-                                      
+                - iso_3166_1: AD
+                  english_name: Andorra
+                  native_name: Andorra
+                - iso_3166_1: AE
+                  english_name: United Arab Emirates
+                  native_name: United Arab Emirates
+                - iso_3166_1: AF
+                  english_name: Afghanistan
+                  native_name: Afghanistan
+                - iso_3166_1: AG
+                  english_name: Antigua and Barbuda
+                  native_name: Antigua & Barbuda
+                - iso_3166_1: AI
+                  english_name: Anguilla
+                  native_name: Anguilla
+                - iso_3166_1: AL
+                  english_name: Albania
+                  native_name: Albania
+                - iso_3166_1: AM
+                  english_name: Armenia
+                  native_name: Armenia
+                - iso_3166_1: AN
+                  english_name: Netherlands Antilles
+                  native_name: Netherlands Antilles
+                - iso_3166_1: AO
+                  english_name: Angola
+                  native_name: Angola
+                - iso_3166_1: AQ
+                  english_name: Antarctica
+                  native_name: Antarctica
+                - iso_3166_1: AR
+                  english_name: Argentina
+                  native_name: Argentina
+                - iso_3166_1: AS
+                  english_name: American Samoa
+                  native_name: American Samoa
+                - iso_3166_1: AT
+                  english_name: Austria
+                  native_name: Austria
+                - iso_3166_1: AU
+                  english_name: Australia
+                  native_name: Australia
+                                    
   /configuration/jobs:
     get:
       tags:
@@ -3478,11 +4015,6 @@ paths:
       summary: Jobs
       description: |
         This endpoint get the list of the jobs and departments we use on TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | department  | string  | The name of the department associated with the job  |
-        | jobs | array of string | A list of specific job titles within the department |
       operationId: configurationJobs
       responses:
         200:
@@ -3491,6 +4023,13 @@ paths:
             application/json:
               schema:
                 type: object  
+                properties:
+                  departments:
+                    type: string
+                    description: "A list of departments and their respective job titles."
+                  jobs:
+                    type: array
+                    description: "A list of specific job titles within the department."
                 example: 
                   - department: Production
                     jobs:
@@ -3569,7 +4108,17 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:    
+                  iso_639_1:
+                    type: string
+                    description: The ISO 3166-1 alpha-2 country code
+                  english_name:
+                    type: string
+                    description: The official English name of the country
+                  native_name:
+                    type: string
+                    description: The name of the country in its native language  
                 example: 
                   - iso_639_1: bi
                     english_name: Bislama
@@ -3618,18 +4167,15 @@ paths:
       summary: Primary Translations
       description: |
         This endpoint get a list of the officially supported translations on TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | language_codes | array of string  |  A list of code representing a specific language and its region |
-      operationId: configurationPrimarytranlation
+      operationId: configurationPrimarytranslation
       responses:
         200:
           description: Successful
           content:
             application/json:
               schema:
-                type: object  
+                type: array
+                description: array of strings          
                 example: 
                   - af-ZA
                   - ar-AE
@@ -3719,11 +4265,6 @@ paths:
       summary: Timezones
       description: |
         This endpoint get the list of timezones used throughout TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | iso_3166_1 | string  |  The ISO 3166-1 alpha-2 timezone a specific language and its region |
-        | zones | array of string  |  A list of time zones or geographic zones within the specified country |
       operationId: configurationTimezones
       responses:
         200:
@@ -3731,7 +4272,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:
+                  iso_3166_1:
+                    type: string
+                    description: The ISO 3166-1 alpha-2 country code
+                  zones:
+                    type: array
+                    description: A list of time zones or geographic zones within the specified country
+                    items:
+                      type: string  
                 example: 
                   - iso_3166_1: AD
                     zones:
@@ -3778,15 +4328,6 @@ paths:
       summary: Details
       description: |
         This endpoint get a movie or TV credit details by ID.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | credit_type | string  | Specifies the type of credit assigned to a person in a production |
-        | department | string  | Indicates the specific department in the production
-        | job | string  | Represents the specific role or position held by a person | 
-        | media | object  | Contains information about the media |
-        | season | array of objects  | A list of seasons associated with a TV series, including details like season number and episodes. |
-        | media_type | array of objects  | Represents the typesof media  |
       operationId: creditDetails
       parameters:
       - name: credit_id
@@ -3801,7 +4342,129 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:
+                  credit_type:
+                    type: string
+                    description: "Specifies the type of credit assigned to a person in a production."
+                  department:
+                    type: string
+                    description: "Indicates the specific department in the production."
+                  job:
+                    type: string
+                    description: "Represents the specific role or position held by a person."
+                  media:
+                    type: array
+                    description: "Contains information about the media."
+                    items:
+                      type: object
+                      properties:
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        original_language:
+                          type: string
+                        original_name:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        media_type:
+                          type: string
+                        genre_ids:
+                          type: array
+                          items:
+                            type: integer
+                        popularity:
+                          type: number
+                        first_air_date:
+                          type: string
+                          format: date
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                        origin_country:
+                          type: array
+                          items:
+                            type: string
+                        character:
+                          type: string
+                        episodes:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                              air_date:
+                                type: string
+                                format: date
+                  media_type:
+                    type: string
+                    description: "Represents the types of media."
+                  id:
+                    type: string
+                    description: "A unique identifier."
+                  season:
+                    type: array
+                    description: "A list of seasons associated with a TV series."
+                    items:
+                      type: object
+                      properties:
+                        air_date:
+                          type: string
+                          format: date
+                        episode_count:
+                          type: integer
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        season_number:
+                          type: integer
+                        show_id:
+                          type: integer
+                  media_type:
+                    type: string
+                    description: "Represents the types of media."
+                  id:
+                    type: string
+                    description: "A unique identifier."
+                  person:     
+                    type: object
+                    description: "Details of an individual associated with the production."
+                      properties:
+                        adult:
+                          type: boolean
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        original_name:
+                          type: string
+                        media_type:
+                          type: string
+                        popularity:
+                          type: number
+                        gender:
+                          type: integer
+                        known_for_department:
+                          type: string
+                        profile_path:
+                          type: string    
                 example:  
                   credit_type: cast
                   department: Acting
