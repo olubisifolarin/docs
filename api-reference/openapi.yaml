@@ -4346,16 +4346,16 @@ paths:
                 properties:
                   credit_type:
                     type: string
-                    description: "Specifies the type of credit assigned to a person in a production."
+                    description: Specifies the type of credit assigned to a person in a production.
                   department:
                     type: string
-                    description: "Indicates the specific department in the production."
+                    description: Indicates the specific department in the production.
                   job:
                     type: string
-                    description: "Represents the specific role or position held by a person."
+                    description: Represents the specific role or position held by a person.
                   media:
                     type: array
-                    description: "Contains information about the media."
+                    description: Contains information about the media.
                     items:
                       type: object
                       properties:
@@ -4379,8 +4379,6 @@ paths:
                           type: string
                         genre_ids:
                           type: array
-                          items:
-                            type: integer
                         popularity:
                           type: number
                         first_air_date:
@@ -4392,31 +4390,13 @@ paths:
                           type: integer
                         origin_country:
                           type: array
-                          items:
-                            type: string
                         character:
                           type: string
                         episodes:
                           type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                              name:
-                                type: string
-                              air_date:
-                                type: string
-                                format: date
-                  media_type:
-                    type: string
-                    description: "Represents the types of media."
-                  id:
-                    type: string
-                    description: "A unique identifier."
                   season:
                     type: array
-                    description: "A list of seasons associated with a TV series."
+                    description: A list of seasons associated with a TV series.
                     items:
                       type: object
                       properties:
@@ -4439,32 +4419,32 @@ paths:
                           type: integer
                   media_type:
                     type: string
-                    description: "Represents the types of media."
+                    description: Represents the types of media.
                   id:
                     type: string
-                    description: "A unique identifier."
+                    description: A unique identifier.
                   person:     
                     type: object
-                    description: "Details of an individual associated with the production."
-                      properties:
-                        adult:
-                          type: boolean
-                        id:
-                          type: integer
-                        name:
-                          type: string
-                        original_name:
-                          type: string
-                        media_type:
-                          type: string
-                        popularity:
-                          type: number
-                        gender:
-                          type: integer
-                        known_for_department:
-                          type: string
-                        profile_path:
-                          type: string    
+                    description: Details of an individual associated with the production.
+                    properties:
+                      adult:
+                        type: boolean
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      original_name:
+                        type: string
+                      media_type:
+                        type: string
+                      popularity:
+                        type: number
+                      gender:
+                        type: integer
+                      known_for_department:
+                        type: string
+                      profile_path:
+                        type: string    
                 example:  
                   credit_type: cast
                   department: Acting

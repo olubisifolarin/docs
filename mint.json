@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "The TMDB API DOCUMENTATION",
   "openapi": "api-reference/openapi.yaml",
-  
+
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -165,9 +165,35 @@
       "pages": [
         "api-reference/credits/details"
       ]
-    }    
+    },
+    
+    {
+      "group": "DISCOVER",
+      "pages": [
+        "api-reference/discover/movie",
+        "api-reference/discover/tv" 
+      ]
+    },
+
+    {
+      "group": "FIND",
+      "pages": [
+        "api-reference/find/find-by-id"
+      ]
+    },
+
+    {
+      "group": "GENRES",
+      "pages": [
+        "api-reference/genres/movie-list",
+        "api-reference/genres/tv-list"
+      ]
+    }
+    
   
   ]
+
+  
   
 
 }
