@@ -188,7 +188,91 @@
         "api-reference/genres/movie-list",
         "api-reference/genres/tv-list"
       ]
+    },
+
+    {
+      "group": "GUEST SESSIONS",
+      "pages": [
+        "api-reference/guest-sessions/rated-movies",
+        "api-reference/guest-sessions/rated-tv",
+        "api-reference/guest-sessions/rated-tv-episodes"   
+      ]
+    },
+
+    {
+      "group": "KEYWORDS",
+      "pages": [
+        "api-reference/keywords/details",
+        "api-reference/keywords/movies"
+      ]
+    },
+    
+    {
+      "group": "LISTS",
+      "pages": [
+        "api-reference/lists/add-movie",
+        "api-reference/lists/check-item-status",
+        "api-reference/lists/clear",
+        "api-reference/lists/create",
+        "api-reference/lists/delete",
+        "api-reference/lists/details",
+        "api-reference/lists/remove-movie"      
+      ]
+    },
+
+    {
+      "group": "MOVIE LISTS",
+      "pages": [
+        "api-reference/movie-lists/now-playing",
+        "api-reference/movie-lists/popular",
+        "api-reference/movie-lists/top-rated",
+        "api-reference/movie-lists/upcoming"
+        
+      ]
+    },
+
+    {
+      "group": "MOVIES",
+      "pages": [
+        "api-reference/movies/details",
+        "api-reference/movies/account-state",
+        "api-reference/movies/alternative-titles",
+        "api-reference/movies/changes",
+        "api-reference/movies/credits",
+        "api-reference/movies/external-id",
+        "api-reference/movies/images",
+        "api-reference/movies/keywords",
+        "api-reference/movies/latest",
+        "api-reference/movies/lists",
+        "api-reference/movies/recommendation",
+        "api-reference/movies/release-dates",
+        "api-reference/movies/reviews",
+        "api-reference/movies/similar",
+        "api-reference/movies/translations",
+        "api-reference/movies/videos",
+        "api-reference/movies/watch-providers",
+        "api-reference/movies/add-rating",
+        "api-reference/movies/delete-rating"
+        
+      ]
+    },
+
+    {
+      "group": "NETWORKS",
+      "pages": [
+        "api-reference/networks/details",
+        "api-reference/networks/alternative-names",
+        "api-reference/networks/images"
+      ]
+    },
+
+    {
+      "group": "PEOPLE - LISTS",
+      "pages": [
+        "api-reference/people-lists/popular"
+      ]
     }
+
     
   
   ]

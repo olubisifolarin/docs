@@ -52,10 +52,10 @@ paths:
             schema:
               type: object
               properties:
-                request_token:
+                RAW_BODY:
                   type: string
                   format: json
-                  description: The request token generated from the create token endpoint.
+                  description: A raw JSON string representing the request body.
               required:
                 - request_token
             example:
@@ -478,8 +478,6 @@ paths:
                           type: string
                         poster_path:
                           type: string
-                        media_type:
-                          type: string
                         genre_ids:
                           type: array
                         popularity:
@@ -890,6 +888,37 @@ paths:
                   results: 
                     type: array
                     description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties:
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_language:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        genre_ids:
+                          type: array
+                        popularity:
+                          type: number
+                        release_date:
+                          type: string
+                        video:
+                          type: boolean
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
                   total_pages:
                     type: integer
                     description: Specifies the total number of pages available
@@ -3755,7 +3784,7 @@ paths:
                           type: number
                         height:
                           type: integer
-                        iso_639_1:
+                        id:
                           type: string
                         file_path:
                           type: string
@@ -4505,13 +4534,6 @@ paths:
       summary: Movie
       description: |
         This endpoint find movies using over 30 filters and sort options.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: discoverMovie
       parameters:
         - name: certificate
@@ -4756,7 +4778,51 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_language:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        genre_ids:
+                          type: array
+                        popularity:
+                          type: number
+                        release_date:
+                          type: string
+                        video:
+                          type: boolean
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset   
                 example:  
                   page: 1
                   results:
@@ -4829,13 +4895,6 @@ paths:
       summary: TV
       description: |
         This endpoint find movies using over 30 filters and sort options.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  
       operationId: discoverTV
       parameters:
         - name: air_date.gte
@@ -5046,7 +5105,49 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: 	Indicates the current page number
+                  results: 
+                    type: array
+                    description: Contains the list of data or items
+                    items:
+                      type: object
+                      properties: 
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_language:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                        genre_ids:
+                          type: array
+                        popularity:
+                          type: number
+                        first_air_date:
+                          type: integer
+                        vote_average:
+                          type: number
+                        vote_count:
+                          type: integer
+                  total_pages:
+                    type: integer
+                    description: Specifies the total number of pages available
+                  total_results:
+                    type: integer
+                    description: Represents the total number of items or records in a dataset  
                 example:  
                   page: 1
                   results:
@@ -5116,14 +5217,6 @@ paths:
       summary: Find by ID
       description: |
         This endpoint find data by external ID's.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | movie_results | array of objects | Contains an array of movie-related results that match the search criteria or ID provided |
-        | person_results | array| Contains an array of results related to individuals, such as actors, directors, or other crew members. |
-        | tv_results | array  | Contains an array of TV show-related results that match the search criteria or ID provided. | 
-        | tv_episode_results | array  | Contains an array of TV episode-related results, including details about specific episodes of a series. | 
-        | tv_season_results| array | Contains an array of TV season-related results, including details about specific seasons of a series. |
       operationId: findbyID
       parameters:
       - name: external_id
@@ -5150,7 +5243,56 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      movie_results:
+                        type: array
+                        description: Contains an array of movie-related results that match the search criteria or ID provided.
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      person_results:
+                        type: array
+                        description: Contains an array of results related to individuals, such as actors, directors, or other crew members.
+                      tv_results:
+                        type: array
+                        description: Contains an array of TV show-related results that match the search criteria or ID provided.
+                      tv_episode_results:
+                        type: array
+                        description: Contains an array of TV episode-related results, including details about specific episodes of a series.
+                      tv_season_results:
+                        type: array
+                        description: Contains an array of TV season-related results, including details about specific seasons of a series.
                     example: 
                       movie_results:
                       - adult: false
@@ -5184,11 +5326,6 @@ paths:
       summary: Movie List
       description: |
         This endpoint get the list of official genres for movies.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | name | string |The name of the movie |
       operationId: genreMovielist
       parameters:
       - name: language
@@ -5203,8 +5340,22 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      genres:
+                        type: array
+                        description: A list of genres
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: Unique identifier for the genre
+                            name:
+                              type: string
+                              description: Name of the genre
                     example:
+                      genres:
                       - id: 28
                         name: Action
                       - id: 12 
@@ -5251,11 +5402,6 @@ paths:
       summary: TV List
       description: |
         This endpoint get the list of official genres for movies.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | name | string |The name of the movie |
       operationId: genreTVlist
       parameters:
       - name: language
@@ -5270,7 +5416,20 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      genres:
+                        type: array
+                        description: A list of genres
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: Unique identifier for the genre
+                            name:
+                              type: string
+                              description: Name of the genre
                     example: 
                       genres:
                       - id: 10759
@@ -5315,13 +5474,6 @@ paths:
       summary: Rated Movies
       description: |
         This endpoint get the rated movies for a guest session.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: guestsessionRatedmovies
       parameters:
       - name: guest_session_id
@@ -5354,7 +5506,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            rating:
+                              type: number   
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
                     example: 
                       page: 1
                       results:
@@ -5389,14 +5587,7 @@ paths:
         - Guest Sessions
       summary: Rated TV
       description: |
-        This endpoint get the rated TV shows for a guest session..
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
+        This endpoint get the rated TV shows for a guest session.
       operationId: guestsessionRatedTV
       parameters:
       - name: guest_session_id
@@ -5429,7 +5620,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            rating:
+                              type: number   
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -5466,13 +5703,6 @@ paths:
       summary: Rated TV Episodes
       description: |
         This endpoint get the rated TV episodes for a guest session.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: guestsessionRatedTVepisodes
       parameters:
       - name: guest_session_id
@@ -5505,7 +5735,49 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            air_date:
+                              type: string
+                            episode_number:
+                              type: integer
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            overview:
+                              type: string
+                            production_code:
+                              type: string
+                            runtime:
+                              type: integer
+                            season_number:
+                              type: integer
+                            show_id:
+                              type: integer
+                            still_path:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            rating:
+                              type: number   
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       page: 1
                       results:
@@ -5535,11 +5807,6 @@ paths:
       summary: Details
       description: |
         This endpoint get the details of the keywords
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | name | string |The name of the movie |
       operationId: keyword
       parameters:
       - name: keyword_id
@@ -5554,7 +5821,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: Unique identifier for the keyword
+                      name:
+                        type: string
+                        description: Name of the keyword
                     example: 
                       id: 1701
                       name: hero
@@ -5566,14 +5840,6 @@ paths:
       summary: Movies
       description: |
         This endpoint is used to get a list of movies associated with a specific keyword
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: keywordMovie
       parameters:
       - name: keyword_id
@@ -5606,7 +5872,54 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: 	Unique identifier for the movie
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset   
                     example: 
                       id: 1701
                       page: 1
@@ -5689,11 +6002,6 @@ paths:
       summary: Add Movie
       description: |
         This endpoint add a movie to a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: ListAddmovie
       requestBody:
         required: false
@@ -5702,9 +6010,12 @@ paths:
             schema:
               type: object
               properties:
-                media_id:
+                RAW_BODY:
                   type: string
-                  description: The ID of the media to be added to the list.
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
             example:
               media_id: "550"
         description: The request body containing the media ID to be added to the list
@@ -5727,7 +6038,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was completed without any errors   
                     example: 
                       status_code: 12
                       status_message: The item/record was updated successfully.
@@ -5739,11 +6057,6 @@ paths:
       summary: Check Item Status
       description: |
         This endpoint is used to check if an item has already been added to the list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the item	|
-        | item_present | boolean | Indicates whether the item is present or available |
       operationId: ListItemStatus
       parameters:
       - name: list_id
@@ -5770,7 +6083,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                        id:
+                          type: string
+                          description: A unique identifier
+                        item_present:
+                          type: string
+                          description: The item present in the list 
                     example: 
                       id: 1
                       item_present: true
@@ -5782,11 +6102,6 @@ paths:
       summary: Clear
       description: |
         This endpoint clear all items from a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure	|
-        | status_message| string | Provides a human-readable message describing the status of the operation  |
       operationId: ListClear
       parameters:
       - name: list_id
@@ -5813,7 +6128,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was completed without any errors  
                     example: 
                       status_code: 12
                       status_message: The item/record was updated successfully.
@@ -5825,13 +6147,6 @@ paths:
       summary: Create
       description: |
         This endpoint is used to create a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_message| string | Provides a human-readable message describing the status of the operation  |
-        | status_code | integer |	Represents the status of the operation either success or failure	|
-        | success | boolean | Indicates whether the operation was successful or not  |
-        | list_id | integer | A unique identifier for the list item  |
       operationId: List
       requestBody:
         required: true
@@ -5839,6 +6154,13 @@ paths:
           application/json:
             schema:
               type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
             example:
               name: This is my awesome test list
               description: Just an awesome list
@@ -5857,7 +6179,20 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      status_message:
+                        type: string
+                        description: Indicates that the action was completed without any errors 
+                      sucess:
+                        type: boolean
+                        description: Indicates whether the operation was successful 
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      list_id:
+                        type: integer
+                    description: A unique identifier for the list item  
                     example: 
                       success: true
                       status_code: 1
@@ -5870,12 +6205,7 @@ paths:
         - Lists
       summary: Delete
       description: |
-        This endpoint is used to delete a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure	|
-        | status_message| string | Provides a human-readable message describing the status of the operation  | 
+        This endpoint is used to delete a list. 
       operationId: listDelete
       parameters:
       - name: list_id
@@ -5896,7 +6226,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was successful   
                     example: 
                       status_code: 12
                       status_message: The item/record was updated successfully.
@@ -5907,18 +6244,6 @@ paths:
       summary: Details
       description: |
         This endpoint get the details of a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | created_by | string | The username of the user who created the list		|
-        | description|  string | A summary of the list's purpose  | 
-        | favorite_count|  integer | The number of times this list has been marked as a favorite by users  | 
-        | id |  string | A unique identifier assigned to the list | 
-        | items |  array of objects | A collection of objects representing the items | 
-        | item_count |  integer | The total number of items currently in the list | 
-        | iso_639_1 |  string | The language code of the list  |
-        | name |  string | The title or name of the list |
-        | poster_path |  string | The relative path to the poster image for the list | 
       operationId: detailList
       parameters:
       - name: list_id
@@ -5945,7 +6270,70 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      created_by:
+                        type: string
+                        description: The username of the user who created the list
+                      description:
+                        type: string
+                        description: A summary of the list's purpose
+                      favorite_count:
+                        type: integer
+                        description: The number of times this list has been marked as a favorite by users
+                      id:
+                        type: string
+                        description: A unique identifier assigned to the list
+                      items:
+                        type: array
+                        description: A collection of objects representing the items
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                              items:
+                                type: integer
+                            popularity:
+                              type: number
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      item_count:
+                        type: integer
+                        description: The total number of items currently in the list
+                      iso_639_1:
+                        type: string
+                        description: The language code of the list
+                      name:
+                        type: string
+                        description: The title or name of the list
+                      poster_path:
+                        type: string
+                        description: The relative path to the poster image for the list 
                     example: 
                       created_by: Aazzle
                       description: Filme die ich sehen will
@@ -6019,8 +6407,6 @@ paths:
                       name: Noch angucken
                       page: 1
                       poster_path: 
-                      total_pages: 1
-                      total_results: 3
 
   /list/{list_id}/remove_item:
     post:
@@ -6029,11 +6415,6 @@ paths:
       summary: Remove Movie
       description: |
         This endpoint remove a movie from a list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: ListRemovemovie
       requestBody:
         required: true
@@ -6042,12 +6423,15 @@ paths:
             schema:
               type: object
               properties:
-                media_id:
+                RAW_BODY:
                   type: string
-                  description: The ID of the media to be added to the list.
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
             example:
               media_id: "550"
-        description: The request body containing the media ID to be added to the list
+              description: The request body containing the media ID to be added to the list
       parameters:
       - name: list_id
         in: path
@@ -6067,7 +6451,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was success  
                     example: 
                       status_code: 13
                       status_message: The item/record was deleted successfully
@@ -6079,14 +6470,6 @@ paths:
       summary: Now Playing
       description: |
         This endpoint is used to get a list of movies that are currently in theatres.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | date | array of object | Objects grouped by specific dates |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: movieNowplaying
       parameters:
       - name: language
@@ -6113,7 +6496,61 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      date:
+                        type: array
+                        description: Objects grouped by specific dates
+                        items:
+                          type: object
+                          properties: 
+                            maximum:
+                              type: string
+                            minimum:
+                              type: string
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       dates:
                         maximum: '2025-01-08'
@@ -6189,13 +6626,6 @@ paths:
       summary: Popular
       description: |
         This endpoint is used to get a list of movies ordered by popularity.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: moviePopular
       parameters:
       - name: language
@@ -6222,8 +6652,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
-                    example: 
+                    type: object     
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset   
+                    example:
+                      page: 1 
                       results:
                       - adult: false
                         backdrop_path: "/6qld2YxAO9gdEblo0rsEb8BcYKO.jpg"
@@ -6294,13 +6769,6 @@ paths:
       summary: Top Rated
       description: |
         This endpoint is used to get a list of movies ordered by rating.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: movieToprated
       parameters:
       - name: language
@@ -6328,6 +6796,50 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -6417,14 +6929,6 @@ paths:
       summary: Upcoming
       description: |
         This endpoint is used to get a list of movies that are being released soon.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | date | array of object | Objects grouped by specific dates |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: movieUpcoming
       parameters:
       - name: language
@@ -6451,7 +6955,61 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      date:
+                        type: array
+                        description: Objects grouped by specific dates
+                        items:
+                          type: object
+                          properties: 
+                            maximum:
+                              type: string
+                            minimum:
+                              type: string
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       dates:
                         maximum: '2025-01-29'
@@ -6545,35 +7103,7 @@ paths:
         - Movies
       summary: Details
       description: |
-        This endpoint get the top level details of a movie by ID..
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean | Indicates whether the content is intended for adult audiences	|
-        | backdrop_path | string | The relative path to the backdrop image for the content  |
-        | belongs_to_collection | string | The name or ID of the collection this content belongs to, if applicable.  |
-        | budget | integer | The production budget of the content, expressed in monetary unit  |
-        | genres | array of objects | A list of genres associated with the content, each represented as an object  | 
-        | homepage | string | The URL to the official website of the content  | 
-        | id | integer | A unique identifier assigned to the content  | 
-        | imdb_id | string | The identifier for the content on IMDb.  | 
-        | original_language | string | The language in which the content was originally produced, following ISO 639-1 codes  | 
-        | original_title | string | The original title of the content  | 
-        | overview| string | A brief summary or description of the content|   |
-        | popularity | number | A numerical representation of the content's popularity, typically based on audience engagement  |
-        | poster_path | string | The relative path to the poster image for the content | 
-        | production_company | array of objects | A list of production companies involved in creating the content  |
-        | production_countries | array of objects | A list of countries where the content was produced  | 
-        | release_date | string | The official release date of the content in YYYY-MM-DD format  | 
-        | revenue | integer | The total revenue generated by the content, expressed in monetary units |   
-        | runtime| integer | The total runtime of the content, expressed in minutes |  
-        | spoken_languages | array of objects | A list of languages spoken in the content, each represented as an object |   
-        | status | string | The current status of the content | 
-        | tagline | string | A tagline or short phrase associated with the content  | 
-        | title | string | The official or display title of the content  | 
-        | video | boolean | Indicates whether the content includes video elements  |
-        | vote_average | number | The average rating given to the content by users  | 
-        | vote_count | integer | The total number of votes or ratings received for the content  |  
+        This endpoint get the top level details of a movie by ID.   
       operationId: movieDetails
       parameters:
       - name: movie_id
@@ -6601,6 +7131,116 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the content is intended for adult audiences
+                      backdrop_path:
+                        type: string
+                        description: The relative path to the backdrop image for the content
+                      belongs_to_collection:
+                        type: string
+                        description: The name or ID of the collection this content belongs to, if applicable
+                      budget:
+                        type: integer
+                        description: The production budget of the content, expressed in monetary units
+                      genres:
+                        type: array
+                        description: A list of genres associated with the content, each represented as an object
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                      homepage:
+                        type: string
+                        description: The URL to the official website of the content
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      imdb_id:
+                        type: string
+                        description: The identifier for the content on IMDb
+                      original_language:
+                        type: string
+                        description: The language in which the content was originally produced, following ISO 639-1 codes
+                      original_title:
+                        type: string
+                        description: The original title of the content
+                      overview:
+                        type: string
+                        description: A brief summary or description of the content
+                      popularity:
+                        type: number
+                        description: A numerical representation of the content's popularity, typically based on audience engagement
+                      poster_path:
+                        type: string
+                        description: The relative path to the poster image for the content
+                      production_company:
+                        type: array
+                        description: A list of production companies involved in creating the content
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            logo_path:
+                              type: string
+                            name:
+                              type: string
+                            origin_country:
+                              type: string
+                      production_countries:
+                        type: array
+                        description: A list of countries where the content was produced
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                            name:
+                              type: string
+                      release_date:
+                        type: string
+                        description: The official release date of the content in YYYY-MM-DD format
+                      revenue:
+                        type: integer
+                        description: The total revenue generated by the content, expressed in monetary units
+                      runtime:
+                        type: integer
+                        description: The total runtime of the content, expressed in minutes
+                      spoken_languages:
+                        type: array
+                        description: A list of languages spoken in the content, each represented as an object
+                        items:
+                          type: object
+                          properties:
+                            english_name:
+                              type: string
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                      status:
+                        type: string
+                        description: The current status of the content
+                      tagline:
+                        type: string
+                        description: A tagline or short phrase associated with the content
+                      title:
+                        type: string
+                        description: The official or display title of the content
+                      video:
+                        type: boolean
+                        description: Indicates whether the content includes video elements
+                      vote_average:
+                        type: number
+                        description: The average rating given to the content by users
+                      vote_count:
+                        type: integer
+                        description: The total number of votes or ratings received for the content
                     example: 
                       adult: false
                       backdrop_path: "/wgvc3PmjQGtYYDWaeuV867mnFDs.jpg"
@@ -6658,15 +7298,7 @@ paths:
         - Movies
       summary: Account State
       description: |
-        This endpoint is used to get the rating, watchlist and favourite status of an account
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for a specific item |
-        | favorite | boolean | Indicates whether the item is marked as a favorite  |
-        | rated | object| A collection of objects representing ratings given to items  |
-        | value | integer  | The numerical value of a specific attribute or property, such as a rating or score |
-        | watchlist | boolean  | Indicates whether the item is included in a user's watchlist | 
+        This endpoint is used to get the rating, watchlist and favourite status of an account.
       operationId: moviesAccountstate
       parameters:
       - name: movie_id
@@ -6693,7 +7325,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier for a specific item
+                      favorite:
+                        type: boolean
+                        description: Indicates whether the item is marked as a favorite
+                      rated:
+                        type: object
+                        description: A collection of objects representing ratings given to items
+                        properties:
+                          value:
+                            type: integer
+                      watchlist:
+                        type: boolean
+                        description: Indicates whether the item is included in a user’s watchlist 
                     example: 
                       id: 550
                       favorite: true
@@ -6708,11 +7356,6 @@ paths:
       summary: Alternative Titles
       description: |
         This endpoint is used to get the alternative titles for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for a specific item |
-        | titles | array of objects | Display name of the movie |
       operationId: moviesAlternativetitle
       parameters:
       - name: movie_id
@@ -6734,6 +7377,22 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier for a specific item
+                      titles:
+                        type: array
+                        description: Display name of the movie
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                            title:
+                              type: string
+                            type:
+                              type: string
                     example: 
                       id: 550
                       titles:
@@ -6793,12 +7452,6 @@ paths:
       summary: Changes
       description: |
         This endpoint is used to get the recent changes for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | changes | array of objects | Represent changes or updates made to a movie  |
-        | key | string | A unique identifier for the change |
-        | items | array of objects | A list of objects that detail the specific items affected by the change |
       operationId: moviesChanges
       parameters:
       - name: movie_id
@@ -6831,7 +7484,32 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      changes:
+                        type: array
+                        description: Represent changes or updates made to a movie
+                      key:
+                        type: string
+                        description: A unique identifier for the change
+                      items:
+                        type: array
+                        description: A list of objects that detail the specific items affected by the change
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            action:
+                              type: string
+                            time:
+                              type: string
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            value:
+                              type: object
                     example: 
                       changes:
                       - key: images
@@ -6886,12 +7564,6 @@ paths:
       summary: Credits
       description: |
         This endpoint is used to get the credit for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | cast| array of objects | A collection of objects representing the actors who have appeared in the movie |
-        | crew | array of objects | A list of objects representing the behind-the-scenes staff who contributed to the production of the movie  |
       operationId: moviesCredits
       parameters:
       - name: movie_id
@@ -6912,7 +7584,69 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            cast_id:
+                              type: integer
+                            character:
+                              type: string
+                            credit_id:
+                              type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string
                     example: 
                       id: 550
                       cast:
@@ -7030,15 +7764,6 @@ paths:
       summary: External ID
       description: |
         This endpoint is used to get the external_id of a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | imdb_id | string | e unique identifier assigned to the movie |
-        | wikidata_id | string | The unique identifier assigned to the movie in Wikidata  |
-        | facebook_id | string | The unique identifier for the  official Facebook page or profile  |
-        | instagram_id | string | The unique identifier for the official Instagram profile  |
-        | twitter_id | string | The unique identifier for the official Twitter profile  |
       operationId: moviesExternalID
       parameters:
       - name: movie_id
@@ -7053,7 +7778,26 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
+                      imdb_id:
+                        type: string
+                        description: The unique identifier assigned to the movie on IMDb
+                      wikidata_id:
+                        type: string
+                        description: The unique identifier assigned to the movie in Wikidata
+                      facebook_id:
+                        type: string
+                        description: The unique identifier for the official Facebook page or profile
+                      instagram_id:
+                        type: string
+                        description: The unique identifier for the official Instagram profile
+                      twitter_id:
+                        type: string
+                        description: The unique identifier for the official Twitter profile  
                     example: 
                       id: 550
                       imdb_id: tt0137523
@@ -7069,13 +7813,6 @@ paths:
       summary: Images
       description: |
         This endpoint is used to get the images that belong to a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | backdrop | array of objects | A list of background images related to the movie |
-        | id | integer | The unique identifier    |
-        | logo| array of objects | A list of logo images associated with the media  |
-        | posters | string | A list of poster images for the movie   |
       operationId: moviesImages
       parameters:
       - name: movie_id
@@ -7102,7 +7839,28 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      backdrops:
+                        type: array
+                        description: A list of logo images associated with the media
+                        items:
+                          type: object
+                          properties:
+                            aspect_ratio:
+                              type: number
+                            height:
+                              type: integer
+                            iso_639_1:
+                              type: string
+                            file_path:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            width:
+                              type: integer
                     example: 
                       backdrops:
                       - aspect_ratio: 1.778
@@ -7121,11 +7879,6 @@ paths:
       summary: Keywords
       description: |
         This endpoint is used to get the credit for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | keyword | array of objects | Multiple objects within a single array |
       operationId: moviesKeywords
       parameters:
       - name: movie_id
@@ -7140,8 +7893,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
-                    example:            
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identify
+                      keyword:
+                        type: array
+                        description: A word associated with the movie
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                    example:
+                      id: 550            
                       keywords:
                       - id: 851
                         name: dual identity
@@ -7178,35 +7946,7 @@ paths:
         - Movies
       summary: Latest
       description: |
-        This endpoint is used to get the newest movie ID.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean | Indicates whether the content is intended for adult audiences	|
-        | backdrop_path | string | The relative path to the backdrop image for the content  |
-        | belongs_to_collection | string | The name or ID of the collection this content belongs to if applicable. |
-        | budget | integer | The production budget of the content, expressed in monetary unit  |
-        | genres | array of objects | A list of genres associated with the content each represented as an object  | 
-        | homepage | string | The URL to the official website of the content  | 
-        | id | integer | A unique identifier assigned to the content  | 
-        | imdb_id | string | The identifier for the content on IMDb.  | 
-        | original_language | string | The language in which the content was originally produced following ISO 639-1 codes  | 
-        | original_title | string | The original title of the content  | 
-        | overview| string | A brief summary or description of the content|   |
-        | popularity | number | A numerical representation of the content's popularity, typically based on audience engagement  |
-        | poster_path | string | The relative path to the poster image for the content | 
-        | production_company | array of objects | A list of production companies involved in creating the content  |
-        | production_countries | array of objects | A list of countries where the content was produced  | 
-        | release_date | string | The official release date of the content in YYYY-MM-DD format  | 
-        | revenue | integer | The total revenue generated by the content, expressed in monetary units |   
-        | runtime| integer | The total runtime of the content, expressed in minutes |  
-        | spoken_languages | array of objects | A list of languages spoken in the content, each represented as an object |   
-        | status | string | The current status of the content | 
-        | tagline | string | A tagline or short phrase associated with the content  | 
-        | title | string | The official or display title of the content  | 
-        | video | boolean | Indicates whether the content includes video elements  |
-        | vote_average | number | The average rating given to the content by users  | 
-        | vote_count | integer | The total number of votes or ratings received for the content  |       
+        This endpoint is used to get the newest movie ID.           
       operationId: moviesLatest
       responses:
             200:
@@ -7214,8 +7954,85 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
-                    example:                              
+                    type: object 
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the content is intended for adult audiences
+                      backdrop_path:
+                        type: string
+                        description: The relative path to the backdrop image for the content
+                      belongs_to_collection:
+                        type: string
+                        description: The name or ID of the collection this content belongs to, if applicable
+                      budget:
+                        type: integer
+                        description: The production budget of the content, expressed in monetary units
+                      genres:
+                        type: array
+                        description: A list of genres associated with the content, each represented as an object
+                      homepage:
+                        type: string
+                        description: The URL to the official website of the content
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      imdb_id:
+                        type: string
+                        description: The identifier for the content on IMDb
+                      original_language:
+                        type: string
+                        description: The language in which the content was originally produced, following ISO 639-1 codes
+                      original_title:
+                        type: string
+                        description: The original title of the content
+                      overview:
+                        type: string
+                        description: A brief summary or description of the content
+                      popularity:
+                        type: number
+                        description: A numerical representation of the content's popularity, typically based on audience engagement
+                      poster_path:
+                        type: string
+                        description: The relative path to the poster image for the content
+                      production_company:
+                        type: array
+                        description: A list of production companies involved in creating the content   
+                      production_countries:
+                        type: array
+                        description: A list of countries where the content was produced
+                      release_date:
+                        type: string
+                        description: The official release date of the content in YYYY-MM-DD format
+                      revenue:
+                        type: integer
+                        description: The total revenue generated by the content, expressed in monetary units
+                      runtime:
+                        type: integer
+                        description: The total runtime of the content, expressed in minutes
+                      spoken_languages:
+                        type: array
+                        description: A list of languages spoken in the content, each represented as an object
+                      status:
+                        type: string
+                        description: The current status of the content
+                      tagline:
+                        type: string
+                        description: A tagline or short phrase associated with the content
+                      title:
+                        type: string
+                        description: The official or display title of the content
+                      video:
+                        type: boolean
+                        description: Indicates whether the content includes video elements
+                      vote_average:
+                        type: number
+                        description: The average rating given to the content by users
+                      vote_count:
+                        type: integer
+                        description: The total number of votes or ratings received for the content
+                    example:  
+                      adult: false                            
                       backdrop_path: 
                       belongs_to_collection: 
                       budget: 0
@@ -7250,14 +8067,6 @@ paths:
       summary: Lists
       description: |
         This endpoint is used to get the lists that a movie has been added to.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: keywordLists
       parameters:
       - name: movie_id
@@ -7284,7 +8093,42 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object         
+                    properties:
+                      id:
+                        type: integer
+                        description: 	A unique identify
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            description:
+                              type: string
+                            favortie_count:
+                              type: integer
+                            id:
+                              type: integer
+                            item_count:
+                              type: integer
+                            iso_639_1:
+                              type: string
+                            list_type:
+                              type: string
+                            name:
+                              type: string
+                            postal_path:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example:            
                       page: 1
                       results:
@@ -7416,132 +8260,7 @@ paths:
                 application/json:
                   schema:
                     $ref: '#/components/schemas/object'  
-                    example:                            
-                      results:
-                      - backdrop_path: "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"
-                        id: 680
-                        title: Pulp Fiction
-                        original_title: Pulp Fiction
-                        overview: A burger-loving hit man, his philosophical partner, a drug-addled gangster's
-                          moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their
-                          adventures unfurl in three stories that ingeniously trip back and forth in time.
-                        poster_path: "/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg"
-                        media_type: movie
-                        adult: false
-                        original_language: en
-                        genre_ids:
-                        - 53
-                        - 80
-                        popularity: 93.13
-                        release_date: '1994-09-10'
-                        video: false
-                        vote_average: 8.487
-                        vote_count: 28087
-                      - backdrop_path: "/p1PLSI5Nw2krGxD7X4ulul1tDAk.jpg"
-                        id: 807
-                        title: Se7en
-                        original_title: Se7en
-                        overview: Two homicide detectives are on a desperate hunt for a serial killer whose
-                          crimes are based on the "seven deadly sins" in this dark and haunting film that
-                          takes viewers from the tortured remains of one victim to the next. The seasoned
-                          Det. Sommerset researches each sin in an effort to get inside the killer's mind,
-                          while his novice partner, Mills, scoffs at his efforts to unravel the case.
-                        poster_path: "/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg"
-                        media_type: movie
-                        adult: false
-                        original_language: en
-                        genre_ids:
-                        - 80
-                        - 9648
-                        - 53
-                        popularity: 134.274
-                        release_date: '1995-09-22'
-                        video: false
-                        vote_average: 8.4
-                        vote_count: 21147
-                      - backdrop_path: "/mzfx54nfDPTUXZOG48u4LaEheDy.jpg"
-                        id: 13
-                        title: Forrest Gump
-                        original_title: Forrest Gump
-                        overview: A man with a low IQ has accomplished great things in his life and been
-                          present during significant historic events—in each case, far exceeding what anyone
-                          imagined he could do. But despite all he has achieved, his one true love eludes
-                          him.
-                        poster_path: "/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg"
-                        media_type: movie
-                        adult: false
-                        original_language: en
-                        genre_ids:
-                        - 35
-                        - 18
-                        - 10749
-                        popularity: 115.011
-                        release_date: '1994-06-23'
-                        video: false
-                        vote_average: 8.47
-                        vote_count: 27620
-                      - backdrop_path: "/4bAwGmE9Sl4FeXoHWVWLXkURHbe.jpg"
-                        id: 59967
-                        title: Looper
-                        original_title: Looper
-                        overview: In the year 2044, time travel has not yet been invented but in 30 years
-                          it will have been. When the mob wants to get rid of someone, they will send their
-                          target into the past where a looper, a hired gun, like Joe is waiting to mop up.
-                          Joe is getting rich and life is good until the day the mob decides to close the
-                          loop, sending back Joe's future self for assassination.
-                        poster_path: "/sNjL6SqErDBE8OUZlrDLkexfsCj.jpg"
-                        media_type: movie
-                        adult: false
-                        original_language: en
-                        genre_ids:
-                        - 28
-                        - 53
-                        - 878
-                        popularity: 33.001
-                        release_date: '2012-09-26'
-                        video: false
-                        vote_average: 6.9
-                        vote_count: 10170
-                      - backdrop_path: "/icmmSD4vTTDKOq2vvdulafOGw93.jpg"
-                        id: 603
-                        title: The Matrix
-                        original_title: The Matrix
-                        overview: Set in the 22nd century, The Matrix tells the story of a computer hacker
-                          who joins a group of underground insurgents fighting the vast and powerful computers
-                          who now rule the earth.
-                        poster_path: "/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg"
-                        media_type: movie
-                        adult: false
-                        original_language: en
-                        genre_ids:
-                        - 28
-                        - 878
-                        popularity: 119.933
-                        release_date: '1999-03-31'
-                        video: false
-                        vote_average: 8.22
-                        vote_count: 25820
-                      - backdrop_path: "/qUq3QTr2KLvGIcN0GaaaYx9bbyH.jpg"                
-                      title: Cube
-                      original_title: Cube
-                      overview: A group of strangers find themselves trapped in a maze-like prison. It
-                        soon becomes clear that each of them possesses the peculiar skills necessary to
-                        escape, if they don't wind up dead first.
-                      poster_path: "/cRp5XzTdXs2BdvL4MF19HPP831z.jpg"
-                      media_type: movie
-                      adult: false
-                      original_language: en
-                      genre_ids:
-                      - 53
-                      - 878
-                      - 9648
-                      popularity: 24.408
-                      release_date: '1997-12-10'
-                      video: false
-                      vote_average: 6.809
-                      vote_count: 4759
-                    total_pages: 2
-                    total_results: 40
+                    example:  {}                          
 
   /movie/{movie_id}/release_dates:
     get:
@@ -7550,13 +8269,6 @@ paths:
       summary: Release Dates
       description: |
         This endpoint is used to get the release dates and certifications for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of object| Contains the list of data or items |
-        | iso_3166_1 | string  | he ISO 3166-1 alpha-2 country code. Represents the country or region for the data  | 
-        | release_dates | array of objects  | A list of release date objects associated with the collection |
       operationId: keywordReleaseDates
       parameters:
       - name: movie_id
@@ -7571,8 +8283,38 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
-                    example:                             
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier for the movie
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                            release_dates:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  certification:
+                                    type: string
+                                  descriptor:
+                                    type: array
+                                  iso_639_1:
+                                    type: string
+                                  note:
+                                    type: string
+                                  release_date:
+                                    type: string
+                                  type:
+                                    type: integer          
+                    example:
+                      id: 550                             
                       results:
                       - iso_3166_1: AE
                         release_dates:
@@ -7690,14 +8432,6 @@ paths:
       summary: Reviews
       description: |
         This endpoint is used to get the user reviews for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: keywordReviews
       parameters:
       - name: movie_id
@@ -7724,7 +8458,46 @@ paths:
               content:
                 application/json:
                   schema:
-                    $ref: '#/components/schemas/object'  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items 
+                        items:
+                          type: object
+                          properties:
+                            author:
+                              type: string
+                            author_details:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                username:
+                                  type: string
+                                avatar_path:
+                                  type: string
+                                rating:
+                                  type: string
+                            content:
+                              type: string
+                            created_at:
+                              type: string
+                            id:
+                              type: string
+                            updated_at:
+                              type: string
+                            url:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
                     example: 
                       page: 1
                       results:
@@ -7935,8 +8708,8 @@ paths:
                       id: 639576a62cefc200a2fd4f33
                       updated_at: '2022-12-13T20:53:10.226Z'
                       url: https://www.themoviedb.org/review/639576a62cefc200a2fd4f33
-                    total_pages: 1
-                    total_results: 8
+                      total_pages: 1
+                      total_results: 8
 
 
   /movie/{movie_id}/similar:
@@ -7946,13 +8719,6 @@ paths:
       summary: Similar
       description: |
         This endpoint is used to get the similar movies based on genres and keywords.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: keywordReviews
       parameters:
       - name: movie_id
@@ -7980,7 +8746,52 @@ paths:
                 application/json:
                   schema:
                     type: object  
-                    example:                             
+                    properties:
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items 
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            release_date:
+                              type: string
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
+                    example:        
+                      page: 1                     
                       results:
                       - adult: false
                         backdrop_path: "/3YAldML4EDyoC6RBpzceALigrAZ.jpg"
@@ -8147,12 +8958,7 @@ paths:
       summary: Translations
       description: |
         This endpoint is used to get the translations for a movi.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | translation| array of objects|	Indicates the translation of a movie  |
-      operationId: keywordTranslations
+      operationId: moviesTranslations
       parameters:
       - name: movie_id
         in: path
@@ -8167,7 +8973,26 @@ paths:
                 application/json:
                   schema:
                     type: object  
-                    example:                             
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      translations:
+                        type: array
+                        description: A list of available translations for the movie
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            english_name:
+                              type: string
+                    example:   
+                      id: 550                          
                       translations:
                       - iso_3166_1: SA
                         iso_639_1: ar
@@ -8324,11 +9149,6 @@ paths:
       summary: Videos
       description: |
         This endpoint is used to get the video for a movie.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of objects | Contains the list of data or items |
       operationId: keywordVideos
       parameters:
       - name: movie_id
@@ -8349,8 +9169,39 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
-                    example:                         
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            key:
+                              type: string
+                            site:
+                              type: string
+                            size:
+                              type: integer
+                            type:
+                              type: string
+                            official:
+                              type: boolean
+                            published_at:
+                              type: boolean
+                            id:
+                              type: integer
+                    example:    
+                      id: 500                     
                       results:
                       - iso_639_1: en
                         iso_3166_1: US
@@ -8382,11 +9233,6 @@ paths:
       summary: Watch Providers
       description: |
         This endpoint is used to get the list of streaming providers we have for a movie
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of object| Contains the list of data or items |
       operationId: keywordWatchProviders
       parameters:
       - name: movie_id
@@ -8402,7 +9248,15 @@ paths:
                 application/json:
                   schema:
                     type: object  
-                    example:                 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                    example:  
+                      id: 550               
                       results:
                         AE:
                           link: https://www.themoviedb.org/movie/550-fight-club/watch?locale=AE
@@ -8691,11 +9545,6 @@ paths:
       summary: Add Rating
       description: |
         This endpoint rate a movie and save it to your rated list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: moviesAddrating
       requestBody:
         required: true
@@ -8704,12 +9553,13 @@ paths:
             schema:
               type: object
               properties:
-                value:
+                RAW_BODY:
                   type: string
-                  description: The value of the rated movie.
-            example:
-              value: 8.5
-        description: The request body containing the value of the rated movie
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
+            example: 8.5
       parameters:
       - name: movie_id
         in: path
@@ -8735,7 +9585,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was success 
                     example: 
                       status_code: 1
                       status_message: Success
@@ -8746,11 +9603,6 @@ paths:
       summary: Delete Rating
       description: |
         This endpoint delete a user rating.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: moviesDeleterating
       parameters:
       - name: movie_id
@@ -8778,10 +9630,17 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was success 
                     example: 
                       status_code: 13
                       status_message: The item/record was deleted successfully
-
+              
   /network/{network_id}:
     get:
       tags:
@@ -8789,15 +9648,6 @@ paths:
       summary: Details
       description: |
         This endpoint get the network details.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | headquarter | string |	The location of the company office |
-        | homepage | string| The URL of the company or official website  |
-        | id | integer | A unique identifier for the company.  |
-        | logo_path | string| The URL to the logo image representing the company  |
-        | name | string | The official name of the company |
-        | origin_country | string | The country where the company was established  |
       operationId: networkDetails
       parameters:
       - name: network_id
@@ -8812,7 +9662,26 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      headquarter:
+                        type: string
+                        description: The location of the company office
+                      homepage:
+                        type: string
+                        description: The URL of the company or official website
+                      id:
+                        type: integer
+                        description: A unique identifier for the company
+                      logo_path:
+                        type: string
+                        description: The URL to the logo image representing the company
+                      name:
+                        type: string
+                        description: The official name of the company
+                      origin_country:
+                        type: string
+                        description: The country where the company was established 
                     example: 
                       homepage: http://www.markiza.sk
                       id: 550
