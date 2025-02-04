@@ -9696,11 +9696,6 @@ paths:
       summary: Alternative Names
       description: |
         This endpoint get the alternative names of a network.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection.  |
-        | results | array of objects | Contains the list of data or items |
       operationId: networkAlternativenames
       parameters:
       - name: network_id
@@ -9716,6 +9711,20 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: string
+                        description: A unique identifier
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            name:
+                              type: string
+                            type:
+                              type: string
                     example: 
                       id: 550
                       results:
@@ -9731,11 +9740,6 @@ paths:
       summary: Images
       description: |
         This endpoint get the TV network logos by id.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection.  |
-        | logos | array of objects | Collection of objects, where each object represents a logo  |
       operationId: networkImages
       parameters:
       - name: network_id
@@ -9750,7 +9754,33 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: A unique identifier
+                      logos:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            aspect_ratio:
+                              type: number
+                            file_path:
+                              type: string
+                            height:
+                              type: integer
+                            id:
+                              type: string
+                            file_type:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            width:
+                              type: integer
                     example: 
                       id: 550
                       logos:
@@ -9778,13 +9808,6 @@ paths:
       summary: Popular
       description: |
         This endpoint is used to get a list of people ordered by popularity.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset |
       operationId: peoplelistPopular
       parameters:
       - name: language
@@ -9805,7 +9828,72 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object      
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for:
+                              type: array
+                              items:
+                                type: object
+                                properties: 
+                                  adult:
+                                    type: boolean
+                                  backdrop_path:
+                                    type: string
+                                  id:
+                                    type: integer
+                                  title:
+                                    type: string
+                                  original_language:
+                                    type: string
+                                  original_title:
+                                    type: string
+                                  overview:
+                                    type: string
+                                  poster_path:
+                                    type: string
+                                  media_type:
+                                    type: string
+                                  genre_ids:
+                                    type: array
+                                  popularity:
+                                    type: number
+                                  release_date:
+                                    type: string
+                                  video:
+                                    type: boolean
+                                  vote_average:
+                                    type: number
+                                  vote_count:
+                                    type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example:
                       page: 1
                       results:
@@ -10085,22 +10173,6 @@ paths:
       summary: Details
       description: |
         This endpoint is used to query the top level details of a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean |	Indicates whether the person is is an adult |
-        | also_known_as | array of string | A list of alternative names |
-        | biography | string  | A list of alternate names or aliases by which the person is known.  | 
-        | birthday | string  | A detailed description of the person's life, career, and achievements  |
-        | deathday | string  | The date of birth of the person, formatted as YYYY-MM-DD  |
-        | gender | integer  | The gender of the person, represented as an integer (e.g., 1 for female, 2 for male)  |
-        | id | integer  | A unique identifier assigned to the person |
-        | imdb_id | string  | The unique IMDb identifier associated with the person |
-        | known_for_department | string | The primary department the person is known for|
-        | name | string  | The full name of the person |
-        | place_of_birth | string  | The city, state, or country where the person was born |
-        | popularity | number  | A numeric value indicating the person's popularity |   
-        | profile_path | string  | The relative path or URL to the person's profile image |   
       operationId: peopleDetails
       parameters:
       - name: person_id
@@ -10127,7 +10199,50 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the person is an adult
+                      also_known_as:
+                        type: array
+                        description: A list of alternative names
+                      biography:
+                        type: string
+                        description: A list of alternate names or aliases by which the person is known.
+                      birthday:
+                        type: string
+                        description: A detailed description of the person’s life, career, and achievements
+                      deathday:
+                        type: string
+                        description: The date of birth of the person, formatted as YYYY-MM-DD
+                      gender:
+                        type: integer
+                        description: The gender of the person, represented as an integer (e.g., 1 for female, 2 for male)
+                      homepage:
+                        type: string
+                        description: The URL of the homepage
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the person
+                      imdb_id:
+                        type: string
+                        description: The unique IMDb identifier associated with the person
+                      known_for_department:
+                        type: string
+                        description: The primary department the person is known for
+                      name:
+                        type: string
+                        description: The full name of the person
+                      place_of_birth:
+                        type: string
+                        description: The city, state, or country where the person was born
+                      popularity:
+                        type: number
+                        description: A numeric value indicating the person’s popularity
+                      profile_path:
+                        type: string
+                        description: The relative path or URL to the person’s profile image 
                     example: 
                       adult: false
                       also_known_as: []
@@ -10151,11 +10266,6 @@ paths:
       summary: Changes
       description: |
         This endpoint is used to get the recent changes for a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | changes | boolean | Indicates whether there have been any changes |
-        | key | array of string | A list of unique identifiers or keys | 
       operationId: peopleChanges
       parameters:
       - name: person_id
@@ -10188,7 +10298,29 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      changes:
+                        type: boolean
+                        description: Indicates whether there have been any changes.
+                      key:
+                        type: array
+                        description: A list of unique identifiers or keys.
+                        items:
+                          type: object
+                          properties: 
+                            id:
+                              type: string
+                            action:
+                              type: string
+                            time:
+                              type: string
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            value:
+                              type: string
                     example: 
                       changes:
                       - key: biography
@@ -10218,12 +10350,6 @@ paths:
       summary: Combined Credits
       description: |
         This endpoint is used to get the combined movie and TV credits that belong to a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of objects | An array containing objects that represent the cast members involved in a project |
-        | crew | array of objects | An array containing objects that represent the crew members who worked on a project |
-        | id | integer | A unique identifier for the project  | 
       operationId: peopleCombinecredits
       parameters:
       - name: person_id
@@ -10244,7 +10370,95 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object   
+                    properties:
+                      cast:
+                        type: array
+                        description: Contains cast members involved in a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            release_date:
+                              type: string
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            character:
+                              type: string
+                            credit_id:
+                              type: string
+                            order:
+                              type: integer
+                            media_type:
+                              type: string
+                      crew: 
+                        type: array
+                        description: Contains crew members who worked on a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            release_date:
+                              type: string
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            credit_id:
+                              type: string
+                            department:
+                              type: string
+                            job:
+                              type: string
+                            media_type:
+                              type: string
+                      id:
+                        type: integer
+                        description: A unique identifier.
                     example: 
                       cast:
                       - adult: false
@@ -10465,7 +10679,7 @@ paths:
                         job: Executive Producer
                         media_type: tv
                       id: 550
-              
+                  
   /person/{person_id}/external_ids:
     get:
       tags:
@@ -10473,20 +10687,6 @@ paths:
       summary: External IDs
       description: |
         This endpoint is used to get the external ID's that belong to a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier |
-        | freebase_mid | string | A unique identifier for the entity in the Freebase database |
-        | freebase_id | string | A string identifier for the entity in the Freebase knowledge graph |
-        | imdb_id | string | A unique identifier for the entity in the Internet Movie Database (IMDb) |
-        | tvrage_id | integer | A unique identifier for the entity in TVRage |
-        | wikidata_id | string | A unique identifier for the entity in Wikidata |
-        | facebook_id | string | A unique identifier for the entity on Facebook |
-        | instagram_id | string | A unique identifier for the entity on Instagram |
-        | tiktok_id | string | A unique identifier for the entity on TikTok | 
-        | twitter_id | string |A unique identifier for the entity on Twitter  | 
-        | youtube_id | string | A unique identifier for the entity on YouTube |
       operationId: peopleExternamID
       parameters:
       - name: person_id
@@ -10501,7 +10701,41 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier.
+                      freebase_mid:
+                        type: string
+                        description: A unique identifier for the entity in the Freebase database.
+                      freebase_id:
+                        type: string
+                        description: A string identifier for the entity in the Freebase knowledge graph.
+                      imdb_id:
+                        type: string
+                        description: A unique identifier for the entity in the Internet Movie Database (IMDb).
+                      tvrage_id:
+                        type: integer
+                        description: A unique identifier for the entity in TVRage.
+                      wikidata_id:
+                        type: string
+                        description: A unique identifier for the entity in Wikidata.
+                      facebook_id:
+                        type: string
+                        description: A unique identifier for the entity on Facebook.
+                      instagram_id:
+                        type: string
+                        description: A unique identifier for the entity on Instagram.
+                      tiktok_id:
+                        type: string
+                        description: A unique identifier for the entity on TikTok.
+                      twitter_id:
+                        type: string
+                        description: A unique identifier for the entity on Twitter.
+                      youtube_id:
+                        type: string
+                        description: A unique identifier for the entity on YouTube. 
                     example: 
                       id: 550
                       freebase_mid: "/m/02r6vrc"
@@ -10522,11 +10756,6 @@ paths:
       summary: Images
       description: |
         This endpoint is used to get the profile images that belong to a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | 	integer	A unique identifier |
-        | profile | string | Represents the profile information. |
       operationId: peopleImages
       parameters:
       - name: person_id
@@ -10541,7 +10770,31 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: string
+                        description: A unique identifier.
+                      profiles:
+                        type: array
+                        description: Represents the profile information.
+                        items:
+                          type: object
+                          properties: 
+                            aspect_ratio:
+                              type: number
+                            height:
+                              type: integer
+                            iso_639_1:
+                              type: string
+                            file_path:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            width:
+                              type: integer 
                     example: 
                       id: 550
                       profiles:
@@ -10560,22 +10813,6 @@ paths:
       summary: Latest
       description: |
         This endpoint is used to get the newest created person. This is a live response and will continuously change
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean |	Indicates whether the person is is an adult |
-        | also_known_as | array of string | A list of alternative names |
-        | biography | string  | A list of alternate names or aliases by which the person is known.  | 
-        | birthday | string  | A detailed description of the person's life, career, and achievements  |
-        | deathday | string  | The date of birth of the person, formatted as YYYY-MM-DD  |
-        | gender | integer  | The gender of the person, represented as an integer (e.g., 1 for female, 2 for male)  |
-        | id | integer  | A unique identifier assigned to the person |
-        | imdb_id | string  | The unique IMDb identifier associated with the person |
-        | known_for_department | string | The primary department the person is known for|
-        | name | string  | The full name of the person |
-        | place_of_birth | string  | The city, state, or country where the person was born |
-        | popularity | number  | A numeric value indicating the person's popularity |   
-        | profile_path | string  | The relative path or URL to the person's profile image | 
       operationId: peopleLatest
       responses:
             200:
@@ -10584,6 +10821,49 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the person is an adult
+                      also_known_as:
+                        type: array
+                        description: A list of alternative names
+                      biography:
+                        type: string
+                        description: A list of alternate names or aliases by which the person is known.
+                      birthday:
+                        type: string
+                        description: A detailed description of the person’s life, career, and achievements
+                      deathday:
+                        type: string
+                        description: The date of birth of the person, formatted as YYYY-MM-DD
+                      gender:
+                        type: integer
+                        description: The gender of the person, represented as an integer (e.g., 1 for female, 2 for male)
+                      homepage:
+                        type: string
+                        description: The URL of the homepage
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the person
+                      imdb_id:
+                        type: string
+                        description: The unique IMDb identifier associated with the person
+                      known_for_department:
+                        type: string
+                        description: The primary department the person is known for
+                      name:
+                        type: string
+                        description: The full name of the person
+                      place_of_birth:
+                        type: string
+                        description: The city, state, or country where the person was born
+                      popularity:
+                        type: number
+                        description: A numeric value indicating the person’s popularity
+                      profile_path:
+                        type: string
+                        description: The relative path or URL to the person’s profile image 
                     example: 
                       adult: false
                       also_known_as: []
@@ -10607,12 +10887,6 @@ paths:
       summary: Movie Credits
       description: |
         This endpoint is used to get the movie credits for a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of objectsn |	An array containing objects that represent the cast members involved in a project |
-        | crew | array of objects | An array containing objects that represent the crew members who worked on a project |
-        | id | integer  | A unique identifier  | 
       operationId: peopleMoviecredits
       parameters:
       - name: person_id
@@ -10634,6 +10908,94 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      cast:
+                        type: array
+                        description: Contains cast members involved in a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            release_date:
+                              type: string
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            character:
+                              type: string
+                            credit_id:
+                              type: string
+                            order:
+                              type: integer
+                            media_type:
+                              type: string
+                      crew: 
+                        type: array
+                        description: Contains crew members who worked on a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            release_date:
+                              type: string
+                            title:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            credit_id:
+                              type: string
+                            department:
+                              type: string
+                            job:
+                              type: string
+                            media_type:
+                              type: string
+                      id:
+                        type: integer
+                        description: A unique identifier.
                     example: 
                       cast:
                       - adult: false
@@ -10778,12 +11140,6 @@ paths:
       summary: TV Credits
       description: |
         This endpoint is used to get the movie credits for a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of objectsn |	An array containing objects that represent the cast members involved in a project |
-        | crew | array of objects | An array containing objects that represent the crew members who worked on a project |
-        | id | integer  | A unique identifier  | 
       operationId: peopleTVcredits
       parameters:
       - name: person_id
@@ -10804,7 +11160,89 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      cast:
+                        type: array
+                        description: Contains cast members involved in a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            first_air_date:
+                              type: string
+                            name:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            character:
+                              type: string
+                            credit_id:
+                              type: string
+                            episode_count:
+                              type: integer
+                      crew: 
+                        type: array
+                        description: Contains crew members who worked on a project
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            id:
+                              type: integer
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            popularity:
+                              type: number
+                            poster_path:
+                              type: string
+                            first_air_date:
+                              type: string
+                            name:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            credit_id:
+                              type: string
+                            department:
+                              type: string
+                            episode_count:
+                              type: integer
+                            job:
+                              type: string
+                      id:
+                        type: integer
+                        description: A unique identifier. 
                     example: 
                       cast: []
                       crew:
@@ -10910,14 +11348,6 @@ paths:
       summary: Tagged Images
       description: |
         This endpoint is used to get the tagged images for a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: peopleTaggedImages
       parameters:
       - name: person_id
@@ -10938,7 +11368,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items 
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       id: 550
                       page: 1
@@ -10953,11 +11399,6 @@ paths:
       summary: Translations
       description: |
         This endpoint is used to get the translations that belong to a person.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        |translations | array of objects | 	Indicates the translation of a person	   |
       operationId: peopleTranslations
       parameters:
       - name: person_id
@@ -10973,6 +11414,26 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      translations:
+                        type: array
+                        description: A list of available translations for the movie
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            english_name:
+                              type: string
+                            data:
+                              type: object
                     example: 
                       id: 550
                       translations:
@@ -10992,20 +11453,6 @@ paths:
       summary: Details
       description: |
         This endpoint is used to retrieve the details of a movie or TV show review.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | author | string | The name of the person that created the content    |
-        | author_id | object  | An object containing detailed information about the author |
-        | content | string | The main textual or descriptive content of the review  |
-        | created_at | string |The date and time when it was review  |
-        | iso_639_1 | string | A two-letter code that represents language   |
-        | media_id | integer | A unique identifier  |
-        | media_title | string | The title or name of the associated media content  |
-        | media_type | string | The type of media content associated with the collection  |
-        | updated_at | string | The date and time when the review was last updated  |
-        | url | string | A web address (URL) that provides a link to the review |
       operationId: reviewsDetails
       parameters:
       - name: review_id
@@ -11020,7 +11467,47 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier
+                      author:
+                        type: string
+                      author_details:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          username:
+                            type: string
+                          avatar_path:
+                            type: string
+                          rating:
+                            type: string
+                      content:
+                        type: string
+                      created_at:
+                        type: string
+                      iso_639_1:
+                        type: string
+                        description: A two-letter code that represents the language.
+                      media_id:
+                        type: integer
+                        description: A unique identifier for the associated media.
+                      media_title:
+                        type: string
+                        description: The title or name of the associated media content.
+                      media_type:
+                        type: string
+                        description: The type of media content associated with the collection.
+                      updated_at:
+                        type: string
+                        format: date-time
+                        description: The date and time when the review was last updated.
+                      url:
+                        type: string
+                        description: A web address (URL) that provides a link to the review.
                     example: 
                       id: 640b2aeecaaca20079decdcc
                       author: Ricardo Oliveira
@@ -11059,13 +11546,6 @@ paths:
       summary: Collection
       description: |
         This endpoint is used to search for collections by their original, translated and alternative name.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchCollection
       parameters:
       - name: query
@@ -11105,8 +11585,39 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string 
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
                     example: 
-                      id: 
                         page: 1
                         results:
                         - adult: false
@@ -11131,13 +11642,6 @@ paths:
       summary: Company
       description: |
         This endpoint is used to search for companies by their original and alternative names.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchCompany
       parameters:
       - name: query
@@ -11159,6 +11663,30 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            id:
+                              type: integer
+                            logo_path:
+                              type: string
+                            name:
+                              type: string
+                            origin_country:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -11252,13 +11780,6 @@ paths:
       summary: Keyword
       description: |
         This endpoint is used to search for keywords by their name.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchKeyword
       parameters:
       - name: query
@@ -11279,7 +11800,27 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       page: 1
                       results:
@@ -11333,13 +11874,6 @@ paths:
       summary: Movies
       description: |
         This endpoint is used to search for movies by their original, translated and alternative titles.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchMovie
       parameters:
       - name: query
@@ -11391,6 +11925,50 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -11772,13 +12350,6 @@ paths:
       summary: Search-Multi
       description: |
         This endpoint use multi search when you want to search for movies, TV shows and people in a single request.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchMulti
       parameters:
       - name: query
@@ -11811,7 +12382,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       page: 1
                       results:
@@ -12281,13 +12898,6 @@ paths:
       summary: Person
       description: |
         This endpoint search for people by their name and also known as names.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: searchPerson
       parameters:
       - name: query
@@ -12320,7 +12930,98 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items 
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                              description: Indicates whether the person is an adult
+                            gender:
+                              type: integer
+                              description: The gender of the person, represented as an integer (e.g., 1 for female, 2 for male)
+                            id:
+                              type: integer
+                              description: A unique identifier assigned to the person
+                            known_for_department:
+                              type: string
+                              description: The primary department the person is known for
+                            name:
+                              type: string
+                              description: The full name of the person
+                            original_name:
+                              type: string
+                              description: The city, state, or country where the person was born
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            known_for:
+                              type: array
+                              description: A list of media items the person is known for
+                              items:
+                                type: object
+                                properties:
+                                  adult:
+                                    type: boolean
+                                    description: Indicates whether the media item is for adults
+                                  backdrop_path:
+                                    type: string
+                                    description: The relative path to the backdrop image of the media item
+                                  id:
+                                    type: integer
+                                    description: A unique identifier for the media item
+                                  title:
+                                    type: string
+                                    description: The title of the media item
+                                  original_language:
+                                    type: string
+                                    description: The original language code of the media item
+                                  original_title:
+                                    type: string
+                                    description: The original title of the media item
+                                  overview:
+                                    type: string
+                                    description: A brief description or overview of the media item
+                                  poster_path:
+                                    type: string
+                                    description: The relative path or URL to the poster image of the media item
+                                  media_type:
+                                    type: string
+                                    description: The type of media (e.g., movie, tv)
+                                  genre_ids:
+                                    type: array
+                                    description: A list of genre identifiers associated with the media item
+                                    items:
+                                      type: integer
+                                  popularity:
+                                    type: number
+                                    description: A numeric value indicating the media item's popularity
+                                  release_date:
+                                    type: string
+                                    description: The release date of the media item in YYYY-MM-DD format
+                                  video:
+                                    type: boolean
+                                    description: Indicates whether the media item contains video content
+                                  vote_average:
+                                    type: number
+                                    description: The average user vote for the media item
+                                  vote_count:
+                                    type: integer
+                                    description: The total number of votes the media item has received   
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
                     example:
                       page: 1
                       results:
@@ -12400,21 +13101,13 @@ paths:
                       total_pages: 1
                       total_results: 1 
                            
-
   /search/tv:
     get:
       tags:
         - Search
       summary:  TV Shows
       description: |
-        This endpoint search for TV shows by their original, translated and also known as names..
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
+        This endpoint search for TV shows by their original, translated and also known as names.
       operationId: searchPerson
       parameters:
       - name: query
@@ -12460,6 +13153,52 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            origin_country:
+                              type: string
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -12493,13 +13232,6 @@ paths:
       summary: All
       description: |
         This endpoint get the trending movies, TV shows and people.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: trendingAll
       parameters:
       - name: time_window
@@ -12521,6 +13253,52 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -12822,13 +13600,6 @@ paths:
       summary: Movies
       description: |
         This endpoint get the trending movies on TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: trendingMovies
       parameters:
       - name: time_window
@@ -12850,6 +13621,52 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            title:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            release_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -13275,13 +14092,6 @@ paths:
       summary: People
       description: |
         This endpoint get the trending people on TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: trendingPerson
       parameters:
       - name: time_window
@@ -13302,7 +14112,100 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                              description: Indicates whether the person is an adult
+                            gender:
+                              type: integer
+                              description: The gender of the person (e.g., 1 for female, 2 for male)
+                            id:
+                              type: integer
+                              description: A unique identifier for the person
+                            known_for_department:
+                              type: string
+                              description: The primary department the person is known for
+                            name:
+                              type: string
+                              description: The full name of the person
+                            original_name:
+                              type: string
+                              description: The original or alternate name of the person
+                            popularity:
+                              type: number
+                              description: A numeric value indicating the person’s popularity
+                            profile_path:
+                              type: string
+                              description: The relative path or URL to the person's profile image
+                            known_for:
+                              type: array
+                              description: A list of media items the person is known for
+                              items:
+                                type: object
+                                properties:
+                                  adult:
+                                    type: boolean
+                                    description: Indicates whether the media item is for adults
+                                  backdrop_path:
+                                    type: string
+                                    description: The relative path to the backdrop image of the media item
+                                  id:
+                                    type: integer
+                                    description: A unique identifier for the media item
+                                  title:
+                                    type: string
+                                    description: The title of the media item
+                                  original_language:
+                                    type: string
+                                    description: The original language code of the media item
+                                  original_title:
+                                    type: string
+                                    description: The original title of the media item
+                                  overview:
+                                    type: string
+                                    description: A brief description or overview of the media item
+                                  poster_path:
+                                    type: string
+                                    description: The relative path or URL to the poster image of the media item
+                                  media_type:
+                                    type: string
+                                    description: The type of media (e.g., movie, tv)
+                                  genre_ids:
+                                    type: array
+                                    description: A list of genre identifiers associated with the media item
+                                    items:
+                                      type: integer
+                                  popularity:
+                                    type: number
+                                    description: A numeric value indicating the media item's popularity
+                                  release_date:
+                                    type: string
+                                    description: The release date of the media item in YYYY-MM-DD format
+                                  video:
+                                    type: boolean
+                                    description: Indicates whether the media item contains video content
+                                  vote_average:
+                                    type: number
+                                    description: The average user vote for the media item
+                                  vote_count:
+                                    type: integer
+                                    description: The total number of votes the media item has received
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
                     example:
                       page: 1
                       results:
@@ -13531,13 +14434,6 @@ paths:
       summary: TV
       description: |
         This endpoint get the trending people on TMDB.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: trendingTV
       parameters:
       - name: time_window
@@ -13558,7 +14454,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:

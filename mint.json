@@ -267,9 +267,65 @@
     },
 
     {
-      "group": "PEOPLE - LISTS",
+      "group": "PEOPLE LISTS",
       "pages": [
         "api-reference/people-lists/popular"
+      ]
+    },
+
+    {
+      "group": "PEOPLE",
+      "pages": [
+        "api-reference/people/details",
+        "api-reference/people/changes",
+        "api-reference/people/combined-credits",
+        "api-reference/people/external-ids",
+        "api-reference/people/images",
+        "api-reference/people/latest",
+        "api-reference/people/movie-credits",
+        "api-reference/people/tv-credits",
+        "api-reference/people/tagged-images",
+        "api-reference/people/translations"   
+      ]
+    },
+
+    {
+      "group": "REVIEWS",
+      "pages": [
+        "api-reference/reviews/details"
+      ]
+    },
+
+    {
+      "group": "SEARCH",
+      "pages": [
+        "api-reference/search/collection",
+        "api-reference/search/company",
+        "api-reference/search/keyword",
+        "api-reference/search/movies",
+        "api-reference/search/search-multi",
+        "api-reference/search/person",    
+        "api-reference/search/tv-shows"
+      ]
+    },
+
+    {
+      "group": "TRENDING",
+      "pages": [
+        "api-reference/trending/all",
+        "api-reference/trending/movies",
+        "api-reference/trending/people",
+        "api-reference/trending/tv"
+      ]
+    },
+
+    {
+      "group": "TV SERIES LISTS",
+      "pages": [
+        "api-reference/tv-series-lists/airing-today",
+        "api-reference/tv-series-lists/on-the-air",
+        "api-reference/tv-series-lists/popular",
+        "api-reference/tv-series-lists/top-rated"
       ]
     }
 
