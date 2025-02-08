@@ -327,6 +327,83 @@
         "api-reference/tv-series-lists/popular",
         "api-reference/tv-series-lists/top-rated"
       ]
+    },
+
+    {
+      "group": "TV SERIES",
+      "pages": [
+        "api-reference/tv-series/details",
+        "api-reference/tv-series/account-state",
+        "api-reference/tv-series/aggregate-credits",
+        "api-reference/tv-series/alternative-titles",
+        "api-reference/tv-series/changes",
+        "api-reference/tv-series/content-ratings",
+        "api-reference/tv-series/credits",
+        "api-reference/tv-series/episode-groups",
+        "api-reference/tv-series/external-ids",
+        "api-reference/tv-series/images",
+        "api-reference/tv-series/keywords",
+        "api-reference/tv-series/latest",
+        "api-reference/tv-series/lists",
+        "api-reference/tv-series/recommendations",
+        "api-reference/tv-series/reviews",
+        "api-reference/tv-series/screened-theatrically",
+        "api-reference/tv-series/similar",
+        "api-reference/tv-series/translations",
+        "api-reference/tv-series/videos",
+        "api-reference/tv-series/watch-providers",
+        "api-reference/tv-series/add-rating",
+        "api-reference/tv-series/delete-rating"
+      ]
+    },
+
+    {
+      "group": "TV SEASONS",
+      "pages": [
+        "api-reference/tv-seasons/details",
+        "api-reference/tv-seasons/account-states",
+        "api-reference/tv-seasons/aggregate-credits",
+        "api-reference/tv-seasons/changes",
+        "api-reference/tv-seasons/credits",
+        "api-reference/tv-seasons/external-ids",
+        "api-reference/tv-seasons/images",
+        "api-reference/tv-seasons/translations",
+        "api-reference/tv-seasons/videos",
+        "api-reference/tv-seasons/watch-providers"
+      ]
+    },
+
+    {
+      "group": "TV EPISODES",
+      "pages": [
+        "api-reference/tv-episodes/details",
+        "api-reference/tv-episodes/account-states",
+        "api-reference/tv-episodes/changes",
+        "api-reference/tv-episodes/credits",
+        "api-reference/tv-episodes/external-ids",
+        "api-reference/tv-episodes/images",
+        "api-reference/tv-episodes/translations",
+        "api-reference/tv-episodes/videos",
+        "api-reference/tv-episodes/add-rating",
+        "api-reference/tv-episodes/delete-rating"
+      ]
+    },
+
+    {
+      "group": "TV EPISODE GROUPS",
+      "pages": [
+        "api-reference/tv-episode-groups/details"
+      ]
+    },
+
+    {
+      "group": "WATCH PROVIDERS",
+      "pages": [
+        "api-reference/watch-providers/available-regions",
+        "api-reference/watch-providers/movie-providers",
+        "api-reference/watch-providers/tv-providers"
+        
+      ]
     }
 
     

@@ -14761,14 +14761,7 @@ paths:
         - TV Series Lists
       summary: Airing Today
       description: |
-        This endpoint get a list of TV shows airing today
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
+        This endpoint get a list of TV shows airing today.
       operationId: tvseriesAiringToday
       parameters:
       - name: language
@@ -14796,6 +14789,52 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example: 
                       page: 1
                       results:
@@ -15198,14 +15237,7 @@ paths:
         - TV Series Lists
       summary: On the Air
       description: |
-        This endpoint get a list of TV shows that air in the next 7 days
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
+        This endpoint get a list of TV shows that air in the next 7 days.
       operationId: tvseriesAiringToday
       parameters:
       - name: language
@@ -15232,7 +15264,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset   
                     example: 
                       page: 1
                       results:
@@ -15634,13 +15712,6 @@ paths:
       summary: Popular
       description: |
         This endpoint get list of TV shows ordered by popularity.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: tvseriesPopular
       parameters:
       - name: language
@@ -15661,7 +15732,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example:
                       page: 1
                       results:
@@ -16075,13 +16192,6 @@ paths:
       summary: Top Rated
       description: |
         This endpoint get a list of TV shows ordered by rating.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: tvseriesAiringToday
       parameters:
       - name: language
@@ -16102,7 +16212,53 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset  
                     example: 
                       page: 1
                       results:
@@ -16550,43 +16706,7 @@ paths:
         - TV Series
       summary: Details
       description: |
-        This endpoint get the details of a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean | Indicates whether the content is intended for adult audiences	|
-        | backdrop_path | string | The relative path to the backdrop image for the content  |
-        | created_by | string | Represents the creator(s) of the show |
-        | episode_run_time | array of integers | Specifies the runtime of each episode in minutes |
-        | first_air_date | string | The date when the show first premiered, typically in the format YYYY-MM-DD  |
-        | genres | array of objects | A list of genres associated with the content, each represented as an object  | 
-        | homepage | string | The URL to the official website of the content  | 
-        | id | integer | A unique identifier assigned to the content  | 
-        | in_production |  boolean   | Indicates whether the show is still in production (true) or has been concluded (false) |
-        | language | array of string | The language in which the content was originally produced, following ISO 639-1 codes  | 
-        | last_air_date | string | The date of the last aired episode, typically in the format YYYY-MM-DD |
-        | last_episode_to_air | object | The date of the last aired episode, typically in the format YYYY-MM-DD |
-        | name| string | The official name or title of the series | 
-        | next_episode_to_air | string | The air date of the upcoming episode, if available, typically in the format YYYY-MM-DD |   
-        | networks | array of objects | Details of the network(s) that broadcast the series | 
-        | number_of_episodes | integer | The total count of episodes in the series  | 
-        | number_of_seasons | integer | The total count of seasons in the series | 
-        | origin_country | array of strings | The country or countries where the series originated, represented by their respective codes  | 
-        | original_language | strings | The language in which the series was originally produced, represented as a language code  | 
-        | original_name | string | The original title of the series  |  
-        | overview | string | A brief description or synopsis of the series  |  
-        | popularity | number | A numerical representation of the content's popularity, typically based on audience engagement  |
-        | poster_path | string | The relative path to the poster image for the content | 
-        | production_company | array of objects | A list of production companies involved in creating the content  |
-        | production_countries | array of objects | A list of countries where the content was produced  | 
-        | season | array of objects | Represents a collection of seasons in the series  |  
-        | spoken_languages | array of objects | A list of languages spoken in the content, each represented as an object |   
-        | status | string | The current status of the series | 
-        | tagline | string | A tagline or short phrase associated with the content  | 
-        | title | string | The official or display title of the content  | 
-        | type| boolean | Represents the type of content  |
-        | vote_average | number | The average rating given to the content by users  | 
-        | vote_count | integer | The total number of votes or ratings received for the content  |  
+        This endpoint get the details of a TV show. 
       operationId: tvseriesDetails
       parameters:
       - name: series_id
@@ -16614,6 +16734,185 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the content is intended for adult audiences.
+                      backdrop_path:
+                        type: string
+                        description: The relative path to the backdrop image for the content.
+                      created_by:
+                        type: string
+                        description: Represents the creator(s) of the show.
+                      episode_run_time:
+                        type: array
+                        description: Specifies the runtime of each episode in minutes.
+                      first_air_date:
+                        type: string
+                        description: The date when the show first premiered, typically in the format YYYY-MM-DD.
+                      genres:
+                        type: array
+                        description: A list of genres associated with the content, each represented as an object.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                      homepage:
+                        type: string
+                        description: The URL to the official website of the content.
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content.
+                      in_production:
+                        type: boolean
+                        description: Indicates whether the show is still in production (true) or has been concluded (false).
+                      language:
+                        type: array
+                        description: The language(s) in which the content was originally produced, following ISO 639-1 codes.
+                      last_air_date:
+                        type: string
+                        description: The date of the last aired episode, typically in the format YYYY-MM-DD.
+                      last_episode_to_air:
+                        type: object
+                        description: Details of the last aired episode.
+                        properties:
+                          id:
+                            type: integer
+                          name:
+                            type: string
+                          air_date:
+                            type: string
+                          overview:
+                            type: string
+                      name:
+                        type: string
+                        description: The official name or title of the series.
+                      next_episode_to_air:
+                        type: string
+                        description: The air date of the upcoming episode, if available, typically in the format YYYY-MM-DD.
+                      networks:
+                        type: array
+                        description: Details of the network(s) that broadcast the series.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: The network's unique identifier.
+                            name:
+                              type: string
+                              description: The name of the network.
+                            logo_path:
+                              type: string
+                              description: The relative path to the network's logo.
+                            origin_country:
+                              type: string
+                              description: The country where the network is based.
+                      number_of_episodes:
+                        type: integer
+                        description: The total count of episodes in the series.
+                      number_of_seasons:
+                        type: integer
+                        description: The total count of seasons in the series.
+                      origin_country:
+                        type: array
+                        description: The country or countries where the series originated, represented by their respective codes.
+                      original_language:
+                        type: string
+                        description: The language in which the series was originally produced, represented as a language code.
+                      original_name:
+                        type: string
+                        description: The original title of the series.
+                      overview:
+                        type: string
+                        description: A brief description or synopsis of the series.
+                      popularity:
+                        type: number
+                        description: A numerical representation of the content's popularity, typically based on audience engagement.
+                      poster_path:
+                        type: string
+                        description: The relative path to the poster image for the content.
+                      production_company:
+                        type: array
+                        description: A list of production companies involved in creating the content.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: A unique identifier for the company.
+                            name:
+                              type: string
+                              description: The name of the company.
+                            logo_path:
+                              type: string
+                              description: The relative path to the company's logo.
+                            origin_country:
+                              type: string
+                              description: The country where the company is based.
+                      production_countries:
+                        type: array
+                        description: A list of countries where the content was produced.
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                              description: The ISO 3166-1 country code.
+                            name:
+                              type: string
+                              description: The name of the country.
+                      season:
+                        type: array
+                        description: Represents a collection of seasons in the series.
+                        items:
+                          type: object
+                          properties:
+                            season_number:
+                              type: integer
+                              description: The season number.
+                            episode_count:
+                              type: integer
+                              description: The number of episodes in the season.
+                            air_date:
+                              type: string
+                              description: The air date of the season's first episode.
+                            poster_path:
+                              type: string
+                              description: The poster image for the season.
+                      spoken_languages:
+                        type: array
+                        description: A list of languages spoken in the content, each represented as an object.
+                        items:
+                          type: object
+                          properties:
+                            iso_639_1:
+                              type: string
+                              description: The ISO 639-1 language code.
+                            name:
+                              type: string
+                              description: The name of the language.
+                      status:
+                        type: string
+                        description: The current status of the series.
+                      tagline:
+                        type: string
+                        description: A tagline or short phrase associated with the content.
+                      title:
+                        type: string
+                        description: The official or display title of the content.
+                      type:
+                        type: boolean
+                        description: Represents the type of content.
+                      vote_average:
+                        type: number
+                        description: The average rating given to the content by users.
+                      vote_count:
+                        type: integer
+                        description: The total number of votes or ratings received for the content.
                     example:
                       adult: false
                       backdrop_path: "/jeP3It0ZPY3SKW3632qwLkkIZv3.jpg"
@@ -16762,13 +17061,6 @@ paths:
       summary: Account State
       description: |
         This endpoint get the details of a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier | 
-        | favorite |boolean | Indicates whether the series has been marked as a favorite by the user | 
-        | rated | aobjects | Stores information about the user’s rating for the content  | 
-        | watchlist | boolean | Indicates whether the content is added to the user's watchlist for future viewing |
       operationId: tvseriesAccountState
       parameters:
       - name: series_id
@@ -16795,7 +17087,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier for the content.
+                      favorite:
+                        type: boolean
+                        description: Indicates whether the series has been marked as a favorite by the user.
+                      rated:
+                        type: object
+                        description: Stores information about the user’s rating for the content.
+                        properties:
+                          value:
+                            type: number
+                      watchlist:
+                        type: boolean
+                        description: Indicates whether the content is added to the user’s watchlist for future viewing.
                     example: 
                       id: 550
                       favorite: true
@@ -16810,12 +17118,6 @@ paths:
       summary: Aggregate Credits
       description: |
         This endpoint get the aggregate credits (cast and crew) that have been added to a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of objects|  objects	A collection of objects representing the actors who have appeared in the series | 
-        | crew | array of objects | A list of objects representing the behind-the-scenes staff who contributed to the production of the movie | 
-         | id | integer | A unique identifier  |  
       operationId: tvseriesAccountCredits
       parameters:
       - name: series_id
@@ -16836,7 +17138,67 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            role:
+                              type: array
+                            total_episode_count:
+                              type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            department:
+                              type: string
+                            jobs:
+                              type: string 
+                            total_episode_count:
+                              type: integer
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
                     example: 
                       cast:
                       - adult: false
@@ -17132,11 +17494,6 @@ paths:
       summary: Alternative Titles
       description: |
         This endpoint is used to get the alternative titles that have been added to a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for a specific item |
-        | results | array of objects | Detailed information about the query |
       operationId: tvseriesAlternativetitle
       parameters:
       - name: series_id
@@ -17151,7 +17508,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object          
+                    properties:
+                      id:
+                        type: integer
+                        description: 	A Unique identifier
+                      results: 
+                        type: array
+                        description: Contains the list of data or items           
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                            title:
+                              type: string
+                            type:
+                              type: string            
                     example: 
                       id: 1399
                       results:
@@ -17247,12 +17620,6 @@ paths:
       summary: Changes
       description: |
         This endpoint is used to get the recent changes for a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | changes | array of objects | Represent changes or updates made to a TV series |
-        | key | string | A unique identifier for the change |
-        | items | array of objects | A list of objects that detail the specific items affected by the change |
       operationId: tvseriesChanges
       parameters:
       - name: series_id
@@ -17285,7 +17652,34 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      changes:
+                        type: array
+                        description: Represent changes or updates made to a TV series
+                      key:
+                        type: string
+                        description: A unique identifier for the change
+                      items:
+                        type: array
+                        description: A list of objects that detail the specific items affected by the change
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            action:
+                              type: string
+                            time:
+                              type: string
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            value:
+                              type: object
+                            original_value:
+                              type: object                          
                     example: 
                       changes:
                       - key: images
@@ -17345,11 +17739,6 @@ paths:
       summary: Content Ratings
       description: |
         This endpoint is used to get the content ratings that have been added to a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results | array of objects | Collection of output data returned |
-        | id | integer | A unique identifier for the change |
       operationId: tvseriesContentrating
       parameters:
       - name: series_id
@@ -17365,6 +17754,19 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      results:
+                        type: array
+                        description: Collection of output data returned 
+                        items:
+                          type: object
+                          properties:
+                            descriptors:
+                              type: array
+                            iso_3166_1:
+                              type: string
+                            rating:
+                              type: string
                     example:   
                       results:
                       - descriptors: []
@@ -17424,12 +17826,6 @@ paths:
       summary: Credits
       description: |
         This endpoint is used to get the latest season credits of a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | string | objects A collection of objects representing the actors who have appeared in the series |
-        | crew | array of objects | A list of objects representing the behind-the-scenes staff who contributed to the production of the movie |
-        | id | array of objects | 	A unique identifier |
       operationId: tvseriesCredits
       parameters:
       - name: series_id
@@ -17450,7 +17846,67 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:               
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            role:
+                              type: array
+                            total_episode_count:
+                              type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            department:
+                              type: string
+                            jobs:
+                              type: string 
+                            total_episode_count:
+                              type: integer
+                      id:
+                        type: integer
+                        description: A unique numerical identifier 
                     example:
                       cast:
                       - adult: false
@@ -17893,11 +18349,6 @@ paths:
       summary: Episode Groups
       description: |
         This endpoint is used to get the episode groups that have been added to a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | result | string | Collection of output data returned |
-        | id | array of objects | 	A unique identifier |
       operationId: tvseriesEpisodeGroup
       parameters:
       - name: series_id
@@ -17912,7 +18363,31 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      results: 
+                        type: array
+                        description: output data returned
+                        items:
+                          type: object
+                          properties: 
+                            description:
+                              type: string
+                            episode_count:
+                              type: integer
+                            group_count:
+                              type: integer
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            network:
+                              type: object  
+                            type:
+                              type: string
+                      id: 
+                        type: integer
+                        description: A unique identifier 
                     example:
                       results:
                       - description: ''
@@ -17935,20 +18410,7 @@ paths:
         - TV Series
       summary: External IDs
       description: |
-        This endpoint is used to get a list of external IDs that have been added to a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | imdb_id | string | A unique identifier assigned to the movie |
-        | freebase_mid  | string | A unique identifier assigned by Freebase |
-        | freebase_id | string | A unique identifier associated with an entity |
-        | tvdb_id | integer | A unique identifier from TheTVDB database, used to reference specific TV shows |
-        | tvrage_id  | integer | An identifier assigned by TVRage |
-        | wikidata_id | string | The unique identifier assigned to the movie in Wikidata  |
-        | facebook_id | string | The unique identifier for the  official Facebook page or profile  |
-        | instagram_id | string | The unique identifier for the official Instagram profile  |
-        | twitter_id | string | The unique identifier for the official Twitter profile  |
+        This endpoint is used to get a list of external IDs that have been added to a TV show.      
       operationId: tvseriesExternalID
       parameters:
       - name: series_id
@@ -17963,7 +18425,38 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier.
+                      imdb_id:
+                        type: string
+                        description: A unique identifier assigned to the movie by IMDb.
+                      freebase_mid:
+                        type: string
+                        description: A unique identifier assigned by Freebase.
+                      freebase_id:
+                        type: string
+                        description: A unique identifier associated with an entity in Freebase.
+                      tvdb_id:
+                        type: integer
+                        description: A unique identifier from TheTVDB database, used to reference specific TV shows.
+                      tvrage_id:
+                        type: integer
+                        description: An identifier assigned by TVRage.
+                      wikidata_id:
+                        type: string
+                        description: The unique identifier assigned to the movie in Wikidata.
+                      facebook_id:
+                        type: string
+                        description: The unique identifier for the official Facebook page or profile.
+                      instagram_id:
+                        type: string
+                        description: The unique identifier for the official Instagram profile.
+                      twitter_id:
+                        type: string
+                        description: The unique identifier for the official Twitter profile
                     example: 
                       id: 550
                       imdb_id: tt0060035
@@ -17983,13 +18476,6 @@ paths:
       summary: Images
       description: |
         This endpoint is used to get the images that belong to a TV series
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | backdrop | array of objects | A list of background images related to the TV series |
-        | id | integer | The unique identifier    |
-        | logo| array of objects | A list of logo images associated with the media  |
-        | posters | string | A list of poster images for the TV series  |
       operationId: tvseriesImages
       parameters:
       - name: series_id
@@ -18016,7 +18502,65 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:               
+                      id:
+                        type: integer
+                        description: The unique identifier for the TV series images collection.
+                      backdrop:
+                        type: array
+                        description: A list of background images related to the TV series.
+                        items:
+                          type: object
+                          properties:
+                            file_path:
+                              type: string
+                              description: The relative path to the backdrop image.
+                            width:
+                              type: integer
+                              description: The width of the backdrop image in pixels.
+                            height:
+                              type: integer
+                              description: The height of the backdrop image in pixels.
+                            aspect_ratio:
+                              type: number
+                              description: The aspect ratio of the backdrop image.
+                      logo:
+                        type: array
+                        description: A list of logo images associated with the media.
+                        items:
+                          type: object
+                          properties:
+                            file_path:
+                              type: string
+                              description: The relative path to the logo image.
+                            width:
+                              type: integer
+                              description: The width of the logo image in pixels.
+                            height:
+                              type: integer
+                              description: The height of the logo image in pixels.
+                            aspect_ratio:
+                              type: number
+                              description: The aspect ratio of the logo image.
+                      posters:
+                        type: array
+                        description: A list of poster images for the TV series.
+                        items:
+                          type: object
+                          properties:
+                            file_path:
+                              type: string
+                              description: The relative path to the poster image.
+                            width:
+                              type: integer
+                              description: The width of the poster image in pixels.
+                            height:
+                              type: integer
+                              description: The height of the poster image in pixels.
+                            aspect_ratio:
+                              type: number
+                              description: The aspect ratio of the poster image.  
                     example: 
                       backdrops:
                       - aspect_ratio: 1.778
@@ -18051,11 +18595,6 @@ paths:
       summary: Keywords
       description: |
         This endpoint is used to get a list of keywords that have been added to a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | results| array of objects | Collection of output data returned |
       operationId: tvseriesKeywords
       parameters:
       - name: series_id
@@ -18070,7 +18609,21 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties: 
+                      id:
+                        type: integer
+                        description: A unique identifier
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            name:
+                              type: string  
+                            id:
+                              type: integer  
                     example:            
                       id: 550
                       results:
@@ -18113,43 +18666,7 @@ paths:
         - TV Series
       summary: Latest
       description: |
-        This endpoint is used to get newest TV show ID.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | adult | boolean | Indicates whether the content is intended for adult audiences	|
-        | backdrop_path | string | The relative path to the backdrop image for the content  |
-        | created_by | string | Represents the creator(s) of the show |
-        | episode_run_time | array of integers | Specifies the runtime of each episode in minutes |
-        | first_air_date | string | The date when the show first premiered, typically in the format YYYY-MM-DD  |
-        | genres | array of objects | A list of genres associated with the content, each represented as an object  | 
-        | homepage | string | The URL to the official website of the content  | 
-        | id | integer | A unique identifier assigned to the content  | 
-        | in_production |  boolean   | Indicates whether the show is still in production (true) or has been concluded (false) |
-        | language | array of string | The language in which the content was originally produced, following ISO 639-1 codes  | 
-        | last_air_date | string | The date of the last aired episode, typically in the format YYYY-MM-DD |
-        | last_episode_to_air | object | The date of the last aired episode, typically in the format YYYY-MM-DD |
-        | name| string | The official name or title of the series | 
-        | next_episode_to_air | string | The air date of the upcoming episode, if available, typically in the format YYYY-MM-DD |   
-        | networks | array of objects | Details of the network(s) that broadcast the series | 
-        | number_of_episodes | integer | The total count of episodes in the series  | 
-        | number_of_seasons | integer | The total count of seasons in the series | 
-        | origin_country | array of strings | The country or countries where the series originated, represented by their respective codes  | 
-        | original_language | strings | The language in which the series was originally produced, represented as a language code  | 
-        | original_name | string | The original title of the series  |  
-        | overview | string | A brief description or synopsis of the series  |  
-        | popularity | number | A numerical representation of the content's popularity, typically based on audience engagement  |
-        | poster_path | string | The relative path to the poster image for the content | 
-        | production_company | array of objects | A list of production companies involved in creating the content  |
-        | production_countries | array of objects | A list of countries where the content was produced  | 
-        | season | array of objects | Represents a collection of seasons in the series  |  
-        | spoken_languages | array of objects | A list of languages spoken in the content, each represented as an object |   
-        | status | string | The current status of the series | 
-        | tagline | string | A tagline or short phrase associated with the content  | 
-        | title | string | The official or display title of the content  | 
-        | type| boolean | Represents the type of content  |
-        | vote_average | number | The average rating given to the content by users  | 
-        | vote_count | integer | The total number of votes or ratings received for the content  |      
+        This endpoint is used to get newest TV show ID.   
       operationId: tvseriesLatest
       responses:
             200:
@@ -18158,6 +18675,197 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      adult:
+                        type: boolean
+                        description: Indicates whether the content is intended for adult audiences.
+                      backdrop_path:
+                        type: string
+                        description: The relative path to the backdrop image for the content.
+                      created_by:
+                        type: string
+                        description: Represents the creator(s) of the show.
+                      episode_run_time:
+                        type: array
+                        description: Specifies the runtime of each episode in minutes.
+                        items:
+                          type: integer
+                      first_air_date:
+                        type: string
+                        description: The date when the show first premiered, typically in the format YYYY-MM-DD.
+                      genres:
+                        type: array
+                        description: A list of genres associated with the content, each represented as an object.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: A unique identifier for the genre.
+                            name:
+                              type: string
+                              description: The name of the genre.
+                      homepage:
+                        type: string
+                        description: The URL to the official website of the content.
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content.
+                      in_production:
+                        type: boolean
+                        description: Indicates whether the show is still in production (true) or has been concluded (false).
+                      language:
+                        type: array
+                        description: The language(s) in which the content was originally produced, following ISO 639-1 codes.
+                        items:
+                          type: string
+                      last_air_date:
+                        type: string
+                        description: The date of the last aired episode, typically in the format YYYY-MM-DD.
+                      last_episode_to_air:
+                        type: object
+                        description: Details of the last aired episode.
+                        properties:
+                          id:
+                            type: integer
+                            description: A unique identifier for the episode.
+                          name:
+                            type: string
+                            description: The title of the episode.
+                          air_date:
+                            type: string
+                            description: The air date of the episode in YYYY-MM-DD format.
+                          overview:
+                            type: string
+                            description: A brief summary of the episode.
+                      name:
+                        type: string
+                        description: The official name or title of the series.
+                      next_episode_to_air:
+                        type: string
+                        description: The air date of the upcoming episode, if available, typically in the format YYYY-MM-DD.
+                      networks:
+                        type: array
+                        description: Details of the network(s) that broadcast the series.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: The network's unique identifier.
+                            name:
+                              type: string
+                              description: The name of the network.
+                            logo_path:
+                              type: string
+                              description: The relative path to the network's logo.
+                            origin_country:
+                              type: string
+                              description: The country where the network is based.
+                      number_of_episodes:
+                        type: integer
+                        description: The total count of episodes in the series.
+                      number_of_seasons:
+                        type: integer
+                        description: The total count of seasons in the series.
+                      origin_country:
+                        type: array
+                        description: The country or countries where the series originated, represented by their respective codes.
+                        items:
+                          type: string
+                      original_language:
+                        type: string
+                        description: The language in which the series was originally produced, represented as a language code.
+                      original_name:
+                        type: string
+                        description: The original title of the series.
+                      overview:
+                        type: string
+                        description: A brief description or synopsis of the series.
+                      popularity:
+                        type: number
+                        description: A numerical representation of the content’s popularity, typically based on audience engagement.
+                      poster_path:
+                        type: string
+                        description: The relative path to the poster image for the content.
+                      production_company:
+                        type: array
+                        description: A list of production companies involved in creating the content.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: A unique identifier for the company.
+                            name:
+                              type: string
+                              description: The name of the company.
+                            logo_path:
+                              type: string
+                              description: The relative path to the company's logo.
+                            origin_country:
+                              type: string
+                              description: The country where the company is based.
+                      production_countries:
+                        type: array
+                        description: A list of countries where the content was produced.
+                        items:
+                          type: object
+                          properties:
+                            iso_3166_1:
+                              type: string
+                              description: The ISO 3166-1 country code.
+                            name:
+                              type: string
+                              description: The name of the country.
+                      season:
+                        type: array
+                        description: Represents a collection of seasons in the series.
+                        items:
+                          type: object
+                          properties:
+                            season_number:
+                              type: integer
+                              description: The season number.
+                            episode_count:
+                              type: integer
+                              description: The number of episodes in the season.
+                            air_date:
+                              type: string
+                              description: The air date of the season's first episode.
+                            poster_path:
+                              type: string
+                              description: The poster image for the season.
+                      spoken_languages:
+                        type: array
+                        description: A list of languages spoken in the content, each represented as an object.
+                        items:
+                          type: object
+                          properties:
+                            iso_639_1:
+                              type: string
+                              description: The ISO 639-1 language code.
+                            name:
+                              type: string
+                              description: The name of the language.
+                      status:
+                        type: string
+                        description: The current status of the series.
+                      tagline:
+                        type: string
+                        description: A tagline or short phrase associated with the content.
+                      title:
+                        type: string
+                        description: The official or display title of the content.
+                      type:
+                        type: boolean
+                        description: Represents the type of content.
+                      vote_average:
+                        type: number
+                        description: The average rating given to the content by users.
+                      vote_count:
+                        type: integer
+                        description: The total number of votes or ratings received for the content
                     example:                              
                       adult: false
                       backdrop_path: 
@@ -18235,14 +18943,6 @@ paths:
       summary: Lists
       description: |
         This endpoint is used to get the lists that a TV series has been added to.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: keywordLists
       parameters:
       - name: series_id
@@ -18269,7 +18969,42 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:    
+                      id:
+                        type: integer
+                        description: A unique identifier
+                      page:
+                        type: integer
+                        description: Indicates the current page number
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            description:
+                              type: string
+                            favorite_count:
+                              type: integer
+                            id:
+                              type: integer
+                            item_count:
+                              type: integer
+                            iso_639_1: 
+                              type: string
+                            iso_3166_1: 
+                              type: string
+                            name:
+                              type: string 
+                            poster_path: 
+                              type: string                      
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset 
                     example:
                       id: 550
                       page: 1
@@ -18436,12 +19171,6 @@ paths:
       summary: Recommendations
       description: |
         This endpoint is used to get tv recommendations.
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: tvseriesRecommendation
       parameters:
       - name: series_id
@@ -18468,7 +19197,51 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            media_type:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            video:
+                              type: boolean
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset   
                     example:                            
                       page: 1
                       results:
@@ -18883,7 +19656,6 @@ paths:
                       total_pages: 2
                       total_results: 40
 
-
   /tv/{series_id}/reviews:
     get:
       tags:
@@ -18891,15 +19663,7 @@ paths:
       summary: Reviews
       description: |
         This endpoint is used to get the reviews that have been added to a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
-      operationId: keywordLists
+      operationId: tvReview
       parameters:
       - name: series_id
         in: path
@@ -18925,7 +19689,50 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier for the collection
+                      page:
+                        type: integer
+                        description: Indicates the current page number    
+                      results: 
+                        type: array
+                        description: Contains the list of data or items                 
+                        items:
+                          type: object
+                          properties: 
+                            author:
+                              type: string
+                            author_details:
+                              type: object
+                              properties: 
+                                name:
+                                  type: string
+                                username:
+                                  type: string
+                                avatar_path:
+                                  type: string
+                                rating:
+                                  type: string
+                            content:
+                              type: string
+                            created_at:
+                              type: string
+                            id:
+                              type: string
+                            updated_at:
+                              type: string
+                            url:
+                              type: string
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset
+ 
                     example:            
                       id: 1399
                       page: 1
@@ -19215,12 +20022,7 @@ paths:
         - TV Series
       summary: Screened Theatrically
       description: |
-        This endpoint is used to get the seasons and episodes that have screened theatrically
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of object| Contains the list of data or items |
+        This endpoint is used to get the seasons and episodes that have screened theatrically.    
       operationId: tvseriesScreenTheatrically
       parameters:
       - name: series_id
@@ -19235,7 +20037,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:                  
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      results:
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            id:
+                              type: integer  
+                            episode_number:
+                              type: integer
+                            season_number:
+                              type: integer
                     example:                             
                       id: 1399
                       results:
@@ -19259,13 +20077,6 @@ paths:
       summary: Similar
       description: |
         This endpoint is used to get the similar TV shows.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | page | integer |	Indicates the current page number  |
-        | results | array of object| Contains the list of data or items |
-        | total_pages | integer  | Specifies the total number of pages available | 
-        | total_results | integer  | Represents the total number of items or records in a dataset  |
       operationId: tvseriesSimilar
       parameters:
       - name: series_id
@@ -19292,7 +20103,49 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: 	Indicates the current page number
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties: 
+                            adult:
+                              type: boolean
+                            backdrop_path:
+                              type: string
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            original_language:
+                              type: string
+                            original_title:
+                              type: string
+                            overview:
+                              type: string
+                            poster_path:
+                              type: string
+                            genre_ids:
+                              type: array
+                            popularity:
+                              type: number
+                            first_air_date:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      total_pages:
+                        type: integer
+                        description: Specifies the total number of pages available
+                      total_results:
+                        type: integer
+                        description: Represents the total number of items or records in a dataset   
                     example: 
                       page: 1
                       results:
@@ -19676,11 +20529,6 @@ paths:
       summary: Translations
       description: |
         This endpoint is used to get the translations that have been added to a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier. |
-        | translation| array of objects|	Indicates the translation of a tv series |
       operationId: tvseriesTranslations
       parameters:
       - name: series_id
@@ -19696,6 +20544,26 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier assigned to the content
+                      translation:
+                        type: array
+                        description: A list of available translations for the movie
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            english_name:
+                              type: string
+                            data:
+                              type: object
                     example:   
                       id: 1399
                       translations:
@@ -20427,12 +21295,7 @@ paths:
         - TV Series
       summary: Videos
       description: |
-        This endpoint is used to get et the videos that belong to a TV show
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier |
-        | results | array of objects | Contains the list of data or items |
+        This endpoint is used to get the videos that belong to a TV show.
       operationId: tvseriesVideos
       parameters:
       - name: series_id
@@ -20459,7 +21322,35 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            name:
+                              type: string
+                            key:
+                              type: string
+                            site:
+                              type: string
+                            size:
+                              type: integer
+                            official:
+                              type: boolean
+                            published_at:
+                              type: string
+                            id:
+                              type: integer                 
                     example:   
                       id: 1399
                       results:
@@ -20521,11 +21412,6 @@ paths:
       summary: Watch Providers
       description: |
         This endpoint is used to get the list of streaming providers we have for a TV show.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier |
-        | results | array of object| Contains the list of data or items |
       operationId: tvseriesWatchProviders
       parameters:
       - name: series_id
@@ -20540,7 +21426,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items         
                     example:
                       id: 1399
                       results:
@@ -21062,11 +21955,6 @@ paths:
       summary: Add Rating
       description: |
         This endpoint rate a TV show and save it to your rated list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: tvseriesAddrating
       requestBody:
         required: true
@@ -21075,12 +21963,13 @@ paths:
             schema:
               type: object
               properties:
-                value:
+                RAW_BODY:
                   type: string
-                  description: The value of the rated tv series.
-            example:
-              value: 8.5
-        description: The request body containing the value of the rated tv series
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
+            example: 8.5
       parameters:
       - name: series_id
         in: path
@@ -21106,11 +21995,17 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object            
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was success
                     example: 
                       status_code: 1
                       status_message: Success  
-
   
     delete:
       tags:
@@ -21118,11 +22013,6 @@ paths:
       summary: Delete Rating
       description: |
         This endpoint delete tv series rating.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: moviesDeleterating
       parameters:
       - name: series_id
@@ -21149,7 +22039,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object            
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was success  
                     example: 
                       status_code: 13
                       status_message: The item/record was deleted successfully
@@ -21161,20 +22058,6 @@ paths:
       summary: Details
       description: |
         This endpoint query the details of a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | _id | string | Unique identifier for the season	|
-        | air_date | string | The date when the season first aired. Format: YYYY-MM-DD. |
-        | episodes | array of objects | List of episodes in the season |
-        | crew | array of objects | List of crew members involved in the season's production  |
-        | guest_stars | array of objects | List of guest actors who appeared in one or more episodes  |
-        | name | string | The title of the season  |
-        | overview | string | A brief summary or description of the season's plot  |
-        | id | integer | A unique numerical identifier for the season  |
-        | poster_path |string | The file path to the season’s poster image  |
-        | season_number | integer | The season's number within the series  |
-        | vote_average | number | The average user rating for the season |
       operationId: tvseasonDetails
       parameters:
       - name: series_id
@@ -21208,6 +22091,115 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      _id:
+                        type: string
+                        description: Unique identifier for the season.
+                      air_date:
+                        type: string
+                        description: The date when the season first aired. YYYY-MM-DD.
+                      episodes:
+                        type: array
+                        description: List of episodes in the season.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            episode_number:
+                              type: integer
+                            title:
+                              type: string
+                            overview:
+                              type: string
+                            season_number:
+                              type: integer
+                            runtime:
+                              type: integer
+                            show_id:
+                              type: integer
+                            still_path:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                      crew:
+                        type: array
+                        description: List of crew members involved in the season’s production.
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string
+                      guest_stars:
+                        type: array
+                        description: List of guest actors who appeared in one or more episodes.
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string
+                      name:
+                        type: string
+                        description: The title of the season.
+                      overview:
+                        type: string
+                        description: A brief summary or description of the season’s plot.
+                      id:
+                        type: integer
+                        description: A unique numerical identifier for the season.
+                      poster_path:
+                        type: string
+                        description: The file path to the season’s poster image.
+                      season_number:
+                        type: integer
+                        description: The season’s number within the series.
+                      vote_average:
+                        type: number
+                        description: The average user rating for the season.
                     example: 
                       _id: 5253853619c29579402062d8
                       air_date: '1975-11-05'
@@ -21477,11 +22469,6 @@ paths:
       summary: Account States
       description: |
         This endpoint get the rating, watchlist and favourite status.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | string | A unique numerical identifier for the season	|
-        | results | string | Contains the list of data or items  |
       operationId: tvseasonAccountStates
       parameters:
       - name: series_id
@@ -21514,7 +22501,28 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:                
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            episode_number:
+                              type: integer
+                            rated:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value:
+                                    type: integer
                     example: 
                       id: 3624
                       results:
@@ -21557,12 +22565,6 @@ paths:
       summary: Aggregate Credits
       description: |
         This endpoint get the aggregate credits (cast and crew) that have been added to a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of object | Objects A collection of objects representing the actors who have appeared in the series |
-        | crew | string | A list of objects representing the behind-the-scenes staff who contributed to the production of the movie  |
-        | id | string | A unique numerical identifier for the season  |
       operationId: tvseasonAggregatwcredits
       parameters:
       - name: series_id
@@ -21589,7 +22591,81 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            role:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  character:
+                                    type: string
+                                  credit_id:
+                                    type: string
+                                  episode_count:
+                                    type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            department:
+                              type: string
+                            jobs:
+                              type: array 
+                              items:
+                                type: object
+                                properties:
+                                  character:
+                                    type: string
+                                  credit_id:
+                                    type: string
+                                  episode_count:
+                                    type: integer 
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
                     example: 
                       cast:
                       - adult: false
@@ -21757,12 +22833,6 @@ paths:
       summary: Changes
       description: |
         This endpoint get the recent changes for a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | changes | array of object | Represent changes or updates made to a movie |
-        | key | string | 	A unique identifier for the change  |
-        | items | array of objects | A list of objects that detail the specific items affected by the change |
       operationId: tvseasonChanges
       parameters:
       - name: series_id
@@ -21795,7 +22865,29 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      changes:
+                        type: array
+                        description: Represent changes or updates made to a tv season 
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  action:
+                                    type: string
+                                  time:
+                                    type: string
+                                  value:
+                                    type: array
                     example:    
                       changes:
                       - key: episode
@@ -21935,12 +23027,6 @@ paths:
       summary: Credits
       description: |
         This endpoint is used to get the credit for a tv season
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of object | Objects A collection of objects representing the actors who have appeared in the series |
-        | crew | string | A list of objects representing the behind-the-scenes staff who contributed to the production of the movie  |
-        | id | string | A unique numerical identifier for the season  |
       operationId: tvseasonAggregatwcredits
       parameters:
       - name: series_id
@@ -21967,7 +23053,67 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:   
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            character:
+                              type: string
+                            credit_id:
+                              type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string      
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
                     example:
                       cast:
                       - adult: false
@@ -22035,15 +23181,6 @@ paths:
       summary: External ID
       description: |
         This endpoint get a list of external IDs that have been added to a TV season
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | freebase_mid | string | A unique identifier assigned by Freebase  |
-        | freebase_id | string | A unique identifier associated with an entity |
-        | tvdb_id | integer |A unique identifier from TheTVDB database, used to reference specific TV shows  |
-        | tvrage_id | string | An identifier assigned by TVRage |
-        | wikidata_id | string |The unique identifier assigned to the movie in Wikidata |
       operationId: tvseasonExternalIDs
       parameters:
       - name: series_id
@@ -22065,6 +23202,25 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier.
+                      freebase_mid:
+                        type: string
+                        description: A unique identifier assigned by Freebase.
+                      freebase_id:
+                        type: string
+                        description: A unique identifier associated with an entity in Freebase.
+                      tvdb_id:
+                        type: integer
+                        description: A unique identifier from TheTVDB database, used to reference specific TV shows.
+                      tvrage_id:
+                        type: integer
+                        description: An identifier assigned by TVRage.
+                      wikidata_id:
+                        type: string
+                        description: The unique identifier assigned to the movie in Wikidata.
                     example: 
                       id: 3624
                       freebase_mid: "/m/0gmd1gd"
@@ -22080,11 +23236,6 @@ paths:
       summary: Images
       description: |
         This endpoint is used to get the images that belong to a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | The unique identifier    |
-        | posters | string | A list of poster images for the tv season |
       operationId: tvseriesImages
       parameters:
       - name: series_id
@@ -22117,7 +23268,31 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties: 
+                      id:
+                        type: integer
+                        description: The unique identifier 
+                      posters:
+                        type: array  
+                        description: A list of poster images for the tv season
+                        items:
+                          type: object
+                          properties: 
+                            aspect_ratio:
+                              type: number
+                            height:
+                              type: integer
+                            id:
+                              type: string
+                            file_path:
+                              type: string
+                            vote_average:
+                              type: number
+                            vote_count:
+                              type: integer
+                            width:
+                              type: integer
                     example:
                       id: 3624
                       posters:
@@ -22563,11 +23738,6 @@ paths:
       summary: Translations
       description: |
         This endpoint is used to get the translations for a tv season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | translations | array of objects|	Indicates the translation of a tv season  |
       operationId: tvseasonTranslations
       parameters:
       - name: series_id
@@ -22588,7 +23758,32 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier 
+                      translations:
+                        type: array
+                        description: A list of available translations for the movie
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            english_name:
+                              type: string
+                            data:
+                              type: object
+                              properties: 
+                                name:
+                                  type: string  
+                                overview:
+                                  type: string
                     example:  
                       id: 1434
                       translations:
@@ -22719,11 +23914,6 @@ paths:
       summary: Videos
       description: |
         This endpoint is used to get the video  belong to a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of objects | Contains the list of data or items |
       operationId: tvseriesVideos
       parameters:
       - name: series_id
@@ -22757,6 +23947,34 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:           
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            name:
+                              type: string
+                            key:
+                              type: string
+                            site:
+                              type: string
+                            size:
+                              type: integer
+                            official:
+                              type: boolean
+                            published_at:
+                              type: string
+                            id:
+                              type: integer             
                     example:                         
                       id: 3624
                       results:
@@ -22928,11 +24146,6 @@ paths:
       summary: Watch Providers
       description: |
         This endpoint is used to get the list of streaming providers we have for a TV season.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | results | array of object| Contains the list of data or items |
       operationId: tvseasonWatchProviders
       parameters:
       - name: series_id
@@ -22959,7 +24172,14 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items            
                     example:                 
                       id: 3624
                       results:
@@ -23954,22 +25174,6 @@ paths:
       summary: Details
       description: |
         This endpoint query the details of a TV episode.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | air_date | string | The date when the season first aired. Format: YYYY-MM-DD. |
-        | crew | array of objects | List of crew members involved in the season's production  |
-        | episode_number | integer | Number of episode in the tv episode  |
-        | guest_stars | array of objects | List of guest actors who appeared in one or more episodes  |
-        | name | string | The title of the episode  |
-        | overview | string | A brief summary or description of the episode plot  |
-        | id | integer | A unique numerical identifier for the episode  |
-        | production_code | string | The unique code assigned to identify the production of a specific episode |
-        | runtime | integer | The duration of the episode in minutes |
-        | season_number | integer  | The season's number within the episode |
-        | still_path |string | The file path to the episode |
-        | vote_average | number | The average user rating for the season |
-        | vote_count | integer | The total number of votes or ratings the episode has received from viewers |
       operationId: tvepisodesDetails
       parameters:
       - name: series_id
@@ -24008,7 +25212,88 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      air_date:
+                        type: string
+                        description: The date when the season first aired. YYYY-MM-DD.
+                      crew:
+                        type: array
+                        description: List of crew members involved in the season’s production.
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string
+                      episode_number:
+                        type: string
+                        description: The number of episodes.
+                      guest_stars:
+                        type: array
+                        description: List of guest actors who appeared in one or more episodes.
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string
+                      name:
+                        type: string
+                        description: The title of the season.
+                      overview:
+                        type: string
+                        description: A brief summary or description of the season’s plot.
+                      id:
+                        type: integer
+                        description: A unique numerical identifier for the season.
+                      runtime:
+                        type: integer
+                        description: The file path to the season’s poster image.
+                      season_number:
+                        type: integer
+                        description: The season’s number within the series.
+                      vote_average:
+                        type: number
+                        description: The average user rating for the season. 
                     example:  
                       air_date: '1975-11-05'
                       crew:
@@ -24065,13 +25350,6 @@ paths:
       summary: Account States
       description: |
         This endpoint get the rating, watchlist and favourite status.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier for the season	|
-        | favorite | boolean | Indicates whether the user has marked the item as a favorite |
-        |  rated  | object  | Contains rating details provided by the user, such as score and rating type |
-        | watchlist | boolean | Indicates whether the item is added to the user’s watchlist |
       operationId: tvepisodesAccountStates
       parameters:
       - name: series_id
@@ -24104,7 +25382,23 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier for the season.
+                      favorite:
+                        type: boolean
+                        description: Indicates whether the user has marked the item as a favorite.
+                      rated:
+                        type: object
+                        description: Contains rating details provided by the user, such as score and rating type.
+                        properties:
+                          value:
+                            type: integer
+                      watchlist:
+                        type: boolean
+                        description: Indicates whether the item is added to the user’s watchlist. 
                     example: 
                       id: 550
                       favorite: true
@@ -24119,12 +25413,6 @@ paths:
       summary: Changes
       description: |
         This endpoint get the recent changes for a TV episode
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | changes | array of object | Represent changes or updates made to a tv episode |
-        | key | string | 	A unique identifier for the change  |
-        | items | array of objects | A list of objects that detail the specific items affected by the change |
       operationId: tvepisodesChanges
       parameters:
       - name: episode_id
@@ -24140,6 +25428,28 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      changes:
+                        type: array
+                        description: Represent changes or updates made to a tv season 
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  action:
+                                    type: string
+                                  time:
+                                    type: string
+                                  value:
+                                    type: integer
                     example:  
                       changes:
                       - key: production_code
@@ -24190,14 +25500,7 @@ paths:
         - TV Episodes
       summary: Credits
       description: |
-        This endpoint is used to get the credit for a tv episode
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | cast | array of object | Objects A collection of objects representing the actors who have appeared in the episode |
-        | crew | string | A list of objects representing the behind-the-scenes staff who contributed to the production of the tv episode  |
-        | guest_stars | array of object | A list of guest actors who appeared in the episode |
-        | id | string | A unique numerical identifier for the season  |
+        This endpoint is used to get the credit for a tv episode.
       operationId: tvepisodeCredits
       parameters:
       - name: series_id
@@ -24231,6 +25534,92 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:   
+                      cast:
+                        type: array
+                        description: A collection of objects representing the actors who have appeared in the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            character:
+                              type: string
+                            credit_id:
+                              type: integer
+                            order:
+                              type: string
+                      crew:
+                        type: array
+                        description: A list of objects representing the behind-the-scenes staff who contributed to the production of the movie
+                        items:
+                          type: object
+                          properties:
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                            credit_id:
+                              type: integer
+                            department:
+                              type: string
+                            job:
+                              type: string  
+                      guest_stars:
+                        type: array
+                        description: A list of objects representing the start guests
+                        items:
+                          type: object
+                          properties:
+                            character:
+                              type: string
+                            credit_id:
+                              type: string
+                            adult:
+                              type: boolean
+                            gender:
+                              type: integer
+                            id:
+                              type: integer
+                            known_for_department:
+                              type: string
+                            name:
+                              type: string
+                            original_name:
+                              type: string
+                            popularity:
+                              type: number
+                            profile_path:
+                              type: string
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
                     example:
                       cast:
                       - adult: false
@@ -24321,16 +25710,6 @@ paths:
       summary: External IDs
       description: |
         This endpoint get a list of external IDs that have been added to a TV episode
-        ###  Request Body .
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique numerical identifier |
-        | freebase_mid | string | A unique identifier assigned by Freebase  |
-        | imdb_id | string |  The unique identifier assigned to the episode on IMDb  |
-        | freebase_id | string | A unique identifier associated with an entity |
-        | tvdb_id | integer |A unique identifier from TheTVDB database, used to reference specific TV episode  |
-        | tvrage_id | string | An identifier assigned by TVRage |
-        | wikidata_id | string |The unique identifier assigned to the episode in Wikidata |
       operationId: tvepisodeExternalIDs
       parameters:
       - name: series_id
@@ -24357,7 +25736,29 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier.
+                      imdb_id:
+                        type: string
+                        description: A unique identifier assigned to the movie by IMDb.
+                      freebase_mid:
+                        type: string
+                        description: A unique identifier assigned by Freebase.
+                      freebase_id:
+                        type: string
+                        description: A unique identifier associated with an entity in Freebase.
+                      tvdb_id:
+                        type: integer
+                        description: A unique identifier from TheTVDB database, used to reference specific TV shows.
+                      tvrage_id:
+                        type: integer
+                        description: An identifier assigned by TVRage.
+                      wikidata_id:
+                        type: string
+                        description: The unique identifier assigned to the movie in Wikidata.
                     example:    
                       id: 31095
                       imdb_id: 
@@ -24374,11 +25775,6 @@ paths:
       summary: Images
       description: |
         This endpoint is used to get the images that belong to a TV episode
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | The unique identifier    |
-        | stills | string | The file path or URL to still images or promotional photos related to the episode |
       operationId: tvepisodesImages
       parameters:
       - name: series_id
@@ -24418,6 +25814,38 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique numerical identifier
+                      stills:
+                        type: array
+                        description: A list of still images for the content.
+                        items:
+                          type: object
+                          properties: 
+                            aspect_ratio:
+                              type: number
+                              description: The aspect ratio of the image.
+                            height:
+                              type: integer
+                              description: The height of the image in pixels.
+                            id:
+                              type: string
+                              description: A unique identifier for the image.
+                            file_path:
+                              type: string
+                              description: The URL or file path to the image.
+                            vote_average:
+                              type: number
+                              description: The average vote score for the image.
+                            vote_count:
+                              type: integer
+                              description: The total number of votes the image received.
+                            width:
+                              type: integer
+                              description: The width of the image in pixels.
+
                     example:
                       id: 63056
                       stills:
@@ -24534,11 +25962,6 @@ paths:
       summary: Translations
       description: |
         This endpoint is used to get the translations that have been added to a TV episode.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the collection. |
-        | translations | array of objects|	Indicates the translation of a tv episode  |
       operationId: tvepisodeTranslations
       parameters:
       - name: series_id
@@ -24565,7 +25988,32 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: A unique identifier 
+                      translations:
+                        type: array
+                        description: A list of available translations for the episode
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string  
+                            iso_639_1:
+                              type: string
+                            name:
+                              type: string
+                            english_name:
+                              type: string
+                            data:
+                              type: object
+                              properties: 
+                                name:
+                                  type: string  
+                                overview:
+                                  type: string                
                     example:  
                       id: 31098
                       translations:
@@ -24598,11 +26046,6 @@ paths:
       summary: Videos
       description: |
         This endpoint is used to get the videos that belong to a TV episode.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | id | integer | A unique identifier for the episode. |
-        | results | array of objects | Contains the list of data or items |
       operationId: tvepisodeVideos
       parameters:
       - name: series_id
@@ -24641,7 +26084,35 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties:
+                      id: 
+                        type: integer
+                        description: A unique identifier for the collection
+                      results: 
+                        type: array
+                        description: Contains the list of data or items
+                        items:
+                          type: object
+                          properties:
+                            iso_639_1:
+                              type: string
+                            iso_3166_1:
+                              type: string
+                            name:
+                              type: string
+                            key:
+                              type: string
+                            site:
+                              type: string
+                            size:
+                              type: integer
+                            official:
+                              type: boolean
+                            published_at:
+                              type: string
+                            id:
+                              type: integer              
                     example: 
                       id: 3624
                       results:
@@ -24813,11 +26284,6 @@ paths:
       summary: Add Rating
       description: |
         This endpoint rate  a TV episode and save it to your rated list.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: tvepiosdeAddrating
       requestBody:
         required: true
@@ -24826,12 +26292,13 @@ paths:
             schema:
               type: object
               properties:
-                value:
+                RAW_BODY:
                   type: string
-                  description: The value of the rated tv episode.
-            example:
-              value: 8.5
-        description: The request body containing the value of the rated tv episode
+                  format: json
+                  description: A raw JSON string representing the request body.
+              required:
+                - RAW_BODY
+            example: 8.5
       parameters:
       - name: series_id
         in: path
@@ -24870,6 +26337,13 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was successful 
                     example: 
                       status_code: 1
                       status_message: Success 
@@ -24880,11 +26354,6 @@ paths:
       summary: Delete Rating
       description: |
         This endpoint delete your rating on a TV episode.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | status_code | integer |	Represents the status of the operation either success or failure |
-        | status_message | string|  Provides a human-readable message describing the status of the operation |
       operationId: tvepiosdeDeleterating
       parameters:
       - name: series_id
@@ -24924,6 +26393,13 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      status_code:
+                        type: integer
+                        description: Indicates success
+                      status_message:
+                        type: string
+                        description: Indicates that the action was successful 
                     example: 
                       status_code: 1
                       status_message: The item/record was deleted successfully. 
@@ -24935,18 +26411,6 @@ paths:
       summary: Details
       description: |
         This endpoint is used to get the details of a TV episode group.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | description| string |	A brief text providing additional information 	|
-        | episode_count | integer | The total number of episodes associated with the tv episode  |
-        | group_count | integer | The total number of groups or categories related to the tv episode |
-        | group | array of objects | A collection of objects, each representing a specific group of tv episode |
-        | id | integer | A unique identifier for the tv episode | 
-        | name | string | The name of the entity, such as the title of the tv episode | 
-        | network | object | An object that contains information about the network associated with the tv episode |
-        | type | integer | An integer representing the type or category of the tv episode | 
-
       operationId: tvepisodegroupDetails
       parameters:
       - name: tv_episode_group_id
@@ -24962,6 +26426,51 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties:
+                      description:
+                        type: string
+                        description: A brief text providing additional information.
+                      episode_count:
+                        type: integer
+                        description: The total number of episodes associated with the TV episode.
+                      group_count:
+                        type: integer
+                        description: The total number of groups or categories related to the TV episode.
+                      group:
+                        type: array
+                        description: A collection of objects, each representing a specific group of TV episodes.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            order:
+                              type: integer
+                            episode:
+                              type: array
+                      id:
+                        type: integer
+                        description: A unique identifier for the TV episode.
+                      name:
+                        type: string
+                        description: The name of the entity, such as the title of the TV episode.
+                      network:
+                        type: object
+                        description: An object that contains information about the network associated with the TV episode.
+                        properties:
+                          id:
+                            type: integer
+                          logo_path:
+                            type: string
+                          name:
+                            type: string
+                          origin_country:
+                            type: string
+                      type:
+                        type: integer
+                        description: An integer representing the type or category of the TV episode.
                     example:
                       description: Comedians in Cars organized in Netflix's collections.
                       episode_count: 83
@@ -26335,10 +27844,6 @@ paths:
       summary: Available Regions
       description: |
         This endpoint is used to get the list of the countries we have watch provider (OTT/streaming) data for.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results | array of objects | Contains the main response data of the watch provider	|
       operationId: watchprovidersAvailableregions
       parameters:
       - name: language
@@ -26353,7 +27858,20 @@ paths:
               content:
                 application/json:
                   schema:
-                    type: object  
+                    type: object 
+                    properties: 
+                      results: 
+                        type: array
+                        description: Contains the main response data of the watch provider
+                        items:
+                          type: object
+                          properties: 
+                            iso_3166_1:
+                              type: string
+                            native_name:
+                              type: string
+                            english_name:
+                              type: string
                     example: 
                       results:
                         - iso_3166_1: AD
@@ -26781,10 +28299,6 @@ paths:
       summary: Movie Providers
       description: |
         This endpoint is used to get the list of streaming providers we have for movies.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results | array of objects | Contains the main response data of the movie	|
       operationId: watchprovidersMovieproviders
       parameters:
       - name: language
@@ -26806,6 +28320,23 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties: 
+                      results: 
+                        type: array
+                        description: Contains the main response data of the watch provider
+                        items:
+                          type: object
+                          properties: 
+                            display_priorities:
+                              type: object
+                            display_priority:
+                              type: integer
+                            logo_path:
+                              type: string
+                            provider_name:
+                              type: string
+                            provider_id:
+                              type: integer
                     example: 
                       results:
                         - display_priorities:
@@ -34612,10 +36143,6 @@ paths:
       summary: TV Providers
       description: |
         This endpoint is used to get the list of streaming providers we have for TV shows.
-        ###  Request Body 
-        | **Field Name** | **Type** | **Description** |
-        | --- | --- | --- |
-        | results | array of objects | Contains the main response data of the movie	|
       operationId: watchprovidersTVproviders
       parameters:
       - name: language
@@ -34637,6 +36164,23 @@ paths:
                 application/json:
                   schema:
                     type: object  
+                    properties: 
+                      results: 
+                        type: array
+                        description: Contains the main response data of the watch provider
+                        items:
+                          type: object
+                          properties: 
+                            display_priorities:
+                              type: object
+                            display_priority:
+                              type: integer
+                            logo_path:
+                              type: string
+                            provider_name:
+                              type: string
+                            provider_id:
+                              type: integer
                     example: 
                       results:
                         - display_priorities:
