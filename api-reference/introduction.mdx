@@ -1,36 +1,104 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: ''
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+Welcome to version 3 of The Movie Database (TMDB) API. This is where you will find the definitive list of currently available methods for our movie, tv, actor and image API.
 
-## Welcome
+<Card>
+  <div className="flex items-center gap-4 mb-4">
+    <div className="bg-blue-500 p-2 rounded-full text-white">1</div>
+    <h2 className="text-xl font-semibold">Pick a language</h2>
+  </div>
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
+  <Tabs>
+    <Tab title={
+      <div className="flex items-center gap-2">
+        <i class="fab fa-shell"></i>
+      </div>
+    }>
+      Shell content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+       
+        Node
+      </div>
+    }>
+      Node content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+        <i class="fab fa-ruby"></i>
+      </div>
+    }>
+      Ruby content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+        <i class="fab fa-php"></i>
+        PHP
+      </div>
+    }>
+      PHP content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+    
+      </div>
+    }>
+      Python content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+        <i class="fab fa-java"></i> Java
+      </div>
+    }>
+      Java content here
+    </Tab>
+    <Tab title={
+      <div className="flex items-center gap-2">
+       <i class="fab fa-c#"></i>
+        C#
+      </div>
+    }>
+      C# content here
+    </Tab>
+  </Tabs>
 </Card>
 
+<Card>
+  <div className="flex items-center gap-4 mb-4">
+    <div className="bg-green-500 p-2 rounded-full text-white">2</div>
+    <h2 className="text-xl font-semibold">Credentials</h2>
+  </div>
 
-## Authentication
+  <div className="space-y-2">
+    <div className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-800 rounded">
+      <span>Get API Key</span>
+      <a 
+        href="https://www.themoviedb.org/settings/api" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+      >
+        Get Key
+      </a>
+    </div>
+    <div className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-800 rounded">
+      <span>Header Authorization</span>
+      <span className="text-gray-500">Log in to use your API keys</span>
+    </div>
+  </div>
+</Card>
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
-
-
+<Card>
+  <div className="flex items-center gap-4 mb-4">
+    <div className="bg-purple-500 p-2 rounded-full text-white">3</div>
+    <h2 className="text-xl font-semibold">Try it!</h2>
+  </div>
+</Card>
+  ```bash
+  curl --request GET \
+  --url https://api.themoviedb.org/3/authentication \
+  --header 'accept: application/json'

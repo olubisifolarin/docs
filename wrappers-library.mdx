@@ -1,0 +1,50 @@
+---
+title: Wrappers and Libraries
+description: ""
+---
+
+##
+
+Many community-contributed wrappers and libraries have been developed to simplify working with the 
+TMDB API. These tools abstract away low-level details like authentication, URL formatting, and error 
+handling, allowing you to integrate TMDB data into your projects more efficiently.
+Here are some of popular wrappers.
+
+- **Python:**  
+  - [tmdbv3api](https://github.com/AnthonyBloomer/tmdbv3api) – A Python wrapper that simplifies API calls and data parsing.  
+  - [tmdbsimple](https://github.com/celiao/tmdbsimple) – Another lightweight Python library for interacting with TMDB.
+
+- **JavaScript/Node.js:**  
+  - [themoviedb](https://www.npmjs.com/package/themoviedb) – A Node.js module that provides an easy interface to the TMDB API.  
+  - [tmdb.js](https://github.com/chrisenytc/tmdb.js) – A JavaScript library designed to access TMDB endpoints with minimal setup.
+
+- **PHP:**  
+  - [TMDb-PHP-API](https://github.com/yourphp/tmdb-php-api) – A PHP wrapper that simplifies the integration of TMDB data into PHP applications.
+
+- **Ruby:**  
+  - [themoviedb](https://github.com/westfieldlabs/themoviedb) – A Ruby gem that streamlines API requests to TMDB.
+
+### Benefits of Using Wrappers
+
+- **Simplified API Interaction:**  
+  Wrappers reduce boilerplate code by handling the setup, request formation, and response parsing for you.
+
+- **Built-in Error Handling:**  
+  Many libraries include error handling mechanisms to gracefully manage rate limits and API errors.
+
+- **Community Support & Maintenance:**  
+  Popular wrappers are often actively maintained and updated by the community, ensuring compatibility with the latest TMDB API changes.
+
+### Getting Started Example
+
+Here’s a quick example of how to use the Python wrapper `tmdbv3api`:
+
+```python
+from tmdbv3api import TMDb, Movie
+
+tmdb = TMDb()
+tmdb.api_key = 'YOUR_API_KEY'
+
+movie = Movie()
+results = movie.search('Inception')
+print(results)

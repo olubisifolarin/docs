@@ -1,0 +1,17 @@
+---
+title: JSON & JSONP
+description: ""
+---
+<Note class="card-info">
+    The only response format we support is JSON.
+</Note>
+##
+The TMDB (The Movie Database) API primarily uses JSON (JavaScript Object Notation) as the standard 
+format for data exchange. 
+
+```npm bash
+curl --request GET \
+     --url 'https://api.themoviedb.org/3/search/movie?query=Batman&callback=test' \
+     --header 'Authorization: Bearer ACCESS_TOKEN' \
+     --header 'accept: application/json'
+```

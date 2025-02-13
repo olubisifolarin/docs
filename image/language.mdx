@@ -1,0 +1,48 @@
+---
+title: Languages
+description: ""
+---
+
+##
+**Image Types**
+
+`poster_path`: The `poster_path` will query the language you specify in your query first and default back to the
+ highest rated image of the media's "original language" if it's present. If that image doesn't exist, it simply 
+ falls back to the highest rated. It's important to note that even though our language query parameter supports 
+ regional lookups, these regional variants are not supported for images at this time. This will be getting added 
+ at a later date.
+
+`backdrop_path`: Since 99% of backdrops don't contain a language, the default lookup for a backdrop is to simply query for the highest rated backdrop with no language. If it doesn't exist, then we return the overall highest rated.
+
+`still_path`: Like backdrops, TV episode images don't inherently have languages. We query for the highest rated.
+
+**Default Language**
+<Note>
+Remember, when you query one of the `/images` methods, your language param will filter images. Since you'll 
+usually want to query additional `languages`, you'll want to use the `include_image_language` query parameter. 
+Think of this as a means to provide a fallback.
+
+Take a look below where we give an example of requesting the images tagged with English and also those not
+tagged with any language.
+</Note>
+
+```npm bash
+curl --request GET \
+     --url 'https://api.themoviedb.org/3/movie/550/images?language=en-US&include_image_language=en,null' \
+     --header 'Authorization: Bearer ACCESS_TOKEN' \
+     --header 'accept: application/json'
+
+```
+
+Notice the `include_image_language` parameter. This query `(en,null)` is looking for all images that match English
+and those that haven't been set yet (null).
+
+Better yet, you can do query this image method in a single request by using `append_to_response`:
+
+```npm bash
+curl --request GET \
+     --url 'https://api.themoviedb.org/3/movie/550/images?language=en-US&include_image_language=en,null' \
+     --header 'Authorization: Bearer ACCESS_TOKEN' \
+     --header 'accept: application/json'
+
+```

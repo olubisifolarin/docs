@@ -1,0 +1,17 @@
+---
+title: Rating Limiting
+description: ""
+---
+
+##
+The API typically allows up to 40 requests every 10 seconds per IP address. If your
+application exceeds this limit, you'll receive a `429` Too Many Requests error.
+
+Monitor your request rates and optimize your application's API calls to remain within 
+these limits. If you anticipate a high volume of requests, consider caching responses 
+or batching requests where possible.
+
+<Note>
+    These limits are subject to change, so for the most up-to-date information, always 
+    refer to the official [TMDB API documentation](https://developers.themoviedb.org/3).
+</Note>

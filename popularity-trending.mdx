@@ -1,0 +1,51 @@
+---
+title: Popularity and Trending
+description: ""
+---
+
+## 
+
+The TMDB API offers endpoints that let you discover what’s popular and trending among movies and TV shows.
+These endpoints aggregate real-time data based on user engagement, ratings, and viewership, helping you 
+surface content that resonates with your audience.
+Here are some of popular endpoints.
+
+- **Movie Popularity:**  
+  The `/movie/popular` endpoint returns a list of movies that are currently popular. The ranking is based
+   on factors such as user ratings, vote counts, and overall engagement.
+
+- **TV Show Popularity:**  
+  Similarly, the `/tv/popular` endpoint provides a list of TV shows that are trending, based on similar metrics.
+
+These endpoints allow you to easily display popular content on your platform, ensuring your users see
+the most engaging and relevant movies and TV shows.
+
+### Trending Endpoint
+
+TMDB also offers a unified trending endpoint that spans multiple media types:
+
+- **Trending:**  
+  The `/trending/{media_type}/{time_window}` endpoint returns trending content for a specified media type 
+  and time window. You can set:
+  - **media_type:** `all`, `movie`, or `tv`
+  - **time_window:** `day` or `week`
+
+For example, a GET request to `/trending/movie/day` fetches movies trending over the past day, while `/trending/all/week` returns all media types that are trending over the week.
+
+### Use Cases
+
+- **Dynamic Content Displays:**  
+  Populate your application with up-to-date lists of popular and trending movies or TV shows to keep 
+  your content fresh and engaging.
+
+- **Content Recommendations:**  
+  Combine trending data with user preferences to offer personalized recommendations, enhancing user 
+  experience and retention.
+
+### Example Request
+
+Here's a quick example using cURL to fetch trending movies for the day:
+
+```bash
+curl --request GET \
+  --url 'https://api.themoviedb.org/3/trending/movie/day?api_key=YOUR_API_KEY'

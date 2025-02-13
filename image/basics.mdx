@@ -1,0 +1,39 @@
+---
+title: Basics
+description: ""
+---
+
+##
+Movies, TV shows, and person objects in TMDB contain references to various file paths for images.
+To construct a complete image URL, you need three key components: a `base URL`, a `file size`, and a `file path`.
+
+- The base URL and available file sizes can be retrieved from the [/configuration](/api-reference/configuration/details) API.
+- The file path is specific to the media object you’re working with.
+
+For example, if a movie's poster_path is /1E5baAaEse26fej7uHcjOgEE2t2.jpg and you want the w500 size, 
+the full image URL would be:
+
+```npm bash
+https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg  
+
+```
+
+##
+**Company and Network Logos**
+
+Logos are available in SVG and PNG formats. However, all `logo_path` fields return a .png by default 
+for backward compatibility.
+
+The `file_type` field in image methods indicates the original format of an uploaded asset.
+
+- SVG images should use the original size (/original/), as they are not resized.
+- PNG images can be retrieved in any available size.
+- For example, Netflix’s logo (wwemzKWzjKYJFfCeiB57q3r4Bcm.svg) can be accessed using:
+
+```npm bash
+https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg  
+https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png  
+https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png  
+
+
+```

@@ -1,0 +1,34 @@
+---
+title: Append To Response
+description: ""
+---
+
+##
+The `append_to_response` parameter in the TMDB API allows you to make multiple requests in a 
+single API call by appending additional related data. This improves performance by reducing
+the number of separate requests needed to fetch extra details about a movie, TV show, or person.
+
+To use this feature, simply include the `append_to_response` parameter in your request URL and 
+specify the additional resources you want to include.
+
+```npm bash
+curl --request GET \
+     --url 'https://api.themoviedb.org/3/movie/550?append_to_response=videos,credits' \
+     --header 'Authorization: Bearer ACCESS_TOKEN' \
+     --header 'accept: application/json'
+
+```
+You can append multiple sections to a request, including:
+
+| Field               | Description                               |
+|---------------------|-------------------------------------------|
+| `videos`           | Movie trailers, teasers, featurettes, etc. |
+| `credits`          | Cast & crew details. |
+| `images`           | Posters, backdrops, and stills. |
+| `reviews`          | User reviews. |
+| `similar`          | Similar movies or TV shows. |
+| `recommendations`  | Personalized recommendations. |
+| `external_ids`     | External links (IMDb, Facebook, Twitter, etc.). |
+| `translations`     | Available language translations. |
+| `release_dates`    | Release dates and certifications by region. |
+| `alternative_titles` | Alternative movie/TV show titles. |

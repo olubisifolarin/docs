@@ -1,0 +1,22 @@
+---
+title: Languages
+description: ""
+---
+##
+The TMDB API supports multiple languages, allowing developers to retrieve localized movie and
+TV show data based on user preferences. This is useful for applications that cater to an international 
+audience and need translated titles, descriptions, and other metadata.
+
+The API allows you to specify a language using the language parameter in your requests. TMDB follows the
+`ISO 639-1` and `ISO 3166-1` language codes, such as:
+
+- en-US → English (United States)
+- fr-FR → French (France)
+- es-ES → Spanish (Spain)
+- ja-JP → Japanese (Japan)
+- If no language is specified, the API defaults to English (en-US).
+
+<Note>
+Images do not yet support the `language-COUNTRY` notation. This will be improved in the future. Take a 
+read through the [image language](/image/language) documentation to learn how to partly get around this limitation.
+</Note>
