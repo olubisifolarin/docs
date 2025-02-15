@@ -4,14 +4,22 @@ description: 'These endpoints are used for securing access to TMDB API and user 
 ---
 
 
-# To be authenticated, follow these steps:
+## To be authenticated, follow these steps:
 
+##
 ## 1. Create a new request token
 
 This endpoint is used to generate a request token. It can be used to validate a TMDB user login.
 
+```bash
+GET https://api.themoviedb.org/3/authentication/token/new?api_key=YOUR_API_KEY
+
+```
+
 <Note>
-  The request token expires after 15 minutes.
+    A temporary request token is generated.  
+    The token is valid for 60 minutes.  
+    This token must be authenticated by the user in the next step.
 </Note>
 
 ## 2. Authenticate the request token
@@ -22,10 +30,25 @@ Before creating your session, you must authenticate your token.
 https://www.themoviedb.org/authenticate/your_request_token
 ```
 
+Or, if you want to redirect the user back to your app after authentication:
+
+```url
+https://www.themoviedb.org/authenticate/{REQUEST_TOKEN}?redirect_to=http://www.yourapp.com/approved
+
+```
+<Note>
+The user will be asked to approve or deny the token.
+If approved, the token is now authenticated and can be used to create a session.
+</Note>
+
 ## 3. Create a new session id
 
-Call the new session method with the request token that has been approved by the user in step 2. 
-This will return a new session_id.
+Once the request token is authenticated, exchange it for a session ID.
+
+```bash
+POST https://api.themoviedb.org/3/authentication/session/new?api_key=YOUR_API_KEY
+```
+
 <Note>
   You should treat this key like a password and keep it secret.
 </Note>

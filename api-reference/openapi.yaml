@@ -42831,12 +42831,12 @@ components:
       type: object
       properties: {}
   securitySchemes:
-    basicAuth:
+    bearerAuth:
       type: http
-      scheme: basic
-    digestAuth:
-      type: http
-      scheme: digest
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
 tags:
   - name: Authentication
     description: Endpoints for managing authentication, including login and user sessions.
