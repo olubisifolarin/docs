@@ -1,18 +1,22 @@
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid #374151;
+  padding: 116px;
   text-align: left;
   width: 50%; 
+  min-width: 220px;
 }
 
 table {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
-  table-layout: fixed; 
+  table-layout: auto;
+
 }
 .get-key{
   background-color: dodgerblue!important;
   height: 52px !important;
   width: 95%;
 }
+
+

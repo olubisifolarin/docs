@@ -1,0 +1,45 @@
+---
+title: 'Getting your Account ID'
+description: ''
+---
+
+##
+**To get your Account ID in TMDB API, follow these steps:**
+
+## 1. Sign in to TMDB
+
+- Go to [TMDB's official website](https://www.themoviedb.org/login).
+- Log in to your account.
+
+## 2. Request a token
+
+```bash
+GET https://api.themoviedb.org/3/authentication/token/new?api_key=YOUR_API_KEY
+
+```
+
+## 3. Authenticate the request token
+
+Before creating your session, you must authenticate your token.
+
+```url
+https://www.themoviedb.org/authenticate/your_request_token
+```
+
+## 4. Create a new session id
+
+Once the request token is authenticated, exchange it for a session ID. Read more [here](/api-reference/authentication/how-to-generate-a-session-id)
+
+```bash
+POST https://api.themoviedb.org/3/authentication/session/new?api_key=YOUR_API_KEY \
+-H "Content-Type: application/json" \
+-d '{"request_token": "YOUR_REQUEST_TOKEN"}'
+```
+
+## 5. Fetch Your Account ID
+Once you have a session ID, use this request to generate your account id:
+
+```bash
+GET "https://api.themoviedb.org/3/account?api_key=YOUR_API_KEY&session_id=YOUR_SESSION_ID"
+
+```

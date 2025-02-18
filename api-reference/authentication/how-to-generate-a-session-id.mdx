@@ -1,5 +1,5 @@
 ---
-title: 'How to generate session id'
+title: 'How to generate Session ID'
 description: 'These endpoints are used for securing access to TMDB API and user accounts.'
 ---
 
@@ -46,7 +46,9 @@ If approved, the token is now authenticated and can be used to create a session.
 Once the request token is authenticated, exchange it for a session ID.
 
 ```bash
-POST https://api.themoviedb.org/3/authentication/session/new?api_key=YOUR_API_KEY
+POST https://api.themoviedb.org/3/authentication/session/new?api_key=YOUR_API_KEY \
+-H "Content-Type: application/json" \
+-d '{"request_token": "YOUR_REQUEST_TOKEN"}'
 ```
 
 <Note>

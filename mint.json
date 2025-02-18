@@ -68,7 +68,8 @@
         "using-the-api/finding-data",
         "using-the-api/rate-limiting",
         "using-the-api/json-jsonp",
-        "using-the-api/languages"
+        "using-the-api/languages",
+        "using-the-api/pagination"
       ]
     },
 
@@ -103,6 +104,7 @@
     {
       "group": "ACCOUNT",
       "pages": [
+        "api-reference/account/getting-your-account-id",
         "api-reference/account/details",
         "api-reference/account/add-favorite",
         "api-reference/account/add-to-watchlist",

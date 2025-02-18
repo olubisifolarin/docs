@@ -1,0 +1,23 @@
+---
+title: Pagination
+description: ""
+---
+
+##
+
+The TMDB API uses pagination to manage large sets of data efficiently. When making requests to 
+endpoints that return multiple results, such as movies, TV shows, or people, the response is 
+paginated to ensure optimal performance.
+
+Each paginated response includes:
+
+`page`: The current page number.
+
+`total_pages`: The total number of pages available.
+
+`total_results`: The total number of results available.
+
+`results`: An array containing the data for the requested page.
+
+To navigate through different pages, include the `page` parameter in your request. The default value is 1, 
+but you can specify any page number up to the `total_pages` value.
