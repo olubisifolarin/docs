@@ -1,0 +1,34 @@
+---
+title: 'Versioning'
+description: ""
+icon: "code-branch"
+iconType: "solid"
+---
+
+##
+TMDB (The Movie Database) API follows a versioning system to ensure stability and backward compatibility. 
+The current version of the API is v3, with an upcoming v4 that introduces improvements and new features.
+
+# Current API Versions
+
+| Versions | Status  | Base URL                           | Notes                                               |
+|---------|--------|----------------------------------|-----------------------------------------------------|
+| v3      | Stable | https://api.themoviedb.org/3/   | The primary version used by most applications.     |
+| v4      | Beta   | https://api.themoviedb.org/4/   | Includes OAuth authentication and additional improvements. |
+
+
+# Choosing the Right Version
+- Use v3 if you need stable, well-documented endpoints for movie, TV, and person data.
+- Use v4 if you need OAuth authentication, personalized lists, and advanced user features.
+
+**BaseURL of v3**
+```bash
+GET https://api.themoviedb.org/3/
+
+```
+
+**BaseURL of v4**
+```bash
+GET https://api.themoviedb.org/4/
+
+```

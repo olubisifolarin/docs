@@ -19,4 +19,15 @@ table {
   width: 95%;
 }
 
+.response-container {
+  align-items: end;
+  justify-content: right;
+  width: 100%;
+  margin-left: 48%;
+  transform: translateY(-980px);
+  
+}
+
+
+
 

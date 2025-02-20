@@ -2,7 +2,10 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "The TMDB API DOCUMENTATION",
   "openapi": "api-reference/openapi.yaml",
+  "versions": ["v3", "v4"],
 
+ 
+  
   "logo": {
     "dark": "/logo/tmdb.svg",
     "light": "/logo/tmdb.svg"
@@ -22,19 +25,25 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "https://www.themoviedb.org/talk/category/5047958519c29526b50017d6"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://www.themoviedb.org/"
   },
+  
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api-reference"  
+    },
+    {
+      "name": "Changelog",
+      "url": "changelog"
     }
   ],
+
 
     "seo": {
       "indexHiddenPages": true
@@ -42,9 +51,15 @@
 
   "navigation": [
     {
+      "group": "CHANGELOG",
+      "pages": [
+        "changelog/changelog"
+      ]
+    },
+    {
       "group": "GET STARTED",
       "pages": [
-        "introduction",
+        "introduction", 
         "wrappers-library",
         "popularity-trending",
         "faq"
@@ -69,7 +84,9 @@
         "using-the-api/rate-limiting",
         "using-the-api/json-jsonp",
         "using-the-api/languages",
-        "using-the-api/pagination"
+        "using-the-api/pagination",
+        "using-the-api/version",
+        "using-the-api/glossary"
       ]
     },
 
@@ -413,9 +430,6 @@
         
       ]
     }
-
-    
-  
   ]
 
   
