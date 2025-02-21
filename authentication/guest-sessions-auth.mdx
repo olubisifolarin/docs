@@ -12,9 +12,44 @@ Guest sessions are a special kind of session that give you some of the functiona
 of an account, but not all. For example, some of the things you can do with a guest 
 session are; maintain a rated list, a watchlist and a favourite list.
 
+## Creating a Guest Session
+
+```bash
+https://api.themoviedb.org/3/authentication/guest_session/new?api_key=<<api_key>>
+```
+
+A successful response will include a guest_session_id, which you can use to authenticate 
+subsequent requests that involve rating movies or TV shows.
+
+```
+{
+  "success": true,
+  "guest_session_id": "your_guest_session_id",
+  "expires_at": "2025-02-22 01:13:36 UTC"
+}
+```
+
 <Note>
-    Guest sessions will be automatically deleted if not used within 60 minutes of being created.
+    - Guest sessions will be automatically deleted if not used within 24 hours of being created.
+    - it's recommended to generate only one guest session per user or device
+    - Guest sessions should be kept private as they tie a session within your application to a single token
+
 </Note>
 
-Just like a fully authorized user session, guest sessions should be kept private as they tie a 
-session within your application to a single token.
+## Using Guest Session to Rate a Movie
+Once you have a `guest_session_id`, you can rate a movie.
+```bash
+    curl -X POST "https://api.themoviedb.org/3/movie/{movie_id}/rating?api_key=YOUR_API_KEY&guest_session_id=YOUR_GUEST_SESSION_ID" \
+     -H "Content-Type: application/json" \
+     -d '{"value": 8.5}'
+
+```
+Response
+```json
+{
+  "success": true,
+  "status_code": 12,
+  "status_message": "The item/record was updated successfully."
+}
+```
+

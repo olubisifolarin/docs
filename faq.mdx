@@ -4,42 +4,52 @@ description: ""
 icon: seal-question
 ---
 ##
-**What is the TMDB API?**  
+<Accordion title="What is the TMDB API?">
 The TMDB API is a RESTful API provided by The Movie Database that gives developers access 
 to a vast collection of movie, TV show, and actor data. It enables you to search for films, 
 retrieve detailed information, and integrate multimedia content into your applications.
+</Accordion>
 
-**How do I obtain an API key?**  
+<Accordion title="How do I obtain an API key?">
 To get an API key, sign up for an account on TMDB and navigate to the API section in your 
 account settings. There, you can generate a key which is required for making authenticated 
 requests. For more details, see the
 <a href="/introduction" target="_self">TMDB API Documentation</a>.
+</Accordion>
 
-**What authentication methods are available?**  
+<Accordion title="What authentication methods are available?">
 TMDB supports multiple authentication methods:
 - **API Key Authentication:** Used for general requests by including your API key as a query parameter.
 - **User Authentication:** For user-specific actions, you can authenticate using either session IDs or v4 authentication tokens (bearer tokens).
+</Accordion>
 
-**What are the rate limits for the TMDB API?**  
+<Accordion title="What are the rate limits for the TMDB API?">
 TMDB enforces rate limiting to ensure fair usage. Typically, you can make up to 40 requests every 
 10 seconds per IP address. Exceeding this limit will result in a `429 Too Many Requests` error. 
 It’s best to monitor your request volume and implement backoff strategies as needed.
+</Accordion>
 
-**What data format does the TMDB API use?**  
-The API returns data in JSON format, which makes it easy to parse and integrate with various
- programming languages and frameworks.
+<Accordion title="What data format does the TMDB API use?">
+The API returns data in JSON format, which makes it easy to parse and integrate with various programming 
+languages and frameworks.
+</Accordion>
 
-**Where can I find more detailed documentation?** 
+<Accordion title="Where can I find more detailed documentation?">
 You can refer to the full TMDB API documentation 
 <a href="/api-reference/introduction" target="_self">here</a>
 for comprehensive details on endpoints, parameters, and usage examples.
+</Accordion>
 
-**Is there a sandbox environment for testing?**  
+<Accordion title="Is there a sandbox environment for testing?">
 TMDB does not offer a separate sandbox environment. Instead, you can use your API key in a
 development environment to test your requests. Just be mindful of the rate limits and usage policies during testing.
+</Accordion>
 
-**What should I do if I encounter errors?**  
+<Accordion title="What should I do if I encounter errors?">
 If you run into issues, check the error codes returned by the API. The TMDB documentation provides
 details on each error code and troubleshooting steps. Additionally, community forums and TMDB 
 support channels can be valuable resources.
+</Accordion>
+
+
 

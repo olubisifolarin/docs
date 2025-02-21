@@ -18,12 +18,10 @@ available methods for our movie, tv, actor and image API.
         Shell
       </div>
     }>
-      <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-auto">
-      <code>
-        
+
+      ```
         curl -X GET "https://api.themoviedb.org/3/authentication" \ -H "Authorization: Bearer YOUR_API_KEY"
-      </code>
-    </pre>
+      ```
     </Tab>
 
     <Tab title={
@@ -32,6 +30,15 @@ available methods for our movie, tv, actor and image API.
         Python
       </div>
     }>
+      ```python
+        import requests
+
+        url = "https://api.themoviedb.org/3/authentication"
+        headers = {"Authorization": "Bearer YOUR_API_KEY"}
+        response = requests.get(url, headers=headers)
+
+        print(response.json())
+      ```
     </Tab>
 
     <Tab title={
@@ -40,6 +47,17 @@ available methods for our movie, tv, actor and image API.
         Ruby
       </div>
     }>
+      ```ruby
+        require 'net/http'
+        require 'json'
+
+        url = URI("https://api.themoviedb.org/3/authentication")
+        req = Net::HTTP::Get.new(url)
+        req["Authorization"] = "Bearer YOUR_API_KEY"
+
+        res = Net::HTTP.start(url.host, url.port, use_ssl: true) { |http| http.request(req) }
+        puts res.body
+      ```
     </Tab>
 
     <Tab title={
@@ -48,6 +66,22 @@ available methods for our movie, tv, actor and image API.
         Node.js
       </div>
     }>
+    ```javascript
+      const fetch = require('node-fetch');
+
+      const url = "https://api.themoviedb.org/3/authentication";
+      const options = {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer YOUR_API_KEY"
+        }
+      };
+
+      fetch(url, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error("Error:", error));
+  ```
     </Tab>
 
 
@@ -57,6 +91,35 @@ available methods for our movie, tv, actor and image API.
         C#
       </div>
     }>
+    ```csharp
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    private static readonly HttpClient client = new HttpClient();
+
+    static async Task Main()
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://api.themoviedb.org/3/authentication");
+            request.Headers.Add("Authorization", "Bearer YOUR_API_KEY");
+
+            HttpResponseMessage response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseBody);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error: {e.Message}");
+        }
+    }
+}
+```
     </Tab>
 
     <Tab title={
@@ -65,6 +128,45 @@ available methods for our movie, tv, actor and image API.
         Java
       </div>
     }>
+    ```java
+      import java.net.HttpURLConnection;
+      import java.net.URL;
+      import java.io.BufferedReader;
+      import java.io.InputStreamReader;
+
+      public class ApiRequest {
+          public static void main(String[] args) {
+              try {
+                  String url = "https://api.themoviedb.org/3/authentication";
+                  URL obj = new URL(url);
+                  HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                  
+                  // Set request method
+                  con.setRequestMethod("GET");
+                  
+                  // Set authorization header
+                  con.setRequestProperty("Authorization", "Bearer YOUR_API_KEY");
+
+                  int responseCode = con.getResponseCode();
+                  System.out.println("Response Code: " + responseCode);
+
+                  BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                  String inputLine;
+                  StringBuffer response = new StringBuffer();
+
+                  while ((inputLine = in.readLine()) != null) {
+                      response.append(inputLine);
+                  }
+                  in.close();
+
+                  // Print response
+                  System.out.println(response.toString());
+              } catch (Exception e) {
+                  e.printStackTrace();
+              }
+          }
+      }
+    ```
     </Tab>
 
     <Tab title={
@@ -73,6 +175,24 @@ available methods for our movie, tv, actor and image API.
         PHP
       </div>
     }>
+    ```php
+      <?php
+      $apiKey = "YOUR_API_KEY";
+      $url = "https://api.themoviedb.org/3/authentication";
+
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, [
+          "Authorization: Bearer $apiKey"
+      ]);
+
+      $response = curl_exec($ch);
+      curl_close($ch);
+
+      echo $response;
+      ?>
+```
     </Tab>
 
   </Tabs>
@@ -141,29 +261,12 @@ available methods for our movie, tv, actor and image API.
 
     ```
 
-<div className="response-container flex w-full mt-6 h-auto justify-center">
-  <ResponseField>
-    <div className="bg-white dark:bg-gray-900 p-2 sm:p-4 rounded-lg border border-gray-200 dark:border-gray-700 w-full max-w-[600px] sm:max-w-full flex flex-col">
-      <div className="flex justify-between items-center mb-3">
-        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-300">POPULAR ENDPOINTS</h3>
-        <span className="text-xs text-gray-500">LAST 30 DAYS</span>
-      </div>
+<RequestExample>
+   ```bash
+  curl -X GET "https://api.example.com/movies?limit=10"
+  ```
+</RequestExample>
 
-      {/* Placeholder for popular endpoints (loading effect) */}
-      <div className="space-y-2">
-        {[...Array(3)].map((_, index) => (
-          <div key={index} className="flex justify-between items-center bg-gray-100 dark:bg-gray-800 p-3 rounded-md animate-pulse">
-            <span className="w-2/3 h-4 bg-gray-300 dark:bg-gray-700 rounded"></span>
-            <span className="w-1/4 h-4 bg-gray-300 dark:bg-gray-700 rounded"></span>
-          </div>
-        ))}
-      </div>
 
-      {/* Request prompt */}
-      <div className="mt-4 text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
-        <span>💡</span> Make a request to see them here or <a href="/try-it" className="text-blue-500">Try It!</a>
-      </div>
-    </div>
-  </ResponseField>
-</div>
+
 

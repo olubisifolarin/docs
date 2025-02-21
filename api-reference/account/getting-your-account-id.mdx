@@ -43,3 +43,25 @@ Once you have a session ID, use this request to generate your account id:
 GET "https://api.themoviedb.org/3/account?api_key=YOUR_API_KEY&session_id=YOUR_SESSION_ID"
 
 ```
+Response
+```
+{
+  "avatar": {
+    "gravatar": {
+      "hash": "374b042c3cf5a753197e33390a88137b"
+    },
+    "tmdb": {
+      "avatar_path": null
+    }
+  },
+  "id": 13974313,
+  "iso_639_1": "en",
+  "iso_3166_1": "NG",
+  "name": "",
+  "include_adult": false,
+  "username": "bisi"
+}
+```
+<Note>
+    The account ID is "id": 13974313. You will use this ID for account-related operations.
+</Note>
