@@ -4,10 +4,10 @@ description: 'These endpoints are used for securing access to TMDB API and user 
 ---
 
 
-**To be authenticated, follow these steps:**
+To be authenticated, follow these steps:
 
 ##
-## 1. Create a new request token
+### 1. Create a new request token
 
 This endpoint is used to generate a request token. It can be used to validate a TMDB user login.
 
@@ -22,7 +22,7 @@ GET https://api.themoviedb.org/3/authentication/token/new?api_key=YOUR_API_KEY
     - This token must be authenticated by the user in the next step.
 </Note>
 
-## 2. Authenticate the request token
+### 2. Authenticate the request token
 
 Before creating your session, you must authenticate your token.
 
@@ -41,7 +41,7 @@ https://www.themoviedb.org/authenticate/{REQUEST_TOKEN}?redirect_to=http://www.y
 - If approved, the token is now authenticated and can be used to create a session.
 </Note>
 
-## 3. Create a new session id
+### 3. Create a new session id
 
 Once the request token is authenticated, exchange it for a session ID.
 

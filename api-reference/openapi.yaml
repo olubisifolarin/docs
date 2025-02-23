@@ -52,10 +52,9 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
+                request_token:
                   type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                  description: A token to authenticate the request.
               required:
                 - request_token
             example:
@@ -123,16 +122,23 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
+                username:
                   type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                  description: The user's username.
+                password:
+                  type: string
+                  description: The user's password.
+                request_token:
+                  type: string
+                  description: A token to authenticate the request.
               required:
-                - RAW_BODY
-              example:
-                username: "bisi"
-                password: "test123"
-                request_token: "65579224bd555f9fccda03941a3dcc53b606abee"
+                - username
+                - password
+                - request_token
+            example:
+              username: "bisi"
+              password: "test123"
+              request_token: "65579224bd555f9fccda03941a3dcc53b606abee"
       responses:
         200:
           description: Successful response
@@ -339,14 +345,21 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
+                media_type:
                   type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                  description: The type of media (e.g., movie, TV show).
+                media_id:
+                  type: integer
+                  description: The unique identifier for the media.
+                favorite:
+                  type: boolean
+                  description: Indicates whether the media is marked as a favorite.
               required:
-                - RAW_BODY
+                - media_type
+                - media_id
+                - favorite
             example:
-              media_type: movie
+              media_type: "movie"
               media_id: 500
               favorite: true
 
@@ -389,23 +402,30 @@ paths:
                   status_code: 1
                   status_message: "Success."
       requestBody:
-          required: true
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  RAW_BODY:
-                    type: string
-                    format: json
-                    description: A raw JSON string representing the request body.
-                required:
-                  - RAW_BODY
-                example:
-                  media_type: movie
-                  media_id: 11
-                  watchlist: true             
-
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                media_type:
+                  type: string
+                  description: The type of media (e.g., movie, TV show).
+                media_id:
+                  type: integer
+                  description: The unique identifier for the media.
+                watchlist:
+                  type: boolean
+                  description: Indicates whether the media is added to the watchlist.
+              required:
+                - media_type
+                - media_id
+                - watchlist
+            example:
+              media_type: "movie"
+              media_id: 11
+              watchlist: true
+    
   /account/{account_id}/favorite/movies:
     get:
       tags:
@@ -6005,33 +6025,33 @@ paths:
       operationId: ListAddmovie
       requestBody:
         required: false
+        description: The request body containing the media ID to be added to the list
         content:
           application/json:
             schema:
               type: object
               properties:
-                RAW_BODY:
-                  type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                media_id:
+                  type: integer
+                  description: The ID of the media to be added.
               required:
-                - RAW_BODY
+                - media_id
             example:
-              media_id: "550"
-        description: The request body containing the media ID to be added to the list
+              media_id: 550
       parameters:
-      - name: list_id
-        in: path
-        required: true
-        schema:
-          type: integer
-        description: The ID of the list
-      - name: session_id
-        in: query
-        required: true
-        schema:
-          type: string
-        description: The session ID for user authentication
+        - name: list_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: The ID of the list       
+        - name: session_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The session ID for user authentication
+
       responses:
             200:
               description: Successful
@@ -6150,22 +6170,30 @@ paths:
       operationId: List
       requestBody:
         required: true
+        description: The request body containing details for creating a list.
         content:
           application/json:
             schema:
               type: object
               properties:
-                RAW_BODY:
+                name:
                   type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                  description: The name of the list.
+                description:
+                  type: string
+                  description: A short description of the list.
+                language:
+                  type: string
+                  description: The language code (e.g., "en" for English).
               required:
-                - RAW_BODY
+                - name
+                - description
+                - language
             example:
-              name: This is my awesome test list
-              description: Just an awesome list
-              language: en
-        description: The request body containing the media ID to be added to the list.
+              name: "This is my awesome test list"
+              description: "Just an awesome list"
+              language: "en"
+
       parameters:
       - name: session_id
         in: query
@@ -6418,20 +6446,20 @@ paths:
       operationId: ListRemovemovie
       requestBody:
         required: true
+        description: The request body containing the media ID to be added to the list.
         content:
           application/json:
             schema:
               type: object
               properties:
-                RAW_BODY:
-                  type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                media_id:
+                  type: integer
+                  description: The ID of the media to be added.
               required:
-                - RAW_BODY
+                - media_id
             example:
-              media_id: "550"
-              description: The request body containing the media ID to be added to the list
+              media_id: 550
+
       parameters:
       - name: list_id
         in: path
@@ -9553,13 +9581,13 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
-                  type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                value:
+                  type: number
+                  description: A rating value for the media.
               required:
-                - RAW_BODY
-            example: 8.5
+                - value
+            example:
+              value: 8.5
       parameters:
       - name: movie_id
         in: path
@@ -21963,13 +21991,13 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
-                  type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                rating:
+                  type: number
+                  description: The rating value for the media.
               required:
-                - RAW_BODY
-            example: 8.5
+                - rating
+            example:
+              rating: 8.5
       parameters:
       - name: series_id
         in: path
@@ -26292,13 +26320,13 @@ paths:
             schema:
               type: object
               properties:
-                RAW_BODY:
-                  type: string
-                  format: json
-                  description: A raw JSON string representing the request body.
+                value:
+                  type: number
+                  description: A numeric value representing the rating.
               required:
-                - RAW_BODY
-            example: 8.5
+                - value
+            example:
+              value: 8.5
       parameters:
       - name: series_id
         in: path

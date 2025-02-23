@@ -12,7 +12,7 @@ Guest sessions are a special kind of session that give you some of the functiona
 of an account, but not all. For example, some of the things you can do with a guest 
 session are; maintain a rated list, a watchlist and a favourite list.
 
-## Creating a Guest Session
+### Creating a Guest Session
 
 ```bash
 https://api.themoviedb.org/3/authentication/guest_session/new?api_key=<<api_key>>
@@ -36,7 +36,7 @@ subsequent requests that involve rating movies or TV shows.
 
 </Note>
 
-## Using Guest Session to Rate a Movie
+### Using Guest Session to Rate a Movie
 Once you have a `guest_session_id`, you can rate a movie.
 ```bash
     curl -X POST "https://api.themoviedb.org/3/movie/{movie_id}/rating?api_key=YOUR_API_KEY&guest_session_id=YOUR_GUEST_SESSION_ID" \
