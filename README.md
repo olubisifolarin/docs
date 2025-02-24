@@ -12,25 +12,25 @@ This documentation is built using Postman, OpenAPI Specification, and Mintlify t
 1. OpenAPI Specification (OAS)
 The [OpenAPI Specification (OAS)](https://editor-next.swagger.io/) is a standard for describing REST APIs in a structured format. It allows developers to:
 
-- Define API endpoints, request/response formats, and authentication methods.
-- Generate interactive API documentation that enhances usability.
-- Improve consistency and maintainability across API integrations.
+  - Define API endpoints, request/response formats, and authentication methods.
+  - Generate interactive API documentation that enhances usability.
+  - Improve consistency and maintainability across API integrations.
 
 2. Postman
 [Postman](https://www.postman.com/) is an API development tool that allows developers to:
 
-- Test and debug API endpoints with various request parameters and payloads.
-- Automate API testing with collections and scripts.
-- Generate API documentation and mock servers to simulate API responses.
-- Simplify collaboration by sharing API requests and responses with teams.
+  - Test and debug API endpoints with various request parameters and payloads.
+  - Automate API testing with collections and scripts.
+  - Generate API documentation and mock servers to simulate API responses.
+  - Simplify collaboration by sharing API requests and responses with teams.
 
 3. Mintlify
 [Mintlify](https://dashboard.mintlify.com/login) is a modern documentation framework that provides:
 
-- A clean, user-friendly, and interactive documentation experience.
-- Automatic deployment and hosting of documentation.
-- Features like code blocks, search functionality, and customizable UI components.
-- Integration with OpenAPI to display API references dynamically.
+  - A clean, user-friendly, and interactive documentation experience.
+  - Automatic deployment and hosting of documentation.
+  - Features like code blocks, search functionality, and customizable UI components.
+  - Integration with OpenAPI to display API references dynamically.
 
 > **Note:** This project is a **recreation** of the TMDB API documentation for educational and demonstration purposes. It is not affiliated with the official TMDB API.
 
@@ -94,8 +94,8 @@ mintlify dev
 This will serve the documentation at http://localhost:3000 by default.
 
 4. Make and Preview Changes
-   
-- Edit your documentation files inside the project folder. The Mintlify server will automatically reload changes.
+
+   - Edit your documentation files inside the project folder. The Mintlify server will automatically reload changes.
 
 ## Conclusion
 This documentation is a comprehensive guide for integrating TMDB’s API into your application. For more details, visit the official [TMDB](https://developer.themoviedb.org/reference/intro/getting-started) API documentation.
