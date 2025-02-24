@@ -19,18 +19,17 @@ The [OpenAPI Specification (OAS)](https://editor-next.swagger.io/) is a standard
 2. Postman
 [Postman](https://www.postman.com/) is an API development tool that allows developers to:
 
-  - Test and debug API endpoints with various request parameters and payloads.
-  - Automate API testing with collections and scripts.
-  - Generate API documentation and mock servers to simulate API responses.
-  - Simplify collaboration by sharing API requests and responses with teams.
+   - Automate API testing with collections and scripts.
+   - Generate API documentation and mock servers to simulate API responses.
+   - Simplify collaboration by sharing API requests and responses with teams.
 
 3. Mintlify
 [Mintlify](https://dashboard.mintlify.com/login) is a modern documentation framework that provides:
 
-  - A clean, user-friendly, and interactive documentation experience.
-  - Automatic deployment and hosting of documentation.
-  - Features like code blocks, search functionality, and customizable UI components.
-  - Integration with OpenAPI to display API references dynamically.
+   - A clean, user-friendly, and interactive documentation experience.
+   - Automatic deployment and hosting of documentation.
+   - Features like code blocks, search functionality, and customizable UI components.
+   - Integration with OpenAPI to display API references dynamically.
 
 > **Note:** This project is a **recreation** of the TMDB API documentation for educational and demonstration purposes. It is not affiliated with the official TMDB API.
 
