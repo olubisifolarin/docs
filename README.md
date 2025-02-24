@@ -15,15 +15,13 @@ The [OpenAPI Specification (OAS)](https://editor-next.swagger.io/) is a standard
    - Generate interactive API documentation that enhances usability.
    - Improve consistency and maintainability across API integrations.
 
-2. Postman
-[Postman](https://www.postman.com/) is an API development tool that allows developers to:
+2. [Postman](https://www.postman.com/) is an API development tool that allows developers to:
 
    - Automate API testing with collections and scripts.
    - Generate API documentation and mock servers to simulate API responses.
    - Simplify collaboration by sharing API requests and responses with teams.
 
-3. Mintlify
-[Mintlify](https://dashboard.mintlify.com/login) is a modern documentation framework that provides:
+3. [Mintlify](https://dashboard.mintlify.com/login) is a modern documentation framework that provides:
 
    - A clean, user-friendly, and interactive documentation experience.
    - Automatic deployment and hosting of documentation.
