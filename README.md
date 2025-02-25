@@ -9,8 +9,7 @@ This repository provides comprehensive documentation for integrating the TMDB AP
 ## Technologies Used
 This documentation is built using Postman, OpenAPI Specification, and Mintlify to ensure a seamless, interactive, and developer-friendly experience.
 
-1. OpenAPI Specification (OAS)
-The [OpenAPI Specification (OAS)](https://editor-next.swagger.io/) is a standard for describing REST APIs in a structured format. It allows developers to:
+1. [OpenAPI Specification (OAS)](https://editor-next.swagger.io/) is a standard for describing REST APIs in a structured format. It allows developers to:
    - Define API endpoints, request/response formats, and authentication methods.
    - Generate interactive API documentation that enhances usability.
    - Improve consistency and maintainability across API integrations.
