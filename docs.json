@@ -11,7 +11,7 @@
   "navigation": {
     "versions": [
       {
-        "version": "v3",
+        "version": "v3 stable",
         "tabs": [
           {
             "tab": "Documentation",
@@ -384,63 +384,48 @@
               {
                 "group": "GET STARTED",
                 "pages": [
-                  "introduction"
+                  "documentation-v4/introduction"
                 ]
               },
               {
                 "group": "AUTHENTICATION",
                 "pages": [
-                  "authentication/application",
-                  "authentication/user-auth"
+                  "documentation-v4/application",
+                  "documentation-v4/user-auth"
                 ]
               }
             ]
           },
+          
           {
             "tab": "API Reference",
             "groups": [
               {
                 "group": "API Documentation",
                 "pages": [
-                  "api-reference/introduction",
-                  "api-reference/authentication"
+                  "api-reference-v4/introduction",
+                  "api-reference-v4/authentication"
                 ]
               },
               {
                 "group": "ACCOUNT",
                 "pages": [
-                  "api-reference/account/getting-your-account-id",
-                  "api-reference/account/details",
-                  "api-reference/account/add-favorite",
-                  "api-reference/account/add-to-watchlist",
-                  "api-reference/account/favorite-movies",
-                  "api-reference/account/favorite-tv",
-                  "api-reference/account/list",
-                  "api-reference/account/rated-movies",
-                  "api-reference/account/rated-tv",
-                  "api-reference/account/rated-tv-episodes",
-                  "api-reference/account/watchlist-movies",
-                  "api-reference/account/watchlist-tv"
+                  "api-reference-v4/account/favorite-movies",
+                  "api-reference-v4/account/lists"
                 ]
               },
               {
-                "group": "AUTHENTICATION",
+                "group": "AUTH",
                 "pages": [
-                  "api-reference/authentication/create-guest-session",
-                  "api-reference/authentication/create-request-token",
-                  "api-reference/authentication/create-session"
+                  "api-reference-v4/auth/create-access-token",
+                  "api-reference-v4/auth/create-request-token",
+                  "api-reference-v4/auth/logout"
                 ]
               },
               {
                 "group": "LISTS",
                 "pages": [
-                  "api-reference/lists/add-movie",
-                  "api-reference/lists/check-item-status",
-                  "api-reference/lists/clear",
-                  "api-reference/lists/create",
-                  "api-reference/lists/delete",
-                  "api-reference/lists/details",
-                  "api-reference/lists/remove-movie"
+                  "api-reference-v4/lists/details"
                 ]
               }        
             ]
@@ -451,7 +436,7 @@
               {
                 "group": "CHANGELOG",
                 "pages": [
-                  "changelog/changelog"
+                  "changelog-v4/changelog"
                 ]
               }
             ]

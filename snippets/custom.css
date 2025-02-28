@@ -18,9 +18,3 @@ table {
   height: 52px !important;
   width: 95%;
 }
-
-.carousel{ 
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
