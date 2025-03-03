@@ -418,8 +418,7 @@
                 "group": "AUTH",
                 "pages": [
                   "api-reference-v4/auth/create-access-token",
-                  "api-reference-v4/auth/create-request-token",
-                  "api-reference-v4/auth/logout"
+                  "api-reference-v4/auth/create-request-token"
                 ]
               },
               {
