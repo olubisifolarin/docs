@@ -611,9 +611,9 @@ paths:
     get:
       tags:
         - Account
-      summary: List
+      summary: Lists
       description: | 
-        This endpoint is used to get Get a users list of custom lists.
+        This endpoint is used to get a users list of custom lists.
       operationId: accountList
       parameters:
         - name: account_id
