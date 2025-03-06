@@ -1,15 +1,100 @@
 ---
-title: User Auth
+title: User
 description: ""
 icon: user
 ---
 
 ##
-You can authenticate TMDB users within your application to extend the TMDB experience within your
-application. This will let your users (nay—our users) do things like rate movies, maintain their
-favourite and watch lists as well as do things like create and edit custom lists—all while staying
-in sync with their account on TMDB.
 
-User authentication is controlled with a `session_id` query parameter. You can generate a `session_id`
-by following the steps outlined [here](/api-reference/authentication/how-to-generate-a-session-id).
+Version 4 of the TMDB API uses OAuth 2.0 for authentication, which is more secure and versatile than 
+the API key system used in v3. This authentication method allows applications to access user-specific 
+data with proper user consent.
 
+Follow the steps below for your authentication:
+
+<Steps>
+  <Step title="Create a Request Token">
+    To begin the authentication process, you need to create a request token by making a POST request to the TMDB API.
+
+```bash
+curl -X POST \
+  https://api.themoviedb.org/4/auth/request_token \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer your_access_token' \
+  -d '{
+    "redirect_to": "https://www.themoviedb.org/callback"
+  }'
+```
+
+*Response*
+
+```json
+{
+  "success": true,
+  "expires_at": "2025-03-07T10:00:00.000Z",
+  "request_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+<Note>
+    - The redirect URL (or callback) is an optional parameter you can include with this request. It will execute
+    the request token and grant approval on TMDB.
+    - Remember to replace `YOUR_ACCESS_TOKEN` with your actual API access token.
+    - The `request_token` is valid for 60 minutes
+</Note>
+</Step>
+ 
+<Step title="Asking for approval on TMDB">
+    Next, In order for a user to approve the request token, they have to be redirected to the website.
+```
+https://www.themoviedb.org/auth/access?request_token={request_token}
+```
+<Note>
+  Ensure you replace `request_token` with the token received in the previous step.
+</Note>
+</Step>
+
+<Step title="Create an Access Token">
+    After the request_token has been approved, exchange the request token for an access token.
+
+    ```bash
+    curl -X POST \
+    https://api.themoviedb.org/4/auth/access_token \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer your_access_token' \
+    -d '{
+        "request_token": "your_request_token"
+    }'
+    ```
+
+*You'll receive a response containing an access token and account ID:*
+
+```json
+{
+  "success": true,
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "account_id": "12345678"
+}
+```
+
+<Tip>
+  Store this access token securely. Unlike the request token, this access token does not expire unless revoked by the user from their TMDB account settings.
+</Tip>
+
+</Step>
+
+<Step title="Using the Access Token">
+    Finally, use the access token in the Authorization header to make authenticated API requests.
+
+    ```bash
+    curl -X GET \
+    https://api.themoviedb.org/4/account/12345678 \
+    -H 'Authorization: Bearer your_access_token'
+    ```
+
+<Note>
+  Replace `12345678` with the actual account ID you received in the previous step.
+</Note>
+
+You can now access user-specific endpoints and perform actions on behalf of the user.
+</Step>
+</Steps>

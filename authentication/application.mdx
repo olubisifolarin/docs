@@ -18,16 +18,16 @@ You can request an API key by logging in to your account on TMDB and clicking
 
 The default method to authenticate is with your bearer token. If you head into 
 your account page, under the API settings section, you will see a new token 
-listed called `API Read Access Token`. This token is expected to be sent along as 
+listed called *API Read Access Token*. This token is expected to be sent along as 
 an `Authorization` header. Below is a simple cURL example that showcases this method
 
 ```cURL Example
   curl --request GET \
-  --url 'https://api.themoviedb.org/4/list/{list_id}' \
+  --url 'https://api.themoviedb.org/3/movie/11' \
   --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
 
   ```
 
 Using a Bearer token simplifies the authentication process, as it works seamlessly with 
-both the v3 and v4 methods. Since both options offer identical access levels, the choice 
+both the `v3` and `v4` methods. Since both options offer identical access levels, the choice 
 between them is entirely up to you.
