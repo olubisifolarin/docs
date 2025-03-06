@@ -10,11 +10,11 @@ Version 4 of the TMDB API uses OAuth 2.0 for authentication, which is more secur
 the API key system used in v3. This authentication method allows applications to access user-specific 
 data with proper user consent.
 
-Follow the steps below for your authentication:
+Follow this steps below for your authentication:
 
 <Steps>
   <Step title="Create a Request Token">
-    To begin the authentication process, you need to create a request token by making a POST request to the TMDB API.
+    To begin the authentication process, you need to create a request token by making a `POST` request to the TMDB API.
 
 ```bash
 curl -X POST \
@@ -38,7 +38,7 @@ curl -X POST \
 <Note>
     - The redirect URL (or callback) is an optional parameter you can include with this request. It will execute
     the request token and grant approval on TMDB.
-    - Remember to replace `YOUR_ACCESS_TOKEN` with your actual API access token.
+    - Remember to replace `your_access_token` with your actual API access token.
     - The `request_token` is valid for 60 minutes
 </Note>
 </Step>
