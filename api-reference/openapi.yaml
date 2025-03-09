@@ -6,6 +6,7 @@ info:
   contact: {}
 servers:
   - url: "https://api.themoviedb.org/3"
+  - url: "https://api.themoviedb.org/4"
 paths:
   /authentication/token/new:
     get:
@@ -42839,7 +42840,8 @@ paths:
                         provider_name: Premiere Max
                         provider_id: 2307
                       
-                                           
+# VERSION 4             
+
 
 components:
   schemas:
