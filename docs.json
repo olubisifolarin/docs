@@ -407,13 +407,7 @@
                   "api-reference-v4/authentication"
                 ]
               },
-              {
-                "group": "ACCOUNT",
-                "pages": [
-                  "api-reference-v4/account/favorite-movies",
-                  "api-reference-v4/account/lists"
-                ]
-              },
+
               {
                 "group": "AUTH",
                 "pages": [
@@ -421,6 +415,15 @@
                   "api-reference-v4/auth/create-request-token"
                 ]
               },
+
+              {
+                "group": "ACCOUNT",
+                "pages": [
+                  "api-reference-v4/account/favorite-movies",
+                  "api-reference-v4/account/lists"
+                ]
+              },
+              
               {
                 "group": "LISTS",
                 "pages": [

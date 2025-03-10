@@ -18,3 +18,8 @@ table {
   height: 52px !important;
   width: 95%;
 }
+
+.response-container{
+  max-width: 100%!important;
+  height: 200px;
+}

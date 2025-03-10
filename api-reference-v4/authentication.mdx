@@ -4,23 +4,87 @@ description: ''
 icon: 'lock'
 ---
 
-##
-<Note>
-    Before you can authenticate with the TMDB API, ensure you have a TMDB account. 
-</Note>
+<div className="response-container mt-6">
+  <ResponseField className="w-full max-w-full">
+    <h3 className="text-sm mb-5 font-semibold text-gray-800 dark:text-gray-300">LOG IN TO SEE YOUR API KEYS</h3>
+    <div className="bg-white dark:bg-gray-900 p-2 sm:p-4 rounded-lg border border-gray-200 dark:border-gray-700 w-full max-w-full flex flex-col">
+      <div className="flex items-center mb-3">
+        <span className="text-xs text-gray-400 mx-6">API KEY</span>
+        <span className="text-xs text-gray-400 mx-6  px-12">LABEL</span>
+        <span className="text-xs text-gray-400 mx-6 px-12">LAST USED</span>
+      </div>
+      
+      {/* Placeholder for popular endpoints (loading effect) */}
+      <div className="space-y-2 w-full">
+        {[...Array(3)].map((_, index) => (
+          <div key={index} className="flex justify-between items-center bg-gray-100 dark:bg-gray-800 p-3 rounded-md animate-pulse w-full">
+            <span className="w-2/3 h-4 bg-gray-300 dark:bg-gray-700 rounded"></span>
+            <span className="w-1/4 h-4 bg-gray-300 dark:bg-gray-700 rounded"></span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </ResponseField>
+</div>
 
-### Get Your API Key
+    <Card>
+    <div className="flex items-center gap-4 mb-4">
+      <div className="bg-green-500 p-2 rounded-full text-white">2</div>
+      <h2 className="text-xl font-semibold">Credentials</h2>
+    </div>
 
-- Go to <a href="https://www.themoviedb.org/" target="_self">TMDB</a> and log in to your account.
-- Navigate to your **Account Settings** by clicking on your profile picture and selecting **Settings** from the dropdown menu.
+    <div className="space-y-2 flex flex-col items-center">
+      <div className="get-key p-2 bg-gray-100 dark:bg-gray-800 rounded-lg w-full flex justify-center">
+        <a  
+          href="https://www.themoviedb.org/login?to=read_me&redirect=%2Freference%2Fintro%2Fgetting-started" 
+          rel="noopener noreferrer"
+          className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition w-full text-center"
+        >
+  Get API Key
+</a>
 
-<img height="200" src="/images/annotely_image.png" />
+      </div>
+    <div>
+    </div>
 
-- In the left sidebar, find and click on **API**.
-- Click on **Create API Key**, and choose the type of API access you need
-- Once approved, you’ll receive your API key, which you can use to authenticate API requests.
+    {/* Authorization Input & Login Button */}
+    <div className="p-4 bg-blue-100 dark:bg-blue-800 rounded-lg w-full">
+      <label className="font-semibold text-sm mb-2 block">Header</label>
+    
+      <div className="relative w-full">
+        <span className="absolute inset-y-0 left-2 flex items-center text-gray-500">
+          🔒
+        </span>
+        <input 
+          type="text" 
+          placeholder="Authorization"
+          className="pl-10 pr-4 py-3 w-full border rounded-lg focus:outline-none"
 
-<Note>
-    Keep your API key secure and do not share it publicly. If compromised, you may need to revoke 
-    and regenerate a new one.
-</Note>
+        />
+      </div>
+
+      {/* Login Button */}
+      <a 
+        href="https://www.themoviedb.org/login?to=read_me&redirect=%2Freference%2Fintro%2Fgetting-started"
+        className="mt-4 bg-blue-500 text-black rounded-lg hover:bg-blue-600 transition w-full block"
+      >
+        🔑 Log in to use your API keys
+      </a>
+    </div>
+  </div>
+
+  </Card>
+
+  <Card>
+    <div className="flex items-center gap-4 mb-4">
+      <div className="bg-purple-500 p-2 rounded-full text-white">3</div>
+      <h2 className="text-xl font-semibold">Try it!</h2>
+    </div>
+  </Card>
+
+    ```bash
+    curl --request POST \
+    --url https://api.themoviedb.org/ \
+    --header 'accept: application/json'
+
+    ```
