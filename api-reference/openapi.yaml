@@ -42910,13 +42910,13 @@ paths:
             schema:
               type: object
               properties:
-                redirect_to:
+                request_token:
                   type: string
-                  description: Redirect URL or callback.
+                  description: Token for request.
               required:
-                - redirect_to
+                - request_token
             example:
-              redirect_to: "https://www.themoviedb.org/"
+              request_token: "1e2345678"
       responses:
         200:
           description: Successful response
@@ -42934,14 +42934,18 @@ paths:
                   status_message:
                     type: string
                     description: A message providing additional details about the response status.
-                  request_token:
+                  account_id:
                     type: string
-                    description: Token for request         
+                    description: Account ID for the user
+                  access_token:
+                    type: string
+                    description: Token for access        
                 example:  
-                  success: true,
-                  status_code: 1,
-                  status_message: Success,
-                  request_token: 1e2345678
+                  success: true
+                  status_code: 1
+                  status_message: Success
+                  account_id: abcdefg123456
+                  access_token: "1e2345678tyui87654"
 
 
 components:
