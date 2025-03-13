@@ -20,7 +20,6 @@ Follow this steps below for your authentication:
 curl -X POST \
   https://api.themoviedb.org/4/auth/request_token \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer your_access_token' \
   -d '{
     "redirect_to": "https://www.themoviedb.org/"
   }'
@@ -38,7 +37,6 @@ curl -X POST \
 <Note>
     - The redirect URL (or callback) is an optional parameter you can include with this request. It will execute
     the request token and grant approval on TMDB.
-    - Remember to replace `your_access_token` with your actual API access token.
     - The `request_token` is valid for 60 minutes
 </Note>
 </Step>
@@ -60,7 +58,6 @@ https://www.themoviedb.org/auth/access?request_token={request_token}
     curl -X POST \
     https://api.themoviedb.org/4/auth/access_token \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer your_access_token' \
     -d '{
         "request_token": "your_request_token"
     }'
