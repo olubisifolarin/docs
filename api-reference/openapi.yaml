@@ -7,6 +7,7 @@ info:
 servers:
   - url: "https://api.themoviedb.org/3"
   - url: "https://api.themoviedb.org/4"
+
 paths:
   /authentication/token/new:
     get:
@@ -42840,7 +42841,107 @@ paths:
                         provider_name: Premiere Max
                         provider_id: 2307
                       
-# VERSION 4             
+
+# VERSION 4 
+  /auth/request_token:
+    post:
+      servers:
+        - url: "https://api.themoviedb.org/4"
+      tags:
+        - Auth
+      summary: Create Request Token
+      description: |
+        This endpoint is used to create a request token.
+      operationId: v4requestToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                redirect_to:
+                  type: string
+                  description: Redirect URL or callback.
+              required:
+                - redirect_to
+            example:
+              redirect_to: "https://www.themoviedb.org/"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  sucess_code:
+                    type: integer
+                    description: A numeric code indicating the result of the request.
+                  status_message:
+                    type: string
+                    description: A message providing additional details about the response status.
+                  request_token:
+                    type: string
+                    description: Token for request         
+                example:  
+                  success: true
+                  status_code: 1
+                  status_message: Success
+                  request_token: "1e2345678"
+  
+  /auth/access_token:
+    post:
+      servers:
+        - url: "https://api.themoviedb.org/4"
+      tags:
+        - Auth
+      summary: Create Access Token
+      description: |
+        This endpoint is used to create a access token.
+      operationId: v4accessToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                redirect_to:
+                  type: string
+                  description: Redirect URL or callback.
+              required:
+                - redirect_to
+            example:
+              redirect_to: "https://www.themoviedb.org/"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  sucess_code:
+                    type: integer
+                    description: A numeric code indicating the result of the request.
+                  status_message:
+                    type: string
+                    description: A message providing additional details about the response status.
+                  request_token:
+                    type: string
+                    description: Token for request         
+                example:  
+                  success: true,
+                  status_code: 1,
+                  status_message: Success,
+                  request_token: 1e2345678
 
 
 components:
@@ -42924,3 +43025,7 @@ tags:
     description: Endpoints for managing groups of TV episodes organized by criteria.
   - name: Watch Providers
     description: Endpoints for retrieving availability information from streaming providers.
+
+  #v4
+  - name: Auth
+    description: Endpoints for managing version4 authentication, including login and user sessions.
