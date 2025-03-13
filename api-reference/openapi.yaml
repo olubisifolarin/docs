@@ -42878,7 +42878,7 @@ paths:
                   success:
                     type: boolean
                     description: Indicates success
-                  sucess_code:
+                  status_code:
                     type: integer
                     description: A numeric code indicating the result of the request.
                   status_message:
@@ -42936,7 +42936,7 @@ paths:
                     description: A message providing additional details about the response status.
                   account_id:
                     type: string
-                    description: Account ID for the user
+                    description: Account ID of the user
                   access_token:
                     type: string
                     description: Token for access        
@@ -42946,7 +42946,52 @@ paths:
                   status_message: Success
                   account_id: abcdefg123456
                   access_token: "1e2345678tyui87654"
-
+  
+    delete:
+      servers:
+        - url: "https://api.themoviedb.org/4"
+      tags:
+        - Auth
+      summary: Logout
+      description: |
+        This endpoint is used to logout of a session.
+      operationId: v4logoutSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access_token:
+                  type: string
+                  description: Token for access.
+              required:
+                - access_token
+            example:
+              access_token: "a1b2c2d2e2fgh"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  status_code:
+                    type: integer
+                    description: A numeric code indicating the result of the request.
+                  status_message:
+                    type: string
+                    description: A message providing additional details about the response status.      
+                example:  
+                  success: true
+                  status_code: 1
+                  status_message: The item/record was deleted successfully.
+                 
 
 components:
   schemas:
