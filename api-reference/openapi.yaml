@@ -6,7 +6,7 @@ info:
   contact: {}
 servers:
   - url: "https://api.themoviedb.org/3"
-  - url: "https://api.themoviedb.org/4"
+  # - url: "https://api.themoviedb.org/4"
 
 paths:
   /authentication/token/new:
@@ -43142,7 +43142,7 @@ paths:
           required: false
           description: The page number of a list.
           schema:
-            type: string
+            type: integer
         - name: language
           in: query
           required: false
@@ -43271,7 +43271,7 @@ paths:
           required: false
           description: The page number of a list.
           schema:
-            type: string
+            type: integer
         - name: language
           in: query
           required: false
@@ -43309,6 +43309,396 @@ paths:
                   results: []
                   total_pages: 0
                   total_results: 0   
+
+  /4/list/{list_id}:
+    get:
+      servers:
+        - url: "https://api.themoviedb.org"
+      tags:
+        - Lists
+      summary: Details
+      description: |
+        This endpoint is used to retrieve a list by id.
+      operationId: v4ListDetails
+      parameters:
+        - name: list_id
+          in: path
+          required: true
+          description: The list ID.
+          schema:
+            type: integer
+        - name: language
+          in: query
+          required: false
+          description: Defaults to en-US
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          description: The page number of a list.
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: object  
+                properties:
+                  average_rating:
+                    type: number
+                    description: The average rating of all movies in the list.
+                  backdrop_path:
+                    type: string
+                    description: The backdrop image URL for the list.
+                  results:
+                    type: array
+                    description: A list of movies in the Marvel Universe.
+                    items:
+                      type: object
+                      properties:
+                        backdrop_path:
+                          type: string
+                          description: The URL path for the movie's backdrop image.
+                        id:
+                          type: integer
+                          description: The unique identifier for the movie.
+                        title:
+                          type: string
+                          description: The title of the movie.
+                        original_title:
+                          type: string
+                          description: The original title of the movie.
+                        overview:
+                          type: string
+                          description: A brief synopsis of the movie.
+                        poster_path:
+                          type: string
+                          description: The URL path for the movie's poster.
+                        media_type:
+                          type: string
+                          description: The type of media (e.g., "movie").
+                        adult:
+                          type: boolean
+                          description: Indicates if the movie is for adults only.
+                        original_language:
+                          type: string
+                          description: The original language of the movie.
+                        genre_ids:
+                          type: array
+                          description: A list of genre identifiers for the movie.
+                          items:
+                            type: integer
+                        popularity:
+                          type: number
+                          description: The popularity score of the movie.
+                        release_date:
+                          type: string
+                          format: date
+                          description: The release date of the movie in YYYY-MM-DD format.
+                        video:
+                          type: boolean
+                          description: Indicates if the movie has a video available.
+                        vote_average:
+                          type: number
+                          description: The average vote rating of the movie.
+                        vote_count:
+                          type: integer
+                          description: The number of votes received for the movie.
+                  comments:
+                    type: object
+                    description: A mapping of movie IDs to comments.
+                  created_by:
+                    type: object
+                    description: The user who created the list.
+                    properties:
+                      avatar_path:
+                        type: string
+                        description: The URL path to the user's avatar.
+                      gravatar_hash:
+                        type: string
+                        description: The hash for the user's Gravatar.
+                      id:
+                        type: string
+                        description: The unique identifier of the user.
+                      name:
+                        type: string
+                        description: The name of the user.
+                      username:
+                        type: string
+                        description: The username of the user.
+                  description:
+                    type: string
+                    description: A description of the movie list.
+                  id:
+                    type: integer
+                    description: The unique identifier for the movie list.
+                  iso_3166_1:
+                    type: string
+                    description: The country code where the list was created.
+                  iso_639_1:
+                    type: string
+                    description: The language code of the list.
+                  item_count:
+                    type: integer
+                    description: The number of items in the list.
+                  name:
+                    type: string
+                    description: The name of the list.
+                  object_ids:
+                    type: object
+                    description: A mapping of object identifiers.
+                  page:
+                    type: integer
+                    description: The current page number of the results.
+                  poster_path:
+                    type: string
+                    description: The URL path to the list's poster image.
+                  public:
+                    type: boolean
+                    description: Indicates if the list is public or private.
+                  revenue:
+                    type: integer
+                    description: The total revenue generated by the movies in the list.
+                  runtime:
+                    type: integer
+                    description: The total runtime of all movies in the list (in minutes).
+                  sort_by:
+                    type: string
+                    description: The sorting criteria used for the list.
+                  total_pages:
+                    type: integer
+                    description: The total number of pages available for the list.
+                  total_results:
+                    type: integer
+                    description: The total number of movies in the list.
+                example:
+                  average_rating: 6.7
+                  backdrop_path: "/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg"
+                  results:
+                  - backdrop_path: "/qJzloL8O9YHhiWBrhlPfKAtZu2I.jpg"
+                    id: 557
+                    title: Spider-Man
+                    original_title: Spider-Man
+                    overview: After being bitten by a genetically altered spider at Oscorp, nerdy but
+                      endearing high school student Peter Parker is endowed with amazing powers to become
+                      the superhero known as Spider-Man.
+                    poster_path: "/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 878
+                    popularity: 3.959
+                    release_date: '2002-05-01'
+                    video: false
+                    vote_average: 7.304
+                    vote_count: 19417
+                  - backdrop_path: "/ftVcl83v6RlH0yiK1Ubkw70VwIf.jpg"
+                    id: 36586
+                    title: Blade II
+                    original_title: Blade II
+                    overview: Blade forms an uneasy alliance with the vampire council in order to combat
+                      the Reapers, who are feeding on vampires.
+                    poster_path: "/azzTa03g0Fb8HC7O3521qq0oc8Q.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 14
+                    - 27
+                    - 28
+                    - 53
+                    popularity: 4.356
+                    release_date: '2002-03-22'
+                    video: false
+                    vote_average: 6.6
+                    vote_count: 4792
+                  - backdrop_path: "/a6MwSrIKmMjs5b8os7eEgQk05yx.jpg"
+                    id: 36657
+                    title: X-Men
+                    original_title: X-Men
+                    overview: Two mutants, Rogue and Wolverine, come to a private academy for their
+                      kind whose resident superhero team, the X-Men, must oppose a terrorist organization
+                      with similar powers.
+                    poster_path: "/bRDAc4GogyS9ci3ow7UnInOcriN.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 12
+                    - 28
+                    - 878
+                    popularity: 0.176
+                    release_date: '2000-07-13'
+                    video: false
+                    vote_average: 7.001
+                    vote_count: 11503
+                  - backdrop_path: "/hZnnUq0mrUQ3e54SJVca4mf2oAQ.jpg"
+                    id: 36647
+                    title: Blade
+                    original_title: Blade
+                    overview: The Daywalker known as "Blade" - a half-vampire, half-mortal man - becomes
+                      the protector of humanity against an underground army of vampires.
+                    poster_path: "/oWT70TvbsmQaqyphCZpsnQR7R32.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 27
+                    - 28
+                    popularity: 3.824
+                    release_date: '1998-08-21'
+                    video: false
+                    vote_average: 6.8
+                    vote_count: 6134
+                  - backdrop_path: "/2uCDSV7t4qyKyENzS0mipE6CYbc.jpg"
+                    id: 22059
+                    title: The Fantastic Four
+                    original_title: The Fantastic Four
+                    overview: When dosed with cosmic rays, four intrepid astronauts are given incredible
+                      powers. They decide to form a superhero group called the Fantastic Four to fight
+                      their arch-enemy, Dr. Doom.
+                    poster_path: "/5Pv3CqMKxoKo9052aWrvFAM7kfK.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 878
+                    - 12
+                    popularity: 3.53
+                    release_date: '1994-05-31'
+                    video: false
+                    vote_average: 4.3
+                    vote_count: 175
+                  - backdrop_path: "/GfYVmaRWrNzOfyuoCvtFquaPLW.jpg"
+                    id: 13995
+                    title: Captain America
+                    original_title: Captain America
+                    overview: During World War II, a brave, patriotic American Soldier undergoes experiments
+                      to become a new supersoldier, "Captain America". Racing to Germany to sabotage
+                      the rockets of Nazi baddie "Red Skull", Captain America winds up frozen until
+                      the 1990s. He reawakens to find that the Red Skull has changed identities and
+                      is now planning to kidnap the President of the United States.
+                    poster_path: "/vdHrLFfHcJX9nlvUfG3LK2a2hq4.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 12
+                    - 878
+                    - 10752
+                    popularity: 3.567
+                    release_date: '1990-12-14'
+                    video: false
+                    vote_average: 4.5
+                    vote_count: 426
+                  - backdrop_path: "/tFmrdnfXM0p6ihMTFpptYOKEfSl.jpg"
+                    id: 8867
+                    title: The Punisher
+                    original_title: The Punisher
+                    overview: The avenging angel of Marvel Comics fame comes brilliantly to life in
+                      this searing action-adventure thriller! Dolph Lundgren stars as Frank Castle,
+                      a veteran cop who loses his entire family to a mafia car bomb. His ex-partner
+                      believes Castle survived the blast and became the Punisher, living in the sewers
+                      and exacting vigilante violence against mob bosses throughout the city. When the
+                      populace is caught in the midst of a gang war that he caused, Castle must again
+                      emerge from the shadows and save the innocent.
+                    poster_path: "/tA0O0hYyHX7Hl2Fl8VEtGtfBtjI.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 80
+                    - 18
+                    - 53
+                    popularity: 3.573
+                    release_date: '1989-10-05'
+                    video: false
+                    vote_average: 5.747
+                    vote_count: 610
+                  - backdrop_path: "/a60QDTbISwyMWauftHmCLiN7GLc.jpg"
+                    id: 10658
+                    title: Howard the Duck
+                    original_title: Howard the Duck
+                    overview: A scientific experiment unknowingly brings extraterrestrial life forms
+                      to the Earth through a laser beam. First is the cigar smoking drake Howard from
+                      the duck's planet. A few kids try to keep him from the greedy scientists and help
+                      him back to his planet. But then a much less friendly being arrives through the
+                      beam...
+                    poster_path: "/30tnH0hy6S5FjGCfCdnkBd3wqS2.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 14
+                    - 35
+                    - 28
+                    - 12
+                    - 878
+                    - 10749
+                    popularity: 3.531
+                    release_date: '1986-08-01'
+                    video: false
+                    vote_average: 5.4
+                    vote_count: 1031
+                  - backdrop_path: "/hFtJz4TvoiJJcw2ZOMdhK22aU9P.jpg"
+                    id: 617127
+                    title: Blade
+                    original_title: Blade
+                    overview: An upcoming film in the Marvel Cinematic Universe's (MCU) sixth Phase
+                      and part of The Multiverse Saga, based on the Marvel Comics character of the same
+                      name. Plot TBA.
+                    poster_path: "/qctzZ0LmG88k2DGqNMFTUW2wXo2.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 14
+                    popularity: 0.052
+                    release_date: ''
+                    video: false
+                    vote_average: 0
+                    vote_count: 0
+                  comments:
+                    movie:617127: 
+                    movie:557: 
+                    movie:36586: 
+                    movie:36657: 
+                    movie:36647: 
+                    movie:22059: 
+                    movie:13995: 
+                    movie:8867: 
+                    movie:10658: 
+                  created_by:
+                    avatar_path: "/xy44UvpbTgzs9kWmp4C3fEaCl5h.png"
+                    gravatar_hash: c9e9fc152ee756a900db85757c29815d
+                    id: 4bc8892a017a3c0f92000002
+                    name: Travis Bell
+                    username: travisbell
+                  description: The idea behind this list is to collect the live action comic book movies
+                    from within the Marvel franchise.
+                  id: 1
+                  iso_3166_1: US
+                  iso_639_1: en
+                  item_count: 69
+                  name: The Marvel Universe
+                  object_ids: {}
+                  page: 4
+                  poster_path: "/coJVIUEOToAEGViuhclM7pXC75R.jpg"
+                  public: true
+                  revenue: 40672159319
+                  runtime: 8070
+                  sort_by: primary_release_date.desc
+                  total_pages: 4
+                  total_results: 69    
+                                  
 
 components:
   schemas:
@@ -43397,3 +43787,5 @@ tags:
     description: Endpoints for managing version4 authentication, including login and user sessions.
   # - name: Account
   #   description: Endpoints for managing user accounts, such as profiles and settings.
+  - name: Lists
+    description: Endpoints for managing version4 authentication, including login and user sessions.
