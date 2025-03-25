@@ -42843,10 +42843,10 @@ paths:
                       
 
 # VERSION 4 
-  /auth/request_token:
+  /4/auth/request_token:
     post:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Auth
       summary: Create Request Token
@@ -42893,10 +42893,10 @@ paths:
                   status_message: Success
                   request_token: "1e2345678"
   
-  /auth/access_token:
+  /4/auth/access_token:
     post:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Auth
       summary: Create Access Token
@@ -42949,7 +42949,7 @@ paths:
   
     delete:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Auth
       summary: Logout
@@ -42992,10 +42992,10 @@ paths:
                   status_code: 13
                   status_message: The item/record was deleted successfully.
                  
-  /account/{account_object_id}/lists:
+  /4/account/{account_object_id}/lists:
     get:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Account
       summary: Lists
@@ -43120,10 +43120,10 @@ paths:
                   total_pages: 1
                   total_results: 1
 
-  /account/{account_object_id}/movie/favorites:
+  /4/account/{account_object_id}/movie/favorites:
     get:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Account
       summary: Favorite Movies
@@ -43249,10 +43249,10 @@ paths:
                   total_pages: 1
                   total_results: 1         
 
-  /account/{account_object_id}/tv/favorites:
+  /4/account/{account_object_id}/tv/favorites:
     get:
       servers:
-        - url: "https://api.themoviedb.org/4"
+        - url: "https://api.themoviedb.org"
       tags:
         - Account
       summary: Favorite TV Shows
@@ -43309,6 +43309,10 @@ paths:
                   results: []
                   total_pages: 0
                   total_results: 0   
+
+  /4/account/{account_object_id}/movie/rated:
+    get:
+
 
   /4/list/{list_id}:
     get:
