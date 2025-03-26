@@ -43409,6 +43409,16 @@ paths:
                         vote_count:
                           type: integer
                           description: The total number of votes received.
+                        account_rating:
+                          type: array
+                          description: Indicate the rating of an account.
+                          items:
+                            type: object
+                            properties:
+                              created_by:
+                                type: string
+                              value:
+                                type: integer
                   total_pages:
                     type: integer
                     description: The total number of pages available for the list.
