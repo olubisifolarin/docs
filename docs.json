@@ -422,7 +422,8 @@
                 "pages": [
                   "api-reference-v4/account/lists",
                   "api-reference-v4/account/favorite-movies",
-                  "api-reference-v4/account/favorite-tv-shows"
+                  "api-reference-v4/account/favorite-tv-shows",
+                  "api-reference-v4/account/rated-movies"
                   
                 ]
               },
