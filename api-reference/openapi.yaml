@@ -43431,8 +43431,7 @@ paths:
                   total_pages: 0
                   total_results: 0     
 
-  /4/account/{account_object_id}/tv/rated:     
-
+  
 
   /4/list/{list_id}:
     get:
