@@ -43425,7 +43425,11 @@ paths:
                   total_results:
                     type: integer
                     description: The total number of results returned.
-                example:  
+                example:
+                  page: 1
+                  results: []
+                  total_pages: 0
+                  total_results: 0     
 
   /4/account/{account_object_id}/tv/rated:     
 
