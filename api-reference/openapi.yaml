@@ -43431,7 +43431,126 @@ paths:
                   total_pages: 0
                   total_results: 0     
 
-  
+  /4/account/{account_object_id}/tv/rated: 
+    get:   
+      servers:
+        - url: "https://api.themoviedb.org"
+      tags:
+        - Account
+      summary: Rated TV Shows
+      description: |
+        This endpoint is used to get a users rated TV shows.
+      operationId: v4RatedTVShows
+      parameters:
+        - name: account_object_id
+          in: path
+          required: true
+          description: The account object ID.
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          description: The page number of a list.
+          schema:
+            type: integer
+        - name: language
+          in: query
+          required: false
+          description: Defaults to en-US
+          schema:
+            type: string
+        - name: sort_by
+          in: query
+          required: false
+          description: Defaults to created_at.asc
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: object  
+                properties:
+                  page:
+                    type: integer
+                    description: The current page number in the paginated response.  
+                  results:
+                    type: array
+                    description: A list of movie or TV show objects.
+                    items:
+                      type: object
+                      properties:
+                        adult:
+                          type: boolean
+                          description: Indicates if the movie is for adults (true/false).
+                        backdrop_path:
+                          type: string
+                          description: Path to the movie's backdrop image.
+                        genre_ids:
+                          type: array
+                          description: List of genre IDs associated with the movie.
+                          items:
+                            type: integer
+                        id:
+                          type: integer
+                          description: Unique identifier for the movie.
+                        original_language:
+                          type: string
+                          description: Language in which the movie was originally released.
+                        original_title:
+                          type: string
+                          description: The original title of the movie.
+                        overview:
+                          type: string
+                          description: A short summary of the movie.
+                        popularity:
+                          type: number
+                          format: float
+                          description: Popularity score of the movie.
+                        poster_path:
+                          type: string
+                          description: Path to the movie’s poster image.
+                        release_date:
+                          type: string
+                          format: date
+                          description: The release date of the movie (YYYY-MM-DD).
+                        title:
+                          type: string
+                          description: The title of the movie.
+                        video:
+                          type: boolean
+                          description: Indicates if the movie is a video (true/false).
+                        vote_average:
+                          type: number
+                          format: float
+                          description: The average rating given by users.
+                        vote_count:
+                          type: integer
+                          description: The total number of votes received.
+                        account_rating:
+                          type: array
+                          description: Indicate the rating of an account.
+                          items:
+                            type: object
+                            properties:
+                              created_by:
+                                type: string
+                              value:
+                                type: integer
+                  total_pages:
+                    type: integer
+                    description: The total number of pages available for the list.
+                  total_results:
+                    type: integer
+                    description: The total number of results returned.
+                example:
+                  page: 1
+                  results: []
+                  total_pages: 0
+                  total_results: 0   
 
   /4/list/{list_id}:
     get:
