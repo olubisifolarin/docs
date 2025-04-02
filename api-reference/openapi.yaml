@@ -43513,16 +43513,13 @@ paths:
                         poster_path:
                           type: string
                           description: Path to the movie’s poster image.
-                        release_date:
+                        first_air_date:
                           type: string
                           format: date
                           description: The release date of the movie (YYYY-MM-DD).
-                        title:
+                        name:
                           type: string
-                          description: The title of the movie.
-                        video:
-                          type: boolean
-                          description: Indicates if the movie is a video (true/false).
+                          description: The name of the movie.
                         vote_average:
                           type: number
                           format: float
