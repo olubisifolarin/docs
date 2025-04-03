@@ -43549,13 +43549,13 @@ paths:
                   total_pages: 0
                   total_results: 0   
 
-  /4/account/{account_object_id}/tv/rated: 
+  /4/account/{account_object_id}/movie/recommendations: 
     get:   
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Account
-      summary: Rated TV Shows
+      summary: Recommended Movies
       description: |
         This endpoint is used to get a users rated TV shows.
       operationId: v4RatedTVShows
