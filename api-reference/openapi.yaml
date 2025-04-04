@@ -43557,8 +43557,8 @@ paths:
         - Account
       summary: Recommended Movies
       description: |
-        This endpoint is used to get a users rated TV shows.
-      operationId: v4RatedTVShows
+        This endpoint get a users list of recommended movies
+      operationId: movieRecommedations
       parameters:
         - name: account_object_id
           in: path
