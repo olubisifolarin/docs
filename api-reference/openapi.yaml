@@ -43607,14 +43607,12 @@ paths:
                         backdrop_path:
                           type: string
                           description: Path to the movie's backdrop image.
-                        genre_ids:
-                          type: array
-                          description: List of genre IDs associated with the movie.
-                          items:
-                            type: integer
                         id:
                           type: integer
                           description: Unique identifier for the movie.
+                        title:
+                          type: string
+                          description: Title of the movie.
                         original_language:
                           type: string
                           description: Language in which the movie was originally released.
