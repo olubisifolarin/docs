@@ -43635,9 +43635,6 @@ paths:
                         genres_id:
                           type: array
                           description: The ID of the genres.
-                        name:
-                          type: string
-                          description: The name of the movie.
                         release_date:
                           type: string
                           format: date
