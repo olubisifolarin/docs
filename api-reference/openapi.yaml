@@ -43629,13 +43629,22 @@ paths:
                         poster_path:
                           type: string
                           description: Path to the movie’s poster image.
-                        first_air_date:
+                        media_type:
                           type: string
-                          format: date
-                          description: The release date of the movie (YYYY-MM-DD).
+                          description: The type of the media.
+                        genres_id:
+                          type: array
+                          description: The ID of the genres.
                         name:
                           type: string
                           description: The name of the movie.
+                        release_date:
+                          type: string
+                          format: date
+                          description: The release date of the movie (YYYY-MM-DD).
+                        video:
+                          type: boolean
+                          description: Indicates if the movie is a video (true/false)
                         vote_average:
                           type: number
                           format: float
@@ -43643,16 +43652,6 @@ paths:
                         vote_count:
                           type: integer
                           description: The total number of votes received.
-                        account_rating:
-                          type: array
-                          description: Indicate the rating of an account.
-                          items:
-                            type: object
-                            properties:
-                              created_by:
-                                type: string
-                              value:
-                                type: integer
                   total_pages:
                     type: integer
                     description: The total number of pages available for the list.
