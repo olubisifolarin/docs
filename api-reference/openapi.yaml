@@ -43657,9 +43657,432 @@ paths:
                     description: The total number of results returned.
                 example:
                   page: 1
-                  results: []
-                  total_pages: 0
-                  total_results: 0   
+                  results:
+                  - backdrop_path: "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg"
+                    id: 502356
+                    title: The Super Mario Bros. Movie
+                    original_title: The Super Mario Bros. Movie
+                    overview: While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario
+                      and Luigi are transported down a mysterious pipe and wander into a magical new
+                      world. But when the brothers are separated, Mario embarks on an epic quest to
+                      find Luigi.
+                    poster_path: "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 10751
+                    - 35
+                    - 12
+                    - 16
+                    popularity: 26.1428
+                    release_date: '2023-04-05'
+                    video: false
+                    vote_average: 7.6
+                    vote_count: 9555
+                  - backdrop_path: "/8rpDcsfLJypbO6vREc0547VKqEv.jpg"
+                    id: 76600
+                    title: 'Avatar: The Way of Water'
+                    original_title: 'Avatar: The Way of Water'
+                    overview: Set more than a decade after the events of the first film, learn the story
+                      of the Sully family (Jake, Neytiri, and their kids), the trouble that follows
+                      them, the lengths they go to keep each other safe, the battles they fight to stay
+                      alive, and the tragedies they endure.
+                    poster_path: "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 878
+                    - 12
+                    - 28
+                    popularity: 26.3784
+                    release_date: '2022-12-14'
+                    video: false
+                    vote_average: 7.6
+                    vote_count: 12403
+                  - backdrop_path: "/jr8tSoJGj33XLgFBy6lmZhpGQNu.jpg"
+                    id: 315162
+                    title: 'Puss in Boots: The Last Wish'
+                    original_title: 'Puss in Boots: The Last Wish'
+                    overview: 'Puss in Boots discovers that his passion for adventure has taken its
+                      toll: He has burned through eight of his nine lives, leaving him with only one
+                      life left. Puss sets out on an epic journey to find the mythical Last Wish and
+                      restore his nine lives.'
+                    poster_path: "/kuf6dutpsT0vSVehic3EZIqkOBt.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 16
+                    - 12
+                    - 14
+                    - 35
+                    - 10751
+                    popularity: 21.7922
+                    release_date: '2022-12-23'
+                    video: false
+                    vote_average: 8.217
+                    vote_count: 8074
+                  - backdrop_path: "/vgatT6hiEf4EquZ1k0uU1Ft5XdI.jpg"
+                    id: 766507
+                    title: Prey
+                    original_title: Prey
+                    overview: When danger threatens her camp, the fierce and highly skilled Comanche
+                      warrior Naru sets out to protect her people. But the prey she stalks turns out
+                      to be a highly evolved alien predator with a technically advanced arsenal.
+                    poster_path: "/jOeLL5Y3iZYYOVTwyzniZqHia1m.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 53
+                    - 28
+                    - 878
+                    popularity: 13.7938
+                    release_date: '2022-08-02'
+                    video: false
+                    vote_average: 7.7
+                    vote_count: 6923
+                  - backdrop_path: "/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg"
+                    id: 385687
+                    title: Fast X
+                    original_title: Fast X
+                    overview: 'Over many missions and against impossible odds, Dom Toretto and his family
+                      have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront
+                      the most lethal opponent they''ve ever faced: A terrifying threat emerging from
+                      the shadows of the past who''s fueled by blood revenge, and who is determined
+                      to shatter this family and destroy everything—and everyone—that Dom loves, forever.'
+                    poster_path: "/fiVW06jE7z9YnO4trhaMEdclSiC.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 80
+                    - 53
+                    - 12
+                    - 9648
+                    popularity: 36.1685
+                    release_date: '2023-05-17'
+                    video: false
+                    vote_average: 7.049
+                    vote_count: 5828
+                  - backdrop_path: "/mQZJoIhTEkNhCYAqcHrQqhENLdu.jpg"
+                    id: 1184918
+                    title: The Wild Robot
+                    original_title: The Wild Robot
+                    overview: After a shipwreck, an intelligent robot called Roz is stranded on an uninhabited
+                      island. To survive the harsh environment, Roz bonds with the island's animals
+                      and cares for an orphaned baby goose.
+                    poster_path: "/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 16
+                    - 878
+                    - 10751
+                    popularity: 58.4281
+                    release_date: '2024-09-12'
+                    video: false
+                    vote_average: 8.3
+                    vote_count: 4616
+                  - backdrop_path: "/2vFuG6bWGyQUzYS9d69E5l85nIz.jpg"
+                    id: 667538
+                    title: 'Transformers: Rise of the Beasts'
+                    original_title: 'Transformers: Rise of the Beasts'
+                    overview: When a new threat capable of destroying the entire planet emerges, Optimus
+                      Prime and the Autobots must team up with a powerful faction known as the Maximals.
+                      With the fate of humanity hanging in the balance, humans Noah and Elena will do
+                      whatever it takes to help the Transformers as they engage in the ultimate battle
+                      to save Earth.
+                    poster_path: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 878
+                    - 12
+                    - 28
+                    popularity: 20.2842
+                    release_date: '2023-06-06'
+                    video: false
+                    vote_average: 7.2
+                    vote_count: 4846
+                  - backdrop_path: "/27nn2YJBwY7a1etZ0AiIcOrIgu3.jpg"
+                    id: 664413
+                    title: 365 Days
+                    original_title: 365 dni
+                    overview: A woman falls victim to a dominant mafia boss, who imprisons her and gives
+                      her one year to fall in love with him.
+                    poster_path: "/6KwrHucIE3CvNT7kTm2MAlZ4fYF.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: pl
+                    genre_ids:
+                    - 10749
+                    - 18
+                    popularity: 7.076
+                    release_date: '2020-02-07'
+                    video: false
+                    vote_average: 7.027
+                    vote_count: 9125
+                  - backdrop_path: "/gGgDMV1vN20q8qEdxV0K43UrK0y.jpg"
+                    id: 507089
+                    title: Five Nights at Freddy's
+                    original_title: Five Nights at Freddy's
+                    overview: 'Recently fired and desperate for work, a troubled young man named Mike
+                      agrees to take a position as a night security guard at an abandoned theme restaurant:
+                      Freddy Fazbear''s Pizzeria. But he soon discovers that nothing at Freddy''s is
+                      what it seems.'
+                    poster_path: "/4dKRTUylqwXQ4VJz0BS84fqW2wa.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 27
+                    - 53
+                    popularity: 13.6723
+                    release_date: '2023-10-27'
+                    video: false
+                    vote_average: 7.483
+                    vote_count: 4271
+                  - backdrop_path: "/zD5v1E4joAzFvmAEytt7fM3ivyT.jpg"
+                    id: 634649
+                    title: 'Spider-Man: No Way Home'
+                    original_title: 'Spider-Man: No Way Home'
+                    overview: Peter Parker is unmasked and no longer able to separate his normal life
+                      from the high-stakes of being a super-hero. When he asks for help from Doctor
+                      Strange the stakes become even more dangerous, forcing him to discover what it
+                      truly means to be Spider-Man.
+                    poster_path: "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 12
+                    - 878
+                    popularity: 29.0789
+                    release_date: '2021-12-15'
+                    video: false
+                    vote_average: 7.946
+                    vote_count: 20635
+                  - backdrop_path: "/oz4U9eA6ilYf1tyiVuGmkftdLac.jpg"
+                    id: 1010581
+                    title: My Fault
+                    original_title: Culpa mía
+                    overview: Noah must leave her city, boyfriend, and friends to move into William
+                      Leister's mansion, the flashy and wealthy husband of her mother Rafaela. As a
+                      proud and independent 17 year old, Noah resists living in a mansion surrounded
+                      by luxury. However, it is there where she meets Nick, her new stepbrother, and
+                      the clash of their strong personalities becomes evident from the very beginning.
+                    poster_path: "/w46Vw536HwNnEzOa7J24YH9DPRS.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: es
+                    genre_ids:
+                    - 10749
+                    - 18
+                    popularity: 55.7233
+                    release_date: '2023-06-08'
+                    video: false
+                    vote_average: 7.8
+                    vote_count: 3623
+                  - backdrop_path: "/by8z9Fe8y7p4jo2YlW2SZDnptyT.jpg"
+                    id: 533535
+                    title: Deadpool & Wolverine
+                    original_title: Deadpool & Wolverine
+                    overview: A listless Wade Wilson toils away in civilian life with his days as the
+                      morally flexible mercenary, Deadpool, behind him. But when his homeworld faces
+                      an existential threat, Wade must reluctantly suit-up again with an even more reluctant
+                      Wolverine.
+                    poster_path: "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 35
+                    - 878
+                    popularity: 66.9084
+                    release_date: '2024-07-24'
+                    video: false
+                    vote_average: 7.6
+                    vote_count: 6969
+                  - backdrop_path: "/mbYTRO33LJAgpCMrIn9ibiWHbMH.jpg"
+                    id: 346698
+                    title: Barbie
+                    original_title: Barbie
+                    overview: Barbie and Ken are having the time of their lives in the colorful and
+                      seemingly perfect world of Barbie Land. However, when they get a chance to go
+                      to the real world, they soon discover the joys and perils of living among humans.
+                    poster_path: "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 35
+                    - 12
+                    popularity: 22.6255
+                    release_date: '2023-07-19'
+                    video: false
+                    vote_average: 6.981
+                    vote_count: 9734
+                  - backdrop_path: "/8sNiAPPYU14PUepFNeSNGUTiHW.jpg"
+                    id: 157336
+                    title: Interstellar
+                    original_title: Interstellar
+                    overview: The adventures of a group of explorers who make use of a newly discovered
+                      wormhole to surpass the limitations on human space travel and conquer the vast
+                      distances involved in an interstellar voyage.
+                    poster_path: "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 12
+                    - 18
+                    - 878
+                    popularity: 45.0875
+                    release_date: '2014-11-07'
+                    video: false
+                    vote_average: 8.5
+                    vote_count: 36829
+                  - backdrop_path: "/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg"
+                    id: 24428
+                    title: The Avengers
+                    original_title: The Avengers
+                    overview: When an unexpected enemy emerges and threatens global safety and security,
+                      Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D.,
+                      finds himself in need of a team to pull the world back from the brink of disaster.
+                      Spanning the globe, a daring recruitment effort begins!
+                    poster_path: "/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 878
+                    - 28
+                    - 12
+                    popularity: 34.9004
+                    release_date: '2012-04-25'
+                    video: false
+                    vote_average: 7.7
+                    vote_count: 31463
+                  - backdrop_path: "/uR0FopHrAjDlG5q6PZB07a1JOva.jpg"
+                    id: 610150
+                    title: 'Dragon Ball Super: Super Hero'
+                    original_title: ドラゴンボール超 スーパーヒーロー
+                    overview: The Red Ribbon Army, an evil organization that was once destroyed by Goku
+                      in the past, has been reformed by a group of people who have created new and mightier
+                      Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family.
+                    poster_path: "/pi0iZOEHeA3ih4p1IwAG4x2DZNH.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: ja
+                    genre_ids:
+                    - 16
+                    - 878
+                    - 28
+                    popularity: 5.2517
+                    release_date: '2022-06-11'
+                    video: false
+                    vote_average: 7.9
+                    vote_count: 2878
+                  - backdrop_path: "/kVd3a9YeLGkoeR50jGEXM6EqseS.jpg"
+                    id: 569094
+                    title: 'Spider-Man: Across the Spider-Verse'
+                    original_title: 'Spider-Man: Across the Spider-Verse'
+                    overview: After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood
+                      Spider-Man is catapulted across the Multiverse, where he encounters the Spider
+                      Society, a team of Spider-People charged with protecting the Multiverse’s very
+                      existence. But when the heroes clash on how to handle a new threat, Miles finds
+                      himself pitted against the other Spiders and must set out on his own to save those
+                      he loves most.
+                    poster_path: "/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 16
+                    - 28
+                    - 12
+                    - 878
+                    popularity: 27.0356
+                    release_date: '2023-06-02'
+                    video: false
+                    vote_average: 8.343
+                    vote_count: 7428
+                  - backdrop_path: "/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg"
+                    id: 361743
+                    title: 'Top Gun: Maverick'
+                    original_title: 'Top Gun: Maverick'
+                    overview: After more than thirty years of service as one of the Navy’s top aviators,
+                      and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell
+                      finds himself training a detachment of TOP GUN graduates for a specialized mission
+                      the likes of which no living pilot has ever seen.
+                    poster_path: "/62HCnUTziyWcpDaBO2i1DX17ljH.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 18
+                    popularity: 30.1254
+                    release_date: '2022-05-21'
+                    video: false
+                    vote_average: 8.2
+                    vote_count: 9685
+                  - backdrop_path: "/xuLA0pii2IMJW2puT7EvJtgpg0H.jpg"
+                    id: 675353
+                    title: Sonic the Hedgehog 2
+                    original_title: Sonic the Hedgehog 2
+                    overview: After settling in Green Hills, Sonic is eager to prove he has what it
+                      takes to be a true hero. His test comes when Dr. Robotnik returns, this time with
+                      a new partner, Knuckles, in search for an emerald that has the power to destroy
+                      civilizations. Sonic teams up with his own sidekick, Tails, and together they
+                      embark on a globe-trotting journey to find the emerald before it falls into the
+                      wrong hands.
+                    poster_path: "/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 12
+                    - 10751
+                    - 35
+                    popularity: 24.2806
+                    release_date: '2022-03-30'
+                    video: false
+                    vote_average: 7.473
+                    vote_count: 5422
+                  - backdrop_path: "/7I6VUdPj6tQECNHdviJkUHD2u89.jpg"
+                    id: 603692
+                    title: 'John Wick: Chapter 4'
+                    original_title: 'John Wick: Chapter 4'
+                    overview: With the price on his head ever increasing, John Wick uncovers a path
+                      to defeating The High Table. But before he can earn his freedom, Wick must face
+                      off against a new enemy with powerful alliances across the globe and forces that
+                      turn old friends into foes.
+                    poster_path: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
+                    media_type: movie
+                    adult: false
+                    original_language: en
+                    genre_ids:
+                    - 28
+                    - 53
+                    - 80
+                    popularity: 27.0149
+                    release_date: '2023-03-22'
+                    video: false
+                    vote_average: 7.721
+                    vote_count: 6936
+                  total_pages: 5
+                  total_results: 100
+
 
   /4/list/{list_id}:
     get:
