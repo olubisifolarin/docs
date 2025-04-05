@@ -44112,12 +44112,6 @@ paths:
           description: Defaults to en-US
           schema:
             type: string
-        - name: sort_by
-          in: query
-          required: false
-          description: Defaults to created_at.asc
-          schema:
-            type: integer
       responses:
         200:
           description: Successful
@@ -44152,9 +44146,9 @@ paths:
                         original_language:
                           type: string
                           description: Language in which the movie was originally released.
-                        original_title:
+                        original_name:
                           type: string
-                          description: The original title of the movie.
+                          description: The original name of the movie.
                         overview:
                           type: string
                           description: A short summary of the movie.
@@ -44179,16 +44173,9 @@ paths:
                         vote_count:
                           type: integer
                           description: The total number of votes received.
-                        account_rating:
+                        origin_country:
                           type: array
-                          description: Indicate the rating of an account.
-                          items:
-                            type: object
-                            properties:
-                              created_by:
-                                type: string
-                              value:
-                                type: integer
+                          description: The origin country of the movie.
                   total_pages:
                     type: integer
                     description: The total number of pages available for the list.
