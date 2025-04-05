@@ -44091,8 +44091,8 @@ paths:
         - Account
       summary: Recommended TV Shows
       description: |
-        This endpoint is used to get a users rated TV shows.
-      operationId: v4RatedTVShows
+        This endpoint is used to get users list of recommended TV shows.
+      operationId: v4RecommendedTV
       parameters:
         - name: account_object_id
           in: path
