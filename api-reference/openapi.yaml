@@ -44623,7 +44623,7 @@ paths:
       summary: Watchlist Movies
       description: |
         This endpoint get a users movie watchlist.
-      operationId: movieRecommedations
+      operationId: movieWatchlist
       parameters:
         - name: account_object_id
           in: path
