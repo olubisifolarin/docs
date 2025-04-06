@@ -426,7 +426,8 @@
                   "api-reference-v4/account/rated-movies",
                   "api-reference-v4/account/tv-rated-shows",
                   "api-reference-v4/account/recommended-movie",
-                  "api-reference-v4/account/recommended-tv-shows"
+                  "api-reference-v4/account/recommended-tv-shows",
+                   "api-reference-v4/account/watchlist-movies"
                   
                 ]
               },
