@@ -44614,15 +44614,15 @@ paths:
                   total_pages: 5
                   total_results: 100
 
-  /4/account/{account_object_id}/movie/recommendations: 
+  /4/account/{account_object_id}/movie/watchlist: 
     get:   
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Account
-      summary: Recommended Movies
+      summary: Watchlist Movies
       description: |
-        This endpoint get a users list of recommended movies
+        This endpoint get a users movie watchlist.
       operationId: movieRecommedations
       parameters:
         - name: account_object_id
