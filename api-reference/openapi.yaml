@@ -44852,6 +44852,10 @@ paths:
                     type: integer
                     description: The total number of results returned.
                 example:
+                  page: 1
+                  results: []
+                  total_pages: 0
+                  total_results: 0
 
   /4/list/{list_id}:
     get:
