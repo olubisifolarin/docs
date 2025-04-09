@@ -44746,16 +44746,16 @@ paths:
                   total_pages: 1
                   total_results: 1
 
-  /4/account/{account_object_id}/tv/recommendations: 
+  /4/account/{account_object_id}/tv/watchlist: 
     get:   
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Account
-      summary: Recommended TV Shows
+      summary: Watchlist TV Shows
       description: |
-        This endpoint is used to get users list of recommended TV shows.
-      operationId: v4RecommendedTV
+        This endpoint is used to get a users TV watchlist.
+      operationId: v4TVWatchlist
       parameters:
         - name: account_object_id
           in: path
