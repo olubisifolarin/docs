@@ -44775,6 +44775,12 @@ paths:
           description: Defaults to en-US
           schema:
             type: string
+        - name: sort_by
+          in: query
+          required: false
+          description: Defaults to created_at.asc
+          schema:
+            type: string
       responses:
         200:
           description: Successful
