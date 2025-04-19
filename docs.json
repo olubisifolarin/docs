@@ -461,7 +461,7 @@
     "dark": "/logo/tmdb.svg"
   },
   "api": {
-    "openapi": "api-reference/openapi.yaml"
+    "openapi": "https://raw.githubusercontent.com/olubisifolarin/docs/main/api-reference/openapi.yaml"
   },
   
   "navbar": {
