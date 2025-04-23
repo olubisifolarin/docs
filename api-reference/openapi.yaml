@@ -44755,7 +44755,7 @@ paths:
       summary: Watchlist TV Shows
       description: |
         This endpoint is used to get a users TV watchlist.
-      operationId: v4TVWatchlist
+      operationId: v4tvwatchList
       parameters:
         - name: account_object_id
           in: path
@@ -45334,5 +45334,5 @@ tags:
     description: Endpoints for managing version4 authentication, including login and user sessions.
   # - name: Account
   #   description: Endpoints for managing user accounts, such as profiles and settings.
-  - name: Lists
-    description: Endpoints for managing version4 authentication, including login and user sessions.
+  # - name: Lists
+  #   description: Endpoints for managing version4 authentication, including login and user sessions.
