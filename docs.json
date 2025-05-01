@@ -436,7 +436,8 @@
               {
                 "group": "LISTS",
                 "pages": [
-                  "api-reference-v4/lists/details"
+                  "api-reference-v4/lists/details",
+                  "api-reference-v4/lists/add-lists"
                 ]
               }        
             ]
