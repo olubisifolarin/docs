@@ -45247,51 +45247,54 @@ paths:
                   total_results: 69    
 
   /4/list/{list_id}/items:
-    get:
+    post:
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Lists
-      summary: Details
+      summary: Add Items
       description: |
-        This endpoint is used to retrieve a list by id.
-      operationId: v4ListDetails
-      parameters:
-        - name: list_id
-          in: path
-          required: true
-          description: The list ID.
-          schema:
-            type: integer
-        - name: language
-          in: query
-          required: false
-          description: Defaults to en-US
-          schema:
-            type: string
-        - name: page
-          in: query
-          required: false
-          description: The page number of a list.
-          schema:
-            type: integer
+        This endpoint is used to add items to a list.
+      operationId: v4listAdditems
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request_token:
+                  type: string
+                  description: Token for request.
+              required:
+                - request_token
+            example:
+              request_token: "1e2345678"
       responses:
         200:
-          description: Successful
+          description: Successful response
           content:
-            application/json;charset=utf-8:
+            application/json:
               schema:
-                type: object  
+                type: object
                 properties:
-                  average_rating:
-                    type: number
-                    description: The average rating of all movies in the list.
-                  backdrop_path:
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  sucess_code:
+                    type: integer
+                    description: A numeric code indicating the result of the request.
+                  status_message:
                     type: string
-                    description: The backdrop image URL for the list.
-                  results:
-                    type: array
-                    description: A list of movies in the Marvel Universe.                       
+                    description: A message providing additional details about the response status.
+                  account_id:
+                    type: string
+                    description: Account ID of the user
+                  access_token:
+                    type: string
+                    description: Token for access        
+                example:  
+                  success: true
 
 components:
   schemas:
@@ -45380,5 +45383,5 @@ tags:
     description: Endpoints for managing version4 authentication, including login and user sessions.
   # - name: Account
   #   description: Endpoints for managing user accounts, such as profiles and settings.
-  # - name: Lists
-  #   description: Endpoints for managing version4 authentication, including login and user sessions.
+  - name: Lists
+    description: Endpoints for managing version4 authentication, including login and user sessions.
