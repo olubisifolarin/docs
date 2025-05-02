@@ -45245,7 +45245,53 @@ paths:
                   sort_by: primary_release_date.desc
                   total_pages: 4
                   total_results: 69    
-                                  
+
+  /4/list/{list_id}/items:
+    get:
+      servers:
+        - url: "https://api.themoviedb.org"
+      tags:
+        - Lists
+      summary: Details
+      description: |
+        This endpoint is used to retrieve a list by id.
+      operationId: v4ListDetails
+      parameters:
+        - name: list_id
+          in: path
+          required: true
+          description: The list ID.
+          schema:
+            type: integer
+        - name: language
+          in: query
+          required: false
+          description: Defaults to en-US
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          description: The page number of a list.
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: object  
+                properties:
+                  average_rating:
+                    type: number
+                    description: The average rating of all movies in the list.
+                  backdrop_path:
+                    type: string
+                    description: The backdrop image URL for the list.
+                  results:
+                    type: array
+                    description: A list of movies in the Marvel Universe.                       
 
 components:
   schemas:
