@@ -45255,7 +45255,7 @@ paths:
       summary: Add Items
       description: |
         This endpoint is used to add items to a list.
-      operationId: v4listAdditems
+      operationId: v4listItems
       requestBody:
         required: true
         content:
