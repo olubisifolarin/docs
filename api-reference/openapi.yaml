@@ -45292,21 +45292,18 @@ paths:
               schema:
                 type: object
                 properties:
+                  status_message:
+                    type: string
+                    description: A message providing additional details about the response status.
+                  result:
+                    type: string
+                    description: Indicates the result
                   success:
                     type: boolean
                     description: Indicates success
                   sucess_code:
                     type: integer
-                    description: A numeric code indicating the result of the request.
-                  status_message:
-                    type: string
-                    description: A message providing additional details about the response status.
-                  account_id:
-                    type: string
-                    description: Account ID of the user
-                  access_token:
-                    type: string
-                    description: Token for access        
+                    description: A numeric code indicating the result of the request.       
                 example:  
                   success: true
 
