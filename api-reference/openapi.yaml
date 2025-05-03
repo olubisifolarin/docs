@@ -45253,6 +45253,13 @@ paths:
       tags:
         - Lists
       summary: Add Items
+      parameters:
+        - name: list_id
+          in: path
+          required: true
+          description: ID of a list
+          schema:
+            type: integer
       description: |
         This endpoint is used to add items to a list.
       operationId: v4listItems
