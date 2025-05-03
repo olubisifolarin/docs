@@ -45261,15 +45261,28 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                request_token:
-                  type: string
-                  description: Token for request.
-              required:
-                - request_token
+              type: array
+              items:
+                type: object
+                properties:
+                  media_type:
+                    type: string
+                    enum: [movie, tv]
+                    description: Type of media.
+                  media_id:
+                    type: integer
+                    description: ID of the media.
+                required:
+                  - media_type
+                  - media_id
             example:
-              request_token: "1e2345678"
+              - media_type: movie
+                media_id: 550
+              - media_type: movie
+                media_id: 244786
+              - media_type: tv
+                media_id: 1396
+
       responses:
         200:
           description: Successful response
