@@ -45276,6 +45276,7 @@ paths:
                   - media_type
                   - media_id
             example:
+              items:          
               - media_type: movie
                 media_id: 550
               - media_type: movie
