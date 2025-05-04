@@ -45305,6 +45305,15 @@ paths:
                   result:
                     type: string
                     description: Indicates the result
+                    items:
+                      type: object
+                      properties: 
+                        media_type:
+                          type: string
+                        media_id:
+                          type: integer
+                        success:
+                          type: boolean
                   success:
                     type: boolean
                     description: Indicates success
