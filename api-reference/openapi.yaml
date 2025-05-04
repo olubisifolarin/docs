@@ -45317,7 +45317,7 @@ paths:
                   success:
                     type: boolean
                     description: Indicates success
-                  sucess_code:
+                  status_code:
                     type: integer
                     description: A numeric code indicating the result of the request.       
                 example:  
