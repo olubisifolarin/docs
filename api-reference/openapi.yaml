@@ -45257,7 +45257,7 @@ paths:
         - name: list_id
           in: path
           required: true
-          description: ID of a list
+          description: The list ID
           schema:
             type: integer
       description: |
