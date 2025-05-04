@@ -45303,7 +45303,7 @@ paths:
                     type: string
                     description: A message providing additional details about the response status.
                   result:
-                    type: string
+                    type: array
                     description: Indicates the result
                     items:
                       type: object
