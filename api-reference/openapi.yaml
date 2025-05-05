@@ -45346,34 +45346,6 @@ paths:
       description: |
         This endpoint clear all of the items on a list.
       operationId: v4listClear
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                type: object
-                properties:
-                  media_type:
-                    type: string
-                    enum: [movie, tv]
-                    description: Type of media.
-                  media_id:
-                    type: integer
-                    description: ID of the media.
-                required:
-                  - media_type
-                  - media_id
-            example:
-              items:          
-              - media_type: movie
-                media_id: 550
-              - media_type: movie
-                media_id: 244786
-              - media_type: tv
-                media_id: 1396
-
       responses:
         200:
           description: Successful response
@@ -45388,21 +45360,12 @@ paths:
                   result:
                     type: array
                     description: Indicates the result
-                    items:
-                      type: object
-                      properties: 
-                        media_type:
-                          type: string
-                        media_id:
-                          type: integer
-                        success:
-                          type: boolean
-                  success:
-                    type: boolean
-                    description: Indicates success
                   status_code:
                     type: integer
-                    description: A numeric code indicating the result of the request.       
+                    description: A numeric code indicating the result of the request. 
+                  success:
+                    type: boolean
+                    description: Indicates success      
                 example:  
                   status_message: Success.
                   results:
