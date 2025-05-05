@@ -45328,13 +45328,14 @@ paths:
                     success: false
                   success: true
                   status_code: 1
+
   /4/list/{list_id}/clear:
     get:
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Lists
-      summary: Add Items
+      summary: Clear
       parameters:
         - name: list_id
           in: path
@@ -45343,8 +45344,8 @@ paths:
           schema:
             type: integer
       description: |
-        This endpoint is used to add items to a list.
-      operationId: v4listItems
+        This endpoint clear all of the items on a list.
+      operationId: v4listClear
       requestBody:
         required: true
         content:
