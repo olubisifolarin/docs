@@ -45328,6 +45328,88 @@ paths:
                     success: false
                   success: true
                   status_code: 1
+  /4/list/{list_id}/clear:
+    get:
+      servers:
+        - url: "https://api.themoviedb.org"
+      tags:
+        - Lists
+      summary: Add Items
+      parameters:
+        - name: list_id
+          in: path
+          required: true
+          description: The list ID
+          schema:
+            type: integer
+      description: |
+        This endpoint is used to add items to a list.
+      operationId: v4listItems
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  media_type:
+                    type: string
+                    enum: [movie, tv]
+                    description: Type of media.
+                  media_id:
+                    type: integer
+                    description: ID of the media.
+                required:
+                  - media_type
+                  - media_id
+            example:
+              items:          
+              - media_type: movie
+                media_id: 550
+              - media_type: movie
+                media_id: 244786
+              - media_type: tv
+                media_id: 1396
+
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_message:
+                    type: string
+                    description: A message providing additional details about the response status.
+                  result:
+                    type: array
+                    description: Indicates the result
+                    items:
+                      type: object
+                      properties: 
+                        media_type:
+                          type: string
+                        media_id:
+                          type: integer
+                        success:
+                          type: boolean
+                  success:
+                    type: boolean
+                    description: Indicates success
+                  status_code:
+                    type: integer
+                    description: A numeric code indicating the result of the request.       
+                example:  
+                  status_message: Success.
+                  results:
+                  - media_type: movie
+                    media_id: 550
+                    success: false
+                  success: true
+                  status_code: 1
 
 components:
   schemas:
