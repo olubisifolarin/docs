@@ -45354,12 +45354,15 @@ paths:
               schema:
                 type: object
                 properties:
+                  item_deleted:
+                    type: integer
+                    description: The item that need to be deleted
                   status_message:
                     type: string
                     description: A message providing additional details about the response status.
-                  result:
-                    type: array
-                    description: Indicates the result
+                  id:
+                    type: integer
+                    description: ID of the clear list
                   status_code:
                     type: integer
                     description: A numeric code indicating the result of the request. 
