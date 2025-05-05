@@ -45369,14 +45369,12 @@ paths:
                   success:
                     type: boolean
                     description: Indicates success      
-                example:  
+                example:   
                   status_message: Success.
-                  results:
-                  - media_type: movie
-                    media_id: 550
-                    success: false
-                  success: true
+                  id: 10
                   status_code: 1
+                  success: true
+
 
 components:
   schemas:
