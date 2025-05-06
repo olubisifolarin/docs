@@ -45321,7 +45321,7 @@ paths:
                     type: integer
                     description: A numeric code indicating the result of the request.       
                 example:  
-                  status_message: Success.
+                  status_message: Success
                   results:
                   - media_type: movie
                     media_id: 550
@@ -45356,7 +45356,7 @@ paths:
                 properties:
                   item_deleted:
                     type: integer
-                    description: The item that is to be deleted
+                    description: The item to be deleted
                   status_message:
                     type: string
                     description: A message providing additional details about the response status.
@@ -45370,7 +45370,7 @@ paths:
                     type: boolean
                     description: Indicates success      
                 example:   
-                  status_message: Success.
+                  status_message: Success
                   id: 10
                   status_code: 1
                   success: true
