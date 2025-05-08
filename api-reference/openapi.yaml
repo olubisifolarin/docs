@@ -45437,11 +45437,8 @@ paths:
                     type: integer
                     description: A numeric code indicating the result of the request.       
                 example:  
-                  status_message: Success
-                  results:
-                  - media_type: movie
-                    media_id: 550
-                    success: false
+                  status_message: The item/record was created successfully.
+                  id: 5854
                   success: true
                   status_code: 1
 
