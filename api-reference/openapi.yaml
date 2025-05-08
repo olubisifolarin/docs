@@ -45375,13 +45375,13 @@ paths:
                   status_code: 1
                   success: true
 
-  /4/list/{list_id}/items:
+  /4/list:
     post:
       servers:
         - url: "https://api.themoviedb.org"
       tags:
         - Lists
-      summary: Add Items
+      summary: Create
       parameters:
         - name: list_id
           in: path
