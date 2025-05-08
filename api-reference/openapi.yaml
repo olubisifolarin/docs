@@ -45427,18 +45427,9 @@ paths:
                   status_message:
                     type: string
                     description: A message providing additional details about the response status.
-                  result:
-                    type: array
-                    description: Indicates the result
-                    items:
-                      type: object
-                      properties: 
-                        media_type:
-                          type: string
-                        media_id:
-                          type: integer
-                        success:
-                          type: boolean
+                  id:
+                    type: integer
+                    description: ID of a list
                   success:
                     type: boolean
                     description: Indicates success
