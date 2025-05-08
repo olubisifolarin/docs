@@ -45390,7 +45390,7 @@ paths:
           schema:
             type: integer
       description: |
-        This endpoint is used to add items to a list.
+        This endpoint is used to create a new list.
       operationId: v4listItems
       requestBody:
         required: true
@@ -45412,13 +45412,12 @@ paths:
                   - media_type
                   - media_id
             example:
-              items:          
-              - media_type: movie
-                media_id: 550
-              - media_type: movie
-                media_id: 244786
-              - media_type: tv
-                media_id: 1396
+              description: ''             
+              name: My Cool List
+              iso_3166_1: US
+              iso_639_1: en
+              public: true
+
 
       responses:
         200:
