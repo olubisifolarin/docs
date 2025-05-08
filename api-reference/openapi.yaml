@@ -45391,7 +45391,7 @@ paths:
             type: integer
       description: |
         This endpoint is used to create a new list.
-      operationId: v4listItems
+      operationId: v4listCreate
       requestBody:
         required: true
         content:
@@ -45401,16 +45401,21 @@ paths:
               items:
                 type: object
                 properties:
-                  media_type:
+                  name:
                     type: string
-                    enum: [movie, tv]
-                    description: Type of media.
-                  media_id:
-                    type: integer
-                    description: ID of the media.
-                required:
-                  - media_type
-                  - media_id
+                    description: The name of the list
+                  description:
+                    type: string
+                    description: A brief description of the list
+                  iso_3166_1:
+                    type: string
+                    description: Country code (e.g., US)
+                  iso_639_1:
+                    type: string
+                    description: Language code (e.g., en)
+                  public:
+                    type: boolean
+                    description: Whether the list is public
             example:
               description: ''             
               name: My Cool List
